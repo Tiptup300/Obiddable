@@ -1,0 +1,73 @@
+﻿.itemCode {
+    width: 45pt;
+}
+
+.itemDescription {
+    width: 380pt;
+}
+
+.unitPrice {
+    text-align: right;
+    width: 57pt;
+}
+
+.unit {
+    width: 37pt;
+    padding-left: 10pt;
+}
+
+.quantity {
+    text-align: right;
+    width: 57pt;
+}
+
+.extension {
+    text-align: right;
+    width: 71pt;
+}
+
+.buildingNumber {
+    width: 62pt;
+}
+
+td.noRequests {
+    font-weight: normal !important;
+}
+
+.requestorsNoRequests > * {
+    padding-bottom: 22pt;
+}
+
+.accountNumber {
+    width: 147pt;
+}
+.requestorName {
+    width: 132pt;
+}
+.buildingName {
+    width: 127pt;
+}
+
+tr.requestTotal > * {
+    font-weight: bold;
+    padding-top: 0pt;
+    padding-bottom: 18pt;
+}
+
+tr.bidTotal > * {
+    font-weight: bold;
+    padding-bottom: 8pt;
+}
+
+tr.newRequest > * {
+    font-weight: bold;
+    border-bottom: 1px solid black;
+}
+
+tbody::after {
+    content: '';
+    display: block;
+    page-break-after: always;
+    page-break-inside: avoid;
+    page-break-before: avoid;
+}

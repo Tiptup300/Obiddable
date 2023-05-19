@@ -1,0 +1,84 @@
+﻿.vendorName {
+    width: 172pt;
+}
+
+.itemCode {
+    width: 56pt;
+}
+
+.quantity {
+    text-align: right;
+    width: 56pt;
+}
+
+.unit {
+    width: 28pt;
+    padding-left: 6pt;
+}
+
+.price {
+    text-align: right;
+    width: 56pt;
+}
+
+.extension {
+    text-align: right;
+    width: 56pt;
+}
+
+.alternateShipTo {
+    padding-left: 10pt;
+    width: 170pt;
+    text-align: left;
+}
+
+td.buildingSummaryRow-label {
+    text-align: left;
+}
+
+tr.buildingSummaryRow,
+tr.buildingSummaryRow-last {
+    font-weight: bold;
+}
+
+    tr.buildingSummaryRow > td.alternateShipTo {
+        text-align: right;
+    }
+
+tr.vendorResponseSummaryRow {
+    font-weight: bold;
+}
+
+tr.finalBidSummaryRow {
+    font-weight: bold;
+}
+
+td.vendorResponseSummaryRow-label {
+    text-align: left;
+    padding-left: 10pt;
+}
+
+tr.vendorResponseSummaryRow > td {
+    padding-top: 0pt;
+    padding-bottom: 17pt;
+}
+
+tr.buildingSummaryRow > td {
+    padding-top: 4pt;
+    padding-bottom: 6pt;
+}
+
+tr.buildingSummaryRow-last > td {
+    padding-bottom: 2pt;
+    padding-top: 4pt;
+}
+
+td.count {
+    text-align: right;
+}
+
+td.finalBidSummaryRow-label {
+    text-align: left;
+    padding-top: 0pt;
+    padding-left: 22pt;
+}

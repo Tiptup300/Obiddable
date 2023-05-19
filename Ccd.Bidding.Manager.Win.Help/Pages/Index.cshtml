@@ -1,0 +1,572 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<h1>Help Home</h1>
+<p>
+    This website includes all the documentation needed to understand the CCD Bid Manager application. Please note that some of this information is in the process of being edited or added
+    upon.
+</p>
+
+
+<article id="application-help">
+
+    <h2>Application Help</h2>
+    <p>This documentation will help you understand how to use the application and it's features.</p>
+    <ul>
+        <!-- <li><a asp-page="Application/Navigation">General Navigation</a></li> -->
+        <li><a asp-page="Application/Configuration">Application Configuration</a></li>
+        <!--<li><a asp-page="Application/Exports">Exports General</a></li>-->
+        <!--<li><a asp-page="Application/Reports">Reports General</a></li>-->
+    </ul>
+</article>
+<article id="bid-overview-process">
+    <h2>Bid Overview Process</h2>
+    <p>This documentation will help you understand how the different elements within the process work together to continue out to the final process.</p>
+
+    <section id="step-1-beginning-a-bid" class="step">
+        <header>
+            <h3>Step 1: Beginning a Bid</h3>
+            <p>
+                First step in the process is creating a new bid, alternatively you can roll or duplicate another former bid.
+            </p>
+        </header>
+        <section class="operation">
+            <h4>Bids Maintenance</h4>
+            <p>
+                When opening the application the first screen you will see will list out all the bids.
+            </p>
+
+            <details id="adding-a-bid">
+                <summary>Adding a Bid</summary>
+                <p>
+                    To create a new bid, under "Bids Maintenance", you can click "Add", fill out the dialog, and then submit to create the new bid. This new bid
+                    will show in the "Bids Maintenance" window. To look at Items, Requestors, Vendor Responses, or Purchase Orders for this bid, open the "Open" menu
+                    in the top left of the "Bids Maintenance" window.
+                </p>
+            </details>
+
+            <details id="rolling-a-bid">
+                <summary>Rolling a Bid</summary>
+                <p>
+                    If you are creating a new bid based on another bid that
+                    was already completed and you would like the items to be
+                    pulled, as well as the list of requestors and their request
+                    accounts, you can roll the bid.
+                </p>
+                <p>
+                    This is a very simple process, on the "Bids Mainenance"
+                    screen you select the bid to be rolled. Then click "Actions"
+                    > "Selected" > "Roll Bid". This will pull all the items over 
+                    converting the elected response price into the 
+                    "Last Elected Price" for that item. It also pulls all 
+                    requestors and their requests but the requested quantities 
+                    all revert to zero. It also imports all the vendor names 
+                    that were in the original. All other information is not 
+                    copied over.
+                </p>
+            </details>
+
+            <details id="bids-maintenance-actions">
+                <summary>Actions</summary>
+                <div>
+                    <ul>
+                        <li><b>Reports</b> - See Reports section at the bottom for more information on specific reports.</li>
+                        <li><b>Export [Selected] Bid</b> - This will export all items, requestors, requests, vendor responses, and purchase orders for this bid. This is meant as an archival backup of all the data within the bid.</li>
+                        <li><b>Roll [Selected] Bid</b> - This will not affect the data within this bid. It will create a new bid with all the items from the selected bid. All the item prices will be changed to the elected prices for each item. In addition it also pulls all requestors, requestors account numbers, &amp; vendor names, all will be blank. See the "Roll Bid" step below for more information.</li>
+                        <li><b>Duplicate [Selected] Bid</b> - This will create an identical copy of the bid in the system, it's items, requestors, requests, request quantities, vendor responses, response values, elections, &amp; purchase orders.</li>
+                        <li><b>Clear [Selected Bid's] Items</b> - Clears All Items For This Bid. This cannot be undone.</li>
+                        <li><b>Clear [Selected Bid's] Requestors</b> - Clears All Requestors For This Bid. This cannot be undone.</li>
+                        <li><b>Clear [Selected Bid's] Vendors</b> - Clears All Vendors For This Bid. This cannot be undone.</li>
+                    </ul>
+                </div>
+            </details>
+        </section>
+    </section>
+    <section id="step-2-item-maintenance" class="step">
+        <header>
+            <h3>Step 2: Item Maintenance</h3>
+            <p>
+                The next step in the process is creating all the items for that bid, as well as confirming the unit prices and other information are correct.
+                During this step you are able to mass update all the items in the system by a set percentage.
+
+                <b>Please Note That Some Bids Require Having Their Item Prices Be Adjusted By A Percentage using the "Update All Item Prices" action.</b>
+            </p>
+        </header>
+        <section class="operation">
+            <header>
+                <h4>Items Maintenance</h4>
+                <p>
+                    To see all items within the bid, you will select "Items Mainteance" under a selected Bid. From there you can see a list of all items for that Bid.
+                </p>
+            </header>
+
+            <details id="items-maintenance-add-an-item">
+                <summary>Add an Item</summary>
+                <div>
+                    <p>
+                        To create an item, click "Add", fill out the dialog, and then submit to create a new item. This new item will show in the "Items Maintenance" window.
+                    </p>
+                    <h6>Item Edit Dialog Notes</h6>
+                    <ul>
+                        <li>Item Code must be a 6 digit integer, smaller than 6 digits will append leading zeros. Item Code must also be unique within the bid.</li>
+                        <li>Item Unit must not be blank and cannot be greater than 255 characters.</li>
+                        <li>Item Category is optional, you can add any value with a length of up to 255 characters. Once a category has been entered within a bid, the drop down will list out all available categories.</li>
+                        <li>Item Description cannot be blank. There is no maximum length.</li>
+                        <li>Last Order Price will only be filled in if the item has been imported with this information or was originally pulled over during a bid roll. It cannot be modified. On estimated price mass updates, it will affect the estimated price.</li>
+                        <li>Estimated Price must be a non negative decimal number. It can be changed using the Mass Update actions in "Items Maintenance". </li>
+                        <li>The "Substitutible" checkbox denotes whether to show "NO SUBSTITUTES" on the Vendor Specifications report or Vendor Response Excel sheets. Note that substitutions CAN still be entered when this is checked.</li>
+                    </ul>
+                </div>
+            </details>
+
+            <details id="items-maintenance-actions">
+                <summary>Actions</summary>
+                <div>
+                    <ul>
+                        <li><b>Update All Item Prices</b> - Updates all "Estimated Price" for every item within the bid based on the "Last Order Price". You enter an item price multipler and it multiplies that by the "Last Order Price" for each item.</li>
+                        <li><b>Reset All Item Prices</b> - Sets all "Estimated Price" for every item to the "Last Order Price" for each of those items.</li>
+                        <li><b>Import Items from CSV</b> - Imports items from a csv file. This can be created via text editor or exported by another bid. If an item already exists it will be ignored. All errors will show before import.</li>
+                        <li><b>Export All Items to CSV</b> - Exports all items within this bid to a csv file. This can be used for archival or edited manually using a text editor. Using excel is questionable as it occasionally modifies the structure of csv files.</li>
+                        <li><b>Generate Items Import Template to CSV</b> - Creates a blank csv file that can be manually edited using a text editor to import items en masse.</li>
+                    </ul>
+                </div>
+            </details>
+        </section>
+    </section>
+    <section id="step-3-requesting-setup" class="step">
+        <header>
+            <h3>Step 3: Requestor/Request Setup</h3>
+            <p>
+                During this step you will be creating &amp; maintaining the requestors for the bid. For each requestor you will create requests for each
+                account codes used by that requestor.
+            </p>
+        </header>
+
+        <section id="requesting-setup-requestors-maintenance" class="operation">
+            <header>
+                <h4>Requestors Maintenance</h4>
+                <p>
+                    To create or edit Requestors, you will select "Requestor Maintenance" under a selected Bid. From there it will list out all the requestors for that bid.
+                    From there you can double click on any requestor to see a list of all the requests available for that requestor.
+                </p>
+            </header>
+
+            <details>
+                <summary>Adding a Requestor</summary>
+                <div>
+                    <p>
+                        To create a requestor click the "Add" button on "Requestors Maintenance", you will be prompted with a dialog box for creating a requestor. Fill in the values as necessary.
+
+                    </p>
+                    <h6>Requestor Edit Dialog Notes</h6>
+                    <ul>
+                        <li>Name must not be blank. It has a maximum length of 255 characters.</li>
+                        <li>Password field is used when generating excel bid request sheet for requestor. Both for export and import operations. Must not be blank and maximum legnth is 255 characters.</li>
+                        <li>Building Number must be a 6 digit number, smaller than 6 digits will append leading zeros. Building Number must also be unique within bid.</li>
+                        <li>Building Name must not be blank, it also has a maximum length of 255 characters. As Building Names are entered for different requestors the drop down will list all building names within this bid. This is used for final purchase orders.</li>
+                    </ul>
+                </div>
+            </details>
+            <details>
+                <summary>Actions</summary>
+                <div>
+                    <ul>
+                        <li><b>Import Requestors from CSV</b> - Import a list of multiple requestors &amp; request account numbers from a csv file. This file can be created by a text editor or exported by another bid. This will not import requested item quantities.</li>
+                        <li><b>Export Requestors to CSV</b> - Exports all requestors &amp; their request account numbers to a csv file. This can be edited manually using a text editor. Using excel is questionable as it occasionally modifies the structure of csv files.</li>
+                        <li><b>Generate Requestor Import Template to CSV</b> - Creates a blank csv file that can be manually edited using a text editor to import requestors &amp; their request account numbers en masse.</li>
+                        <li><b>Generate Blank Requests For All Requestors to Excel</b> - Generates excel files for each request for each requestor within the bid. These excel sheets are the "Request Sheets" with rules that only allow the requestor to mark items in the list, each are protected by the requestors password.</li>
+                        <li><b>Clear [Selected Requestor's] Requests - Completely clears all requested quantities for all requests for the selected requestor.</b></li>
+                    </ul>
+                </div>
+            </details>
+        </section>
+
+        <section id="requesting-setup-requests-maintenance" class="operation">
+            <header>
+                <h4>Requests Maintenance</h4>
+                <p>
+                    For each requestor they can have multiple or no requests. The requests are hooked only to account numbers. So that one requestor can request different items for different accounts.
+                </p>
+            </header>
+
+            <details>
+                <summary>Adding a Request</summary>
+                <div>
+                    To create a new request for the requestor click the "Add" button on "Requests Maintenance", you will be prompted with a dialog box for the creating the request based on an account
+                    number. The account number must be unique for that requestor &amp; must have correct account number syntax. "XX.XXXX.XXX.XXX.XX.XX.XX.XXXX"
+                </div>
+            </details>
+
+            <details>
+                <summary>Actions</summary>
+                <div>
+                    <ul>
+                        <li><b>Generate Blank Request to CSV</b> - Create a blank request sheet in csv file format. This is NOT meant meant for typical use or sending to users as it does NOT have the typical rules and passwords that the excel file is used for. This would be for a manual operation where an admin user would edit the sheet using a text editor.</li>
+                        <li><b>Generate Blank Request to Excel</b> - Creates a blank request sheet in excel file format. This is the typical format for creating bid sheets. It has a password based on the Requestor's set password, it also includes excel rules that only allows the user to enter quantities for the items in the bid.</li>
+                        <li><b>Clear [Selected Requests] Requested Items</b> - Set's requested quantity to zero for all items for this request. Blanks it out.</li>
+                        <li><b>Import Request from CSV [into Selected Request]</b> - Imports a request csv file with quanitities in it into the selected request. Any errors will show before import.</li>
+                        <li><b>Import Request from Excel [into Selected Request]</b> - Imports a request excel file with quantities in it into the selected request. Password must match the document to the selected requestor.</li>
+                        <li><b>Export [Selected] Request to CSV</b> - Exports all the requested quantities of the selected request into a csv file. This can be saved for archival purposes or edited within a text editor and reimported.</li>
+                    </ul>
+                </div>
+            </details>
+        </section>
+    </section>
+    <section class="step" id="step-4-generate-request-sheets">
+        <header>
+            <h3>Step 4: Generate Request Sheets</h3>
+            <p>
+                After Requestors &amp; Requests for those requests have been created, you generate sheets for the requesting users to fill out.
+                This is automated and only has to be done using the "Export All Requests To Excel" action. After distributing the sheets out to the requestors, the requestors
+                fill out their individual request excel sheets. These locked excels are individually generated for each user and protected by
+                password.
+            </p>
+        </header>
+
+        <section class="operation">
+            <header>
+                <h4>Operations</h4>
+                <p></p>
+            </header>
+            <details>
+                <summary>Generating All Excel Sheets At Once</summary>
+                <div>
+                    Go to "Requestors Maintenance" under the bid. Under Actions select "Generate Blank Requests For All Requestors to Excel", you will select a folder to export all the
+                    excel sheets, and then it will generate them. This may take a short time. Note that each sheet is password protected based on what is set for each requestor.
+                </div>
+            </details>
+
+            <details>
+                <summary>Generating Each Excel Sheet Individually</summary>
+                <div>
+                    Go to "Requestors Maintenance" under the bid, double click on a requestor, select a request and then select Actions > "Generate Blank Request to Excel". This
+                    file will be password protected based on what is set for the requestor.
+                </div>
+            </details>
+        </section>
+
+    </section>
+    <section class="step" id="step-5-enter-requests">
+        <header>
+            <h3>Step 5: Enter/Import Requests</h3>
+            <p>
+                On return of the sheet, the sheets can be imported back into the system updating the requests for those requestors. Each request will need to be imported
+                individually, the password of the requestor must match for each imported excel. If you are need to
+            </p>
+        </header>
+
+        <section class="operation">
+            <header>
+                <h4>Operations</h4>
+                <p></p>
+            </header>
+            <details>
+                <summary>Importing Requests Individually</summary>
+                <div>
+                    Go to the "Requestors Maintenance" screen under the bid. From here double click on the requestor you would like to import into. This will take you to
+                    the "Requests Maintennance" screen. On this screen select the request you are importing, then click Actions > "Import Request from Excel". You will
+                    select the excel file to import and it will tell you if it succeeded or failed.
+                </div>
+            </details>
+
+            <details>
+                <summary>Editing a Request (Optional)</summary>
+                <div>
+                    <p>
+                        Go to the "Requestors Maintenance" screen under the bid. From here double click on the requestor you would like to edit. This will take you to
+                        the "Requests Maintennance" screen. On this screen double click the request you are editing. The Request Edit will display. At the top of the screen
+                        it will display information about the requestor.
+                        <br />
+                        Below that is the account number, below this is the list showing all the available items for requesting. This list of items will only show items
+                        within this bid. It's information was created in "Step 1: Item Maintenance".
+                        Under this is the "Request Item" information, showing what quantity is requested and optionally the override price for the selected item with
+                        buttons to update the selected record. To the right below the items list shows the total requested quantity of items, Total Price for this
+                        request &amp; the total price with overrides.
+                        At the very bottom is information for the item.
+                    </p>
+
+                    <h6>Changing a Request Amount For An Item</h6>
+                    <p>
+                        Select an item on the list by clicking on it. The bottom form fields "Amount Requested" &amp; a checkbox for "Override Price" will unlock. Enter the amount
+                        requested, which must be an whole number integer. For inputting or editing the override price, checkmark the box and enter an override price. This is only
+                        for if a price appears to be inaccurate for the requestor. In most situations this value will not be set manually from this screen. Most likely will be edited
+                        or viewed looking at an imported request.
+                    </p>
+                    <p>
+                        Press "Save Record" to save the changes. Click another item to discard changes.
+                    </p>
+                    <h6>Deleting a Requested Amount For An Item</h6>
+                    <p>
+                        If an item is to be unrequested, click the item. Then click the "Delete Record" button.
+                    </p>
+                    <h6>Changing The Account Number</h6>
+                    <p>
+                        You are able to edit the account number on this screen. If you change it following the correct format. ("XX.XXXX.XXX.XXX.XX.XX.XX.XXXX") and then
+                        click the "Save Account Number" button it will save the change.
+                    </p>
+                </div>
+            </details>
+        </section>
+    </section>
+    <section class="step" id="step-6-generate-vendor-specs">
+        <header>
+            <h3>Step 6: Generate Vendor Specifications</h3>
+            <p>
+                After importing all requests into the system you can generate a vendor specifications sheet that details all the requested items.
+            </p>
+        </header>
+
+        <section class="operation">
+            <header>
+                <h4>Operations</h4>
+                <p></p>
+            </header>
+            <details>
+                <summary>Generating The Vendor Specifications Report</summary>
+                <div>
+                    <p>
+                        Go to "Bids Maintenance" select the bid to generate the report, go to Actions > "Run Vendor Specifications Report". This will generate the report that can be printed to a pdf.
+                        That pdf can be sent to vendors.
+                    </p>
+                </div>
+            </details>
+
+            <details>
+                <summary>Generating A Blank Vendor Response Excel Sheet</summary>
+                <div>
+                    <p>
+                        You are able to create an excel sheet for the vendor to enter their responses. These sheets have rules in them that only allow the vendor to add information in fields that are necessary.
+                        Note that for a vendor to have multiple responses for one item they must fill out multiple response excel sheets filling in only the fields that are additional responses.
+                    </p>
+                    <p>
+                        To generate the vendor response excel, go to the "Vendor Responses Maintenance" under the bid. Click Actions > "Generate Blank Vendor Response to Excel". This excel can be sent to a new vendor
+                        to be filled out.
+                    </p>
+                </div>
+            </details>
+        </section>
+    </section>
+    <section class="step" id="step-7-enter-vendor-responses">
+        <header>
+            <h3>Step 7: Enter/Import Vendor Responses</h3>
+            <p>
+                After receiving back all requests, you are ready to enter the responses for the vendors. Under Vendor Response Maintenance you
+                can add new vendors or edit an already created vendor response. You will open the vendor and manually enter the data for the vendor response.
+            </p>
+            <p>Alternatively, you are able to import a vendor response if the vendor filled out an vendor response excel file.</p>
+        </header>
+
+
+        <section class="operation">
+            <header>
+                <h4>Operations</h4>
+                <p></p>
+            </header>
+            <details>
+                <summary>Manually Entering A Vendor Response</summary>
+                <div>
+                    <p>
+                        Go to the "Vendor Responses Maintenance" screen under the bid. Click on "Add" &amp; type in a name for the vendor. This can be changed later. It must not be blank and the maximum length
+                        is 255 characters. This will add this vendor to the "Vendor Responses Maintenance" screen. Double click the vendor response to begin editing it.
+                    </p>
+                    <p>
+                        This will display the "Edit Vendor Response" screen. You are able to select a requested item on this list and enter the vendors response.
+                    </p>
+                    <p>
+                        If the vendor has multiple alternates for a requested item you can click the "Add Alternate" button in the bottom right hand corner to add an alternate.
+                    </p>
+                </div>
+            </details>
+        </section>
+    </section>
+    <section class="step" id="step-8-run-low-bid">
+        <header>
+            <h3>Step 8: Run Low Bid</h3>
+            <p>
+                After entering all vendor responses, you will run the low bid process. This will go through all the vendor responses and mark all the lowest
+                response for each item as being "elected". These elections will then be manually adjusted based on specific needs of the requestors or
+                board members.
+            </p>
+        </header>
+        <section class="operation">
+            <header>
+                <h4>Process</h4>
+                <p></p>
+            </header>
+            <p>
+                This process is run out of the "Election Maintenance" screen under the selected bid. On this screen you click "Actions" > "Run Low Bid On All Items". This will go through
+                each item that's been requested, it will then check through all responses to that requested item, whichever is lowest will be marked as the elected response. It will also
+                automatically set the reason for election as being low bid process as of xx/xx/xx.
+            </p>
+            <p>
+                After running the process run the "Bid Tally" report on the bid to confirm your changes. The elections made can be viewed in the "Election Maintenance" screen, any election
+                can be double clicked to see all available responses as well as the reason for it being elected.
+            </p>
+        </section>
+    </section>
+    <section class="step" id="step-9-election-maintenance">
+        <header>
+            <h3>Step 9: Election Maintenance</h3>
+            <p>
+                After running the low bid on all items, you can generate "Election Sheets" to distribute to requestors or board members. These sheets can be
+                manually marked to denote if elections should be changed and why. You are able to go into the Elections Maintenance Screen and manually
+                change which response is elected and set the text for why it is set to be elected.
+            </p>
+        </header>
+        <section class="operation">
+            <header>
+                <h4>Process</h4>
+                <p></p>
+            </header>
+            <p>
+                Open the "Election Maintenance" screen out of the selected bid. From here you can double click any election, select a different response to be elected, and then fill in
+                the reason for it to be elected. Click save to save changes.
+                During this process to double check your work using the "Bid Tally" report.
+            </p>
+            <p>
+                After doing elections maintenance, run the "Bid Tally" report on the bid to confirm your changes. The elections made can be viewed in the "Election Maintenance" screen, any election
+                can be double clicked to see all available responses as well as the reason for it being elected.
+            </p>
+        </section>
+    </section>
+    <section class="step" id="step-10-additional-request-maintenance">
+        <header>
+            <h3>Step 10: Additional Request Maintenance</h3>
+            <p>
+                After doing elections and deciding what amounts will be paid to purchase the items requested
+                some items must be removed from requestors.
+            </p>
+        </header>
+        <section class="operation">
+            <header>
+                <h4>Process</h4>
+                <p></p>
+            </header>
+            <p>
+                Go into the "Requestors Maintenance" screen,
+                go to the requestor that you would like to edit, double click on that requestor to show their
+                Requests on the "Requests Maintenance" screen. From here double click on the request you
+                would like to edit. Then highlight the request items you would like to change, either delete
+                the record using the "Delete Record" button, or modify the quantity and press "Save Record".
+            </p>
+            <p>
+                Rerun the "Tally Report" &amp; "Expenditures By Requestors Report" after changes to confirm your changes.
+            </p>
+        </section>
+        <section class="operation">
+            <header>
+                <h4>Exceptions: Mismatched Distributed Quantities</h4>
+                <p>
+                    On certain bids you may run into a situation where the total requested quantity for an item does not match
+                    the quantity of the elected response item. This situation needs to be corrected manually.
+                </p>
+            </header>
+            <div>
+                <ol>
+                    <li>
+                        Run the Elected Quantities Discrepancy Report, it will list out all items with different requested quantities from
+                        their elected quantities.
+                    </li>
+                    <li>
+                        Use the report to find which items need to be adjusted on all the requestors. Use the Requestors Quantities Report
+                        to find which requestors requested that item.
+                    </li>
+                    <li>
+                        For each requestor you must adjust the requested amounts on the Request Edit Screen for that request/requestor
+                        (the bid) > Requestors > (select Requestor) > (select Request) > Request Edit Screen.
+                    </li>
+                </ol>
+            </div>
+        </section>
+    </section>
+    <section class="step" id="step-11-generate-purchase-orders">
+        <header>
+            <h3>Step 11: Generate Purchase Orders</h3>
+            <p>
+                After setting all elections to what is required. You can generate the purchase orders. In order to do this, go to "Purchase Orders" under a selected
+                bid. Within this screen run the action "Generate Purchase Orders." This will clear out any previously created purchase orders and create a purchase
+                order for each combination of vendor &amp; building name.
+            </p>
+        </header>
+        <section class="operation">
+            <p>You can view the purchase orders by double clicking on them.</p>
+        </section>
+
+    </section>
+    <section class="step" id="step-12-export-purchase-orders">
+        <header>
+            <h3>Step 12: Export Invidual Purchase Orders To Tyler Formats</h3>
+            <p>
+                After the purchase orders are generated, open a purchase order. On this screen you can click the "Export" button and it will ask you where to save the
+                excel file. After exporting this file can be imported directly into Tyler.
+            </p>
+        </header>
+    </section>
+    <section id="step-13-bid-rollover-process">
+        <header>
+            <h3>Step 13: Bid Rollover Process</h3>
+            <p>
+                After a bid is fully completed, you can roll a bid into the 
+                next year. Go to Step 1 > Beginning a Bid > Bids Maintenance > 
+                Rolling a Bid for more information.
+            </p>
+        </header>
+    </section>
+</article>
+<article id="reports-help">
+    <header>
+        <h2>Reports Help</h2>
+        <p>This documentation will help you understand the different reports available within the application.</p>
+    </header>
+    <details>
+        <summary>Reports</summary>
+        <div>
+            <ul>
+                <li><b>Bid Request Matrix Report</b> - Shows a list of all the requested items in a bid, then breaks out how many of each requestor requested that item.</li>
+                <li><b>Bid Requests Detail Report</b> - Shows detail of all requestors, requests, requested items in a bid. Shows estimated prices, overriden estimated prices, &amp; election prices.</li>
+                <li><b>Bid Requests Summary Report</b> - Shows summary of all requestors, requests, requested items in a bid. Shows estimated prices, overriden estimated prices, &amp; election prices.</li>
+                <li><b>Bid Summary Report</b> - </li>
+                <li><b>Bid Tally Report</b> - Shows a listing of all requested items and responses for those items, highlights which item is elected. Used during Election Maintenance.</li>
+                <li><b>Detailed Distribution Report</b> - Gives information to the custodians receiving the elected items. Grouped based on Vendor &amp; Building.</li>
+                <li>
+                    <b>Election Confirmation Sheet Report</b> - This sheet is used to collect information from users outside the application, it shows what's been elected and what all
+                    responses are available for each requested item. The user of the sheet is able to check responses that they would like and write in a reason they selected what they did.
+                </li>
+                <li><b>Expenditures by Requestor Report</b></li>
+                <li><b>No Response Items Report</b> - Shows a listing of all requested items that had no vendor responses.</li>
+                <li><b>Price Override Report</b> - Shows a listing of all requested items that had an overriden price specified by a requestor.</li>
+                <li><b>Vendor Detail Report</b> - </li>
+                <li><b>Vendor Specification Report</b> - Prints out all requested items by all requestors within the bid. Gives the quantity requested total and all information necessary for the vendor to respond.</li>
+                <li><b>Vendor Summary Report</b> - </li>
+            </ul>
+        </div>
+    </details>
+</article>
+<article id="screens">
+    <header>
+        <h2>Screens</h2>
+        <p>This documentation will help you understand the different screens within the application and how to use them.</p>
+    </header>
+    <details>
+        <summary>Screens</summary>
+        <div>
+            <ul>
+                <li>Bids Maintenance</li>
+                <li>Bid Edit Dialog</li>
+                <li>Items Maintenance</li>
+                <li>Item Edit Dialog</li>
+                <li>Requestors Maintenance</li>
+                <li>Requestors Edit Dialog</li>
+                <li>Requests Maintenance</li>
+                <li>Request Edit Screen</li>
+                <li>Vendor Responses Maintenance</li>
+                <li>Vendor Response Edit Screen</li>
+                <li>Election Maintenance</li>
+                <li>Purchase Order Maintenance</li>
+                <li>Purchase Order View Screen</li>
+            </ul>
+        </div>
+    </details>
+</article>

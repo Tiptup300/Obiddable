@@ -1,0 +1,56 @@
+﻿.itemCode {
+    width: 45pt;
+}
+
+.itemDescription {
+    width: 260pt;
+}
+
+.unitPrice {
+    text-align: right;
+    width: 57pt;
+}
+
+.unit {
+    width: 37pt;
+    padding-left: 10pt;
+}
+
+.quantity {
+    text-align: right;
+    width: 28pt;
+}
+
+.extensionPrice {
+    text-align: right;
+    width: 55pt;
+}
+
+tr.requestTotal > * {
+    font-weight: bold;
+    padding-top: 4pt;
+    padding-bottom: 7pt;
+}
+
+tbody.bidTotal {
+    font-weight: bold;
+}
+
+tr.bidTotal > * {
+    font-weight: bold;
+    padding-top: 8pt;
+    padding-bottom: 8pt;
+}
+
+tr.newRequest > * {
+    font-weight: bold;
+    border-bottom: 1px solid black;
+}
+
+tbody::after {
+    content: '';
+    display: block;
+    page-break-after: always;
+    page-break-inside: avoid;
+    page-break-before: avoid;
+}

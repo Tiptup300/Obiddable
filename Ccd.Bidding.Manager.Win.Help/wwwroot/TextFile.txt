@@ -1,0 +1,120 @@
+﻿=Bid Proces =
+x
+
+
+
+ 
+
+
+
+
+== Item Maintance Process ==
+The begining of the Bid process requires the administration users to have a list of items ready for the bid. After the items list is complete, the estimated price should be confirmed before requesting begins.
+
+
+;What is an Item?
+An item stores information for each item that may be requested or bid on within the system. Each bid has it's own set of items. No items in one bid will affect another bid's items. Later on in the proces these items are requested, & later after they will be bid on or responded to by the Vendors. 
+
+Items can be edited at any point during the process. Items cannot however be deleted if they have been requested or responded to. 
+
+
+;What all actions are available for Items Maintenance?
+* Update All Item Prices
+* Reset All Item prices
+* Import Items From CSV
+* Export All Items to CSV
+* Generate Items Import Template to CSV
+[PICTURE]
+
+
+; How do I update all item prices in mass?
+You are able to adjust the estimated price of every item within a bid in one mass process. To perform this operation, select Items Maintenance screen of the bid you would like to perform the operation on. Within this screen, go to Actions > Update All Item Prices. A window will display asking for the multiplier you would like. 
+[PICTURE]
+The multipler will multiply against the Last Order Price, so 1.0 would return exactly the Last Order Price. 
+
+
+; How can I reset all the item prices back to their last order price?
+You are able to easily reset all estimated prices to the original Last Order Price. To perform this operation, select Items Maintenance screen of the bid you would like to perform the operation on. Within this screen, go to Actions > Reset All Item Prices.
+
+
+; How do I import items into a bid?
+You are able to easily import items into a bid using a CSV(comma-separated-value) file. Once a CSV file has been created, (see How do I generate an export of items from a bid? or see How do I generate a item csv import template?) you are able to import that csv into the system. To perfrom this operation, select Items Maintenance screen of the bid you would like to perform the operation on. Within this screen, go to Actions > Import Items From CSV. 
+You will be prompted with a window to locate and select your CSV file. 
+[PICTURE]
+By default the opening folder will be the exports folder set under config (see How do I change the default folder for export files?) After locating the file you wish to import, click Open, after the import completes it will display any errors that occured during the import and how many items were successfully imported.
+
+(see What format is the Items Import CSV in?)
+
+
+; How do I generate an export of items from a bid?
+You are able to export all the items of a bid to a CSV(comma-separated-value) file. This allows you to import this file onto other bids, or manually edit the export & reimport it, (see How do I import items into a bid?) To perform this operation, select Items Maintenance screen of the bid you would like to perform the operation on. Within this screen, go to Actions > Export All Items to CSV. 
+You will be prompted with a window to locate where the file is to be saved. 
+[PICTURE]
+By default the opening folder will be the exports folder set under config (see How do I change the default folder for export files?). Note that this window can be supressed and automatically saved into your default Exports folder (see How do I automatically save all reports & exports into their respective folders?)
+
+After saving the export file, the CSV file created will automatically be opened (see How do I not have it open export files automatically?)
+
+
+; How do I generate a item CSV import template?
+You are able to generate a blank CSV(comma-separated-value) import template at any time. This file can be used to manually edit in a program such as notepad or Excel to add items manually using the import process (see How do I import items into a bid?) To perform this operation, select Items Mainteance screen of the bid you would like to perform the operation on. WIthin this screen, go to Actions > Generate Items Import Template to CSV. 
+You will be prompted with a window to locate where the file is to be saved.
+[PICTURE]
+By default the opening folder will be the exports folder set under config (see How do I change the default folder for export files?). Note that this window can be supressed and automatically saved into your default Exports folder (see How do I automatically save all reports & exports into their respective folders?)
+
+After saving the template file, the CSV file created will automatically be opened (see How do I not have it open export files automatically?)
+
+
+; What format is the Items Import CSV in? 
+For importing items into the system the data is stored in a CSV(comma-separated-value) file. These files can be easily edited in a simple text editor like Notepad or in excel. Note that in certain situations Excel may modify the data in a way that causes errors on importing, if this is the case, use notepad to edit the file instead. Below is a listing of the file format for the items import.
+
+The file is broken into multiple rows, the top being the the header row which cannot be modified.
+
+The data is seperated into seven columns: code, category, description, substitutable, price, unit, & lastorderprice
+
+Code - (required) Six digit number with no decimals. Must be a number between 000001 & 999999. It may be surrounded by double-quotes. -- Item code of the item, when importing the item cannot have the same item code of another item already in the bid. 
+Category - (not required) string, maximum length of 255 characters -- This is the category of the item. 
+Description - (required) string, no maximum, must not have line breaks. Any intended line breaks should be denoted with pipe(|) character. Should be surrounded by double-quotes. This is the description of the item.
+Substitutable - (required) TRUE or FALSE. Denotes whether the item will display NO SUBSTITUTES on vendor specifications sent to the vendors. 
+Price - (required) decimal, must be positive -- Currest estimated price of the item.
+Unit - (required) string, maximum length of 255 characters --  Unit description of the item.
+Last Order Price - (required) decimal, must be positive -- Last price of item non-alternate. 
+
+
+== Request Process ==
+x
+
+;What is a Requestor?
+x
+;How to Create a Requestor
+x
+;What is a Request?
+x
+;How to Create a Request For a Requestor
+x
+
+== Vendor Response Process ==
+x
+
+;What is a Vendor Response?
+A vendor response is the data gotten back from a vendor that shows what items they bid on, and what price they bid on the items. Some of these items may be "alternates" in that they have a different Unit Descrition, description, & quantity.
+
+;What is an Alternate Response?
+x
+
+== Response Election Process ==
+x
+
+;What is an elected response?
+x
+
+== Purchase Order Generation Process ==
+x
+
+== Bid Roll Process == 
+x
+
+= Reporting =
+x
+
+;How To Run Reports on a Bid
+x

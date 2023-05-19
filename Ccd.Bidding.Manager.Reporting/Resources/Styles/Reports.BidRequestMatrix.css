@@ -1,0 +1,64 @@
+﻿.category-row {
+    border-bottom: 1pt solid;
+    padding-top: 12pt;
+    font-style: italic;
+    font-size: 10pt;
+    line-height: 11pt;
+    padding-left: 1pt;
+}
+
+.itemCode {
+    width: 42pt;
+    padding-left: 0pt;
+}
+
+.itemDescription {
+    width: 291pt;
+    text-align: left;
+}
+
+.requestorCode {
+    width: 54pt;
+    padding-left: 4pt;
+}
+
+.requestorName {
+    width: 114pt;
+}
+
+.qty {
+    width: 62pt;
+    text-align: right;
+}
+
+.unit {
+    width: 25pt;
+    padding-left: 4pt;
+}
+
+
+.item-firstRequest-row {
+    height: 7pt;
+}
+
+.spacerRow {
+    height: 15pt;
+}
+
+tr.final-totals > th {
+    text-align: right;
+}
+
+tr.requestRow {
+    height: 7pt;
+}
+
+tr.noRequestRow, tr.noRequestRow > td {
+    display: none;
+}
+
+
+.price {
+    text-align: right;
+    width: 61pt;
+}

@@ -1,0 +1,41 @@
+﻿.itemCode {
+    width: 38pt;
+}
+.itemDescription {
+    width: 106pt;
+}
+.unit {
+    width: 36pt;
+    padding-left: 12pt;
+}
+.quantity {
+    text-align: right;
+    width: 64pt;
+}
+.unitPrice {
+    text-align: right;
+    width: 64pt;
+}
+.extensionPrice {
+    text-align: right;
+    width: 64pt;
+}
+.altDescription {
+    width: 169pt;
+}
+.elected {
+    width: 12pt;
+}
+.vendorCode {
+    width: 64pt;
+    padding-left: 12pt;
+    padding-right: 12pt;
+}
+
+tr.vendorResponseHeaderRow {
+    font-weight: bold;
+    border-bottom: 1px solid black;
+}
+tr.vendorResponseTotalRow {
+    font-weight: bold;
+}

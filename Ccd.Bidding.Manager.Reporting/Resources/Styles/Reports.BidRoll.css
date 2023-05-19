@@ -1,0 +1,46 @@
+﻿table {
+    margin-bottom: 20pt;
+}
+
+.itemCode {
+    width: 40pt;
+}
+.itemCategory {
+    width: 70pt;
+}
+.itemDescription {
+    width: 445pt;
+}
+.itemLastOrderPrice {
+    text-align: right;
+    width: 70pt;
+    padding-right: 14pt;
+}
+.itemEstimatedPrice {
+    text-align: right;
+    width: 70pt;
+    padding-right: 14pt;
+}
+.itemSubstituable {
+    width: 45pt;
+}
+.itemUnit {
+    width: 34pt;
+}
+
+.requestorCode {
+    width: 166pt;
+}
+.requestorName {
+    width: 160pt;
+}
+.requestorBuilding {
+    width: 229pt;
+}
+.requestAccountNumber {
+    width: 164pt;
+}
+
+.vendorName {
+    width: 720pt;
+}

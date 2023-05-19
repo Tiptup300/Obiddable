@@ -1,0 +1,27 @@
+﻿.requestorCode {
+    width: 58pt;
+}
+.requestorName {
+    width: 96pt;
+}
+.accountNumber {
+    width: 164pt;
+}
+.itemCode {
+    width: 47pt;
+}
+.itemDescription {
+    width: 86pt;
+}
+.qty {
+    text-align: right;
+    width: 24pt;
+}
+.price {
+    text-align: right;
+    width: 54pt;
+}
+.extPrice {
+    text-align: right;
+    width: 63pt;
+}

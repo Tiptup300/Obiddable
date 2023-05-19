@@ -1,0 +1,81 @@
+﻿body {
+    font-family: 'Roboto Mono', monospace;
+    padding: 36pt;
+    margin: 0;
+}
+
+body > * {
+    font-size: 8pt;
+    line-height: 9pt;
+}
+
+input[type="button"] {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    font-size: 14pt;
+}
+
+div.header {
+    display: block;
+    margin-bottom: 9pt;
+    text-align: center;
+}
+
+table {
+    border-collapse: collapse;
+    table-layout: fixed;
+    word-break: break-word;
+}
+
+thead th {
+    vertical-align: bottom;
+    padding-bottom: 8pt;
+}
+
+tr, td, th {
+    padding: 0pt 0pt;
+    vertical-align: top;
+    text-align: left;
+    page-break-inside: avoid;
+}
+
+pre {
+    margin: 0;
+    font-family: 'Roboto Mono', monospace;
+}
+
+span.clip {
+    height: 9pt;
+    overflow: hidden;
+    display: inline-block;
+    word-break: break-all;
+}
+
+span.wrap {
+    display: block;
+    word-break: break-all;
+}
+
+.eor {
+    margin-top: 18pt;
+    text-align: right;
+    font-size: 7pt;
+}
+
+@page {
+    margin-top: 36pt;
+    margin-bottom: 36pt;
+    margin-left: 36pt;
+    margin-right: 36pt;
+}
+
+@media print {
+    .noprint {
+        visibility: hidden;
+    }
+
+    body {
+        padding: 0pt;
+    }
+}

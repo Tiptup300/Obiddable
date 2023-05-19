@@ -1,0 +1,17 @@
+﻿.vendorName {
+    width: 462pt;
+}
+.count {
+    text-align: right;
+    width: 64pt;
+}
+.extension {
+    width: 64pt;
+    text-align: right;
+}
+th.total-label {
+    text-align: right;
+}
+tr.final-totals > * {
+    padding-top: 8pt;
+}

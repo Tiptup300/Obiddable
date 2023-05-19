@@ -1,0 +1,37 @@
+﻿.buildingNumber {
+    width: 43pt;
+}
+.requestorName {
+    width: 166pt;
+}
+.accountNumber {
+    width: 202pt;
+}
+.count {
+    text-align: right;
+    width: 64pt;
+}
+.qty {
+    text-align: right;
+    width: 64pt;
+}
+.price {
+    text-align: right;
+    width: 89pt;
+}
+th.total-label {
+    text-align: left;
+}
+tr.requestor-total > * {
+    padding-top: 2pt;
+    padding-bottom: 16pt;
+    border-top: 1pt solid black;
+}
+
+tr.spacer-row > * {
+    line-height: 2pt;
+}
+
+tr.noResponseSpacer > td {
+    padding-bottom: 14pt;
+}

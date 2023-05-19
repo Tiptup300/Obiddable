@@ -1,0 +1,119 @@
+﻿.category-row {
+	border-bottom: 1pt solid;
+	padding-top: 12pt;
+	font-style: italic;
+	font-size: 10pt;
+	line-height: 11pt;
+	padding-left: 1pt;
+}
+
+.itemCode {
+	width: 42pt;
+	padding-left: 0pt;
+}
+
+.itemDescription {
+	width: 203pt;
+	text-align: left;
+}
+
+.vendorName {
+	width: 168pt;
+	padding-left: 4pt;
+}
+
+.quantityResponded {
+	width: 36pt;
+	text-align: right;
+}
+
+.unit {
+	width: 36pt;
+	padding-left: 4pt;
+}
+
+.unitPrice {
+	text-align: right;
+	width: 46pt;
+}
+
+.extendedPrice {
+	width: 64pt;
+	text-align: right;
+	padding-right: 8pt;
+}
+
+.alternate {
+	width: 106pt;
+	padding-left: 12pt;
+}
+
+.item-firstResponse-row {
+	height: 7pt;
+}
+
+.noResponses {
+	text-align: left;
+	font-style: italic;
+	visibility: hidden;
+}
+
+.spacerRow {
+	height: 9pt;
+	line-height: 0;
+}
+
+.electedResponse {
+	font-weight: bold;
+}
+
+tr.final-totals > th {
+	text-align: right;
+}
+
+tr.responseRow {
+	height: 7pt;
+}
+
+tr.noResponseRow, tr.noResponseRow > td {
+	display: none;
+}
+
+td.bold {
+	font-weight: bold;
+}
+td.checkBox {
+	width: 10pt;
+}
+td.checkBox > div {
+	border: 1px solid black;
+	width: 10pt;
+	height: 10pt;
+}
+tr.electionReason > td {
+	text-align: right;
+}
+
+tr.reasonForChange > td {
+	border-bottom: 1px dotted black;
+	padding-top: 8pt;
+}
+td.alternateDescription {
+	padding-left: 4pt;
+	font-style: italic;
+}
+tr.responseRow > td, tr.lastResponseRow > td {
+	padding-top: 6pt;
+}
+
+.alt {
+	width: 32pt;
+}
+
+.partNumber {
+	width: 78pt;
+}
+
+thead {
+	border-bottom: 1px solid black;
+}

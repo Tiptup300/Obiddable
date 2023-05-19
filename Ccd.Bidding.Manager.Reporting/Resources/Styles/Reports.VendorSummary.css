@@ -1,0 +1,21 @@
+﻿.vendorName {
+    width: 258pt;
+}
+.responseItems {
+    text-align: right;
+    width: 52pt;
+}
+.quantitySum {
+    text-align: right;
+    width: 52pt;
+}
+.extension {
+    text-align: right;
+    width: 72pt;
+}
+th.final-totals-label {
+    text-align: right;
+}
+tr.final-totals > th {
+    padding-top: 4pt;
+}

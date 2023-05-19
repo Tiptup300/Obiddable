@@ -1,0 +1,136 @@
+﻿table {
+    clear: both;
+}
+
+thead tr th { 
+    padding-bottom: 9pt !important;
+}
+
+.category-row {
+    border-bottom: 1pt solid;
+    padding-top: 17pt;
+    font-style: italic;
+    font-size: 10pt;
+    line-height: 11pt;
+    padding-left: 1pt;
+}
+
+.spacerRow {
+    height: 9pt;
+    line-height: 0;
+}
+
+.itemCode {
+    width: 38pt;
+}
+
+.itemDescription {
+    width: 514pt;
+}
+
+.unit {
+    width: 32pt;
+    padding-left: 7pt;
+}
+
+.requestorQuantity {
+    width: 60pt;
+    text-align: right;
+    font-size: 6pt;
+}
+
+th.requestorQuantity > span {
+}
+
+/*td.totalQuantity {
+    font-weight: bold;
+}*/
+
+.totalQuantity {
+    text-align: right;
+    width: 45pt;
+}
+
+.unitPrice {
+    width: 39pt;
+    padding-left: 6pt;
+    text-align: right;
+}
+
+.vendorAmounts {
+    text-align:right;
+}
+
+.extension {
+    padding-left: 0pt;
+    width: 39pt;
+    text-align: right;
+}
+
+.alternateLabel {
+    text-align: right;
+}
+
+.final-total {
+    font-weight: bold;
+}
+
+span.leftAlternate {
+    float: left;
+}
+
+span.rightAlternate {
+    float: right;
+}
+
+td.noAlternateInformation, td.alternateInformation {
+    padding-bottom: 3pt;
+    padding-top: 6pt;
+    border-bottom: 1px dashed black;
+}
+
+/*tr.itemInformationRow > td {
+    padding-top: 8pt;
+}*/
+
+.vendorInformation-left {
+    float: left;
+}
+
+.vendorInformation-right {
+    float: right;
+}
+
+.vendorInformation-left, .vendorInformation-right {
+    height: 450pt;
+    padding-top: 45pt;
+}
+
+.field {
+    height: 17pt;
+}
+
+.label {
+    text-align: right;
+    display: inline-block;
+    width: 120pt;
+}
+
+pre.break {
+    page-break-after:always;
+}
+
+pre.gaps {
+    line-height: 15pt;
+}
+
+.underline {
+    width: 200pt;
+    display: inline-block;
+    border-bottom: 1px dashed black;
+}
+
+thead {
+    border-bottom: 1px solid black;
+}
+
