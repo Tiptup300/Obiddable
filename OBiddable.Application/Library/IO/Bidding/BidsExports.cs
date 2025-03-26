@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using Ccd.Bidding.Manager.Library.Bidding;
 using Ccd.Bidding.Manager.Win.Library.IO;
 using Ccd.Bidding.Manager.Win.Library.IO.Bidding.Electing;
 using Ccd.Bidding.Manager.Win.Library.IO.Bidding.Cataloging;
@@ -8,13 +7,14 @@ using Ccd.Bidding.Manager.Win.Library.IO.Bidding.Purchasing;
 using Ccd.Bidding.Manager.Win.Library.IO.Bidding.Requesting;
 using Ccd.Bidding.Manager.Win.Library.IO.Bidding.Responding;
 using Ccd.Bidding.Manager.Win.UI;
-using Ccd.Bidding.Manager.Library.Bidding.Responding;
-using Ccd.Bidding.Manager.Library.Bidding.Cataloging;
-using Ccd.Bidding.Manager.Library.Bidding.Requesting;
 using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using Ccd.Bidding.Manager.Win.UI.Bidding.Requesting;
+using OBiddable.Library.Bidding.Responding;
+using OBiddable.Library.Bidding;
+using OBiddable.Library.Bidding.Requesting;
+using OBiddable.Library.Bidding.Cataloging;
 
 namespace Ccd.Bidding.Manager.Win.Library.Bidding.IO
 {

@@ -1,7 +1,7 @@
-﻿using Ccd.Bidding.Manager.Library.Bidding;
-using Ccd.Bidding.Manager.Library.Bidding.Cataloging;
-using Ccd.Bidding.Manager.Library.Bidding.Requesting;
-using Ccd.Bidding.Manager.Library.Bidding.Responding;
+﻿using Ccd.Bidding.Manager.Library.Bidding.Cataloging;
+using OBiddable.Library.Bidding;
+using OBiddable.Library.Bidding.Requesting;
+using OBiddable.Library.Bidding.Responding;
 using System;
 using System.Collections.Generic;
 using System.Linq;

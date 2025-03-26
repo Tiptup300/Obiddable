@@ -1,11 +1,12 @@
 ﻿using System;
 using Ccd.Bidding.Manager.Library.Conversions.Excel;
-using Ccd.Bidding.Manager.Library.Bidding;
-using Ccd.Bidding.Manager.Library.Bidding.Responding;
 using Ccd.Bidding.Manager.Library.Conversions.Bidding.Responding;
 using Ccd.Bidding.Manager.Win.UI.Bidding.Responding;
-using Ccd.Bidding.Manager.Library.Bidding.Cataloging;
-using Ccd.Bidding.Manager.Library.Bidding.Requesting;
+using OBiddable.Library.Conversions.Bidding.Responding;
+using OBiddable.Library.Bidding.Responding;
+using OBiddable.Library.Bidding;
+using OBiddable.Library.Bidding.Requesting;
+using OBiddable.Library.Bidding.Cataloging;
 
 namespace Ccd.Bidding.Manager.Win.Library.IO.Bidding.Responding
 {

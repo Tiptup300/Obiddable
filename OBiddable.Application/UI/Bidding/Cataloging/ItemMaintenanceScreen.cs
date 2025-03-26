@@ -11,8 +11,6 @@ using System.Windows.Forms;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Collections;
-using Ccd.Bidding.Manager.Library.Bidding;
-using Ccd.Bidding.Manager.Library.Bidding.Cataloging;
 using Ccd.Bidding.Manager.Win.Library.UI;
 using Ccd.Bidding.Manager.Win.UI;
 using Ccd.Bidding.Manager.Win.Library.IO.Bidding.Cataloging;
@@ -20,9 +18,11 @@ using Ccd.Bidding.Manager.Library.EF.Bidding;
 using Ccd.Bidding.Manager.Library.EF.Bidding.Cataloging;
 using Ccd.Bidding.Manager.Library.EF.Bidding.Requesting;
 using Ccd.Bidding.Manager.Library.EF.Bidding.Responding;
-using Ccd.Bidding.Manager.Library.Bidding.Responding;
-using Ccd.Bidding.Manager.Library.Bidding.Requesting;
 using Ccd.Bidding.Manager.Library.Conversions.Bidding.Cataloging;
+using OBiddable.Library.Bidding.Responding;
+using OBiddable.Library.Bidding.Cataloging;
+using OBiddable.Library.Bidding;
+using OBiddable.Library.Bidding.Requesting;
 
 namespace Ccd.Bidding.Manager.Win.UI.Bidding.Cataloging
 {

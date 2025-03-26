@@ -24,44 +24,44 @@ namespace Ccd.Bidding.Manager.Test
         public void TestCreatingPurchaseOrders()
         {
             IEnumerable<PurchaseOrder> purchaseOrders = generatePurchaseOrdersWithMockData(new TheNewBidMock());
-            PurchaseOrder horvakHajh = purchaseOrders.ToList()[0];
-            PurchaseOrder horvakHash = purchaseOrders.ToList()[1];
-            PurchaseOrder thompsonHajh = purchaseOrders.ToList()[2];
+            PurchaseOrder horvakBajh = purchaseOrders.ToList()[0];
+            PurchaseOrder horvakBash = purchaseOrders.ToList()[1];
+            PurchaseOrder thompsonBajh = purchaseOrders.ToList()[2];
 
             Assert.Equal(3, purchaseOrders.Count());
-            Assert.Equal(11M, horvakHajh.GetExtendedPriceSumOfLineItems());
-            Assert.Equal(9M, horvakHajh.GetQuantitySumOfLineItems());
-            Assert.Equal(2M, horvakHash.GetExtendedPriceSumOfLineItems());
-            Assert.Equal(2M, horvakHash.GetQuantitySumOfLineItems());
-            Assert.Equal(11M, thompsonHajh.GetExtendedPriceSumOfLineItems());
-            Assert.Equal(10M, thompsonHajh.GetQuantitySumOfLineItems());
+            Assert.Equal(11M, horvakBajh.GetExtendedPriceSumOfLineItems());
+            Assert.Equal(9M, horvakBajh.GetQuantitySumOfLineItems());
+            Assert.Equal(2M, horvakBash.GetExtendedPriceSumOfLineItems());
+            Assert.Equal(2M, horvakBash.GetQuantitySumOfLineItems());
+            Assert.Equal(11M, thompsonBajh.GetExtendedPriceSumOfLineItems());
+            Assert.Equal(10M, thompsonBajh.GetQuantitySumOfLineItems());
         }
 
         [Fact]
         public void TestCreatingPurchaseOrderWithUnmatchedAlternateSingleBuildings()
         {
             IEnumerable<PurchaseOrder> purchaseOrders = generatePurchaseOrdersWithMockData(new UnmatchedAlternateSingleMockBidBuilder());
-            PurchaseOrder horvakHajh = purchaseOrders.ToList()[0];
+            PurchaseOrder horvakBajh = purchaseOrders.ToList()[0];
 
             Assert.Single(purchaseOrders);
-            Assert.Single(horvakHajh.LineItems);
-            Assert.Equal(1,horvakHajh.LineItems[0].Quantity);
+            Assert.Single(horvakBajh.LineItems);
+            Assert.Equal(1,horvakBajh.LineItems[0].Quantity);
         }
 
         [Fact]
         public void TestCreatingPurchaseOrderWithUnmatchedAlternateMultipleBuildings()
         {
             IEnumerable<PurchaseOrder> purchaseOrders = generatePurchaseOrdersWithMockData(new UnmatchedAlternateMultipleMockBidBuilder());
-            PurchaseOrder horvakHajh = purchaseOrders.ToList()[0];
-            PurchaseOrder horvakHash = purchaseOrders.ToList()[1];
+            PurchaseOrder horvakBajh = purchaseOrders.ToList()[0];
+            PurchaseOrder horvakBash = purchaseOrders.ToList()[1];
 
             Assert.Equal(2,purchaseOrders.Count());
 
-            Assert.Single(horvakHajh.LineItems);
-            Assert.Equal(-1, horvakHajh.LineItems[0].Quantity);
+            Assert.Single(horvakBajh.LineItems);
+            Assert.Equal(-1, horvakBajh.LineItems[0].Quantity);
 
-            Assert.Single(horvakHash.LineItems);
-            Assert.Equal(-1, horvakHash.LineItems[0].Quantity);
+            Assert.Single(horvakBash.LineItems);
+            Assert.Equal(-1, horvakBash.LineItems[0].Quantity);
         }
 
         private static IEnumerable<PurchaseOrder> generatePurchaseOrdersWithMockData(IMockBidBuilder mockBidBuilder)

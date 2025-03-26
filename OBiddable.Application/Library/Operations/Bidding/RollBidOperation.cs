@@ -1,8 +1,8 @@
-﻿using Ccd.Bidding.Manager.Library.Bidding;
-using Ccd.Bidding.Manager.Win.Library.IO;
+﻿using Ccd.Bidding.Manager.Win.Library.IO;
 using Ccd.Bidding.Manager.Reporting.Bidding;
 using Ccd.Bidding.Manager.Library.EF.Bidding;
 using Ccd.Bidding.Manager.Win.UI.Bidding;
+using OBiddable.Library.Bidding;
 
 namespace Ccd.Bidding.Manager.Win.Library.Operations.Bidding
 {

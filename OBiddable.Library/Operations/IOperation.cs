@@ -1,14 +1,6 @@
-﻿using Ccd.Bidding.Manager.Library.Bidding;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace OBiddable.Library.Operations;
 
-namespace Ccd.Bidding.Manager.Library.Operations
+public interface IOperation
 {
-    public interface IOperation
-    {
-        void Run();
-    }
+    void Run();
 }

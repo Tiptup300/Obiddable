@@ -1,9 +1,4 @@
-﻿using Ccd.Bidding.Manager.Library.Bidding;
-using Ccd.Bidding.Manager.Library.Bidding.Electing;
-using Ccd.Bidding.Manager.Library.Bidding.Cataloging;
-using Ccd.Bidding.Manager.Library.Bidding.Requesting;
-using Ccd.Bidding.Manager.Library.Bidding.Responding;
-using Ccd.Bidding.Manager.Library.EF.Bidding;
+﻿using Ccd.Bidding.Manager.Library.EF.Bidding;
 using Ccd.Bidding.Manager.Library.EF.Bidding.Electing;
 using Ccd.Bidding.Manager.Library.EF.Bidding.Cataloging;
 using Ccd.Bidding.Manager.Library.EF.Bidding.Requesting;
@@ -19,6 +14,12 @@ using System.Linq;
 using System.Windows.Forms;
 using Ccd.Bidding.Manager.Library.Formatting;
 using Ccd.Bidding.Manager.Win.Library.Operations.Bidding.Electing;
+using OBiddable.Library.Formatting;
+using OBiddable.Library.Bidding.Responding;
+using OBiddable.Library.Bidding.Electing;
+using OBiddable.Library.Bidding.Cataloging;
+using OBiddable.Library.Bidding;
+using OBiddable.Library.Bidding.Requesting;
 
 namespace Ccd.Bidding.Manager.Win.UI.Bidding.Electing
 {

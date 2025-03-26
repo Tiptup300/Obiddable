@@ -53,8 +53,8 @@ namespace Ccd.Bidding.Manager.Test.MockBids
             Requestor output;
             Request request;
 
-            output = new Requestor() { Id = 374, Bid = bid, Name = "John Yogus", Building = "HAJH", Code = 23 };
-            request = new Request() { Id = 375, Account_Number = "10.1110.610.000.30.31.12.0020", Requestor = output };
+            output = new Requestor() { Id = 374, Bid = bid, Name = "John Yogus", Building = "BAJH", Code = 23 };
+            request = new Request() { Id = 375, Account_Number = "99.1110.610.000.30.31.12.0020", Requestor = output };
             request.RequestItems = new List<RequestItem>()
             {
                 new RequestItem() { Id = 1078, Item = bid.Items[0], Quantity = 1, Request = request  },
@@ -75,8 +75,8 @@ namespace Ccd.Bidding.Manager.Test.MockBids
             Requestor output;
             Request request;
 
-            output = new Requestor() { Id = 375, Bid = bid, Name = "Todd Russell", Building = "HAJH", Code = 24 };
-            request = new Request() { Id = 376, Account_Number = "10.1110.762.000.30.31.12.0000", Requestor = output };
+            output = new Requestor() { Id = 375, Bid = bid, Name = "Todd Russell", Building = "BAJH", Code = 24 };
+            request = new Request() { Id = 376, Account_Number = "99.1110.762.000.30.31.12.0000", Requestor = output };
             request.RequestItems = new List<RequestItem>()
             {
                 new RequestItem() { Id = 1086, Item = bid.Items[0], Quantity = 1, Request = request  },
@@ -92,8 +92,8 @@ namespace Ccd.Bidding.Manager.Test.MockBids
             Requestor output;
             Request request;
 
-            output = new Requestor() { Id = 377, Bid = bid, Name = "Jill Hileman", Building = "HASH", Code = 26 };
-            request = new Request() { Id = 377, Account_Number = "10.1110.762.000.30.31.12.0000", Requestor = output };
+            output = new Requestor() { Id = 377, Bid = bid, Name = "Jill Hileman", Building = "BASH", Code = 26 };
+            request = new Request() { Id = 377, Account_Number = "99.1110.762.000.30.31.12.0000", Requestor = output };
             request.RequestItems = new List<RequestItem>()
             {
                 new RequestItem() { Id = 1088, Item = bid.Items[0], Quantity = 1, Request = request  },

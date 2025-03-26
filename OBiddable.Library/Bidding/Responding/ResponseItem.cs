@@ -1,163 +1,155 @@
-﻿using Ccd.Bidding.Manager.Library.Bidding.Cataloging;
-using Ccd.Bidding.Manager.Library.Bidding.Requesting;
-using Ccd.Bidding.Manager.Library.Bidding.Requesting.Extensions;
-using Ccd.Bidding.Manager.Library.EF.Bidding.Requesting;
-using Ccd.Bidding.Manager.Library.EF.Bidding.Responding;
-using Ccd.Bidding.Manager.Library.Validations;
-using System;
-using System.Collections.Generic;
+﻿using OBiddable.Library.Bidding.Cataloging;
+using OBiddable.Library.Bidding.Requesting;
+using OBiddable.Library.Bidding.Requesting.Extensions;
+using OBiddable.Library.Validations;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Ccd.Bidding.Manager.Library.Bidding.Responding
+namespace OBiddable.Library.Bidding.Responding;
+
+public class ResponseItem : IValidatable
 {
-    public class ResponseItem : IValidatable
+    // Parent
+    public VendorResponse VendorResponse { get; set; }
+
+    //Fields
+    [Required]
+    public int Id { get; set; }
+
+    [Required]
+    public Item Item { get; set; }
+
+    [Required, MaxLength(50)]
+    public string Code { get; set; }
+
+    [Required, Column(TypeName = "decimal(18,5)")]
+    public decimal Price { get; set; }
+
+    [Required, Column(TypeName = "decimal(18,5)")]
+    public decimal AlternateQuantity { get; set; }
+
+    [MaxLength(30)]
+    public string AlternateUnit { get; set; }
+
+    [Required]
+    public bool IsAlternate { get; set; }
+
+    [MaxLength(500)]
+    public string AlternateDescription { get; set; }
+
+    public bool Elected { get; set; }
+
+    public string ElectionReason { get; set; }
+
+    private ResponseItem() { }
+
+    public ResponseItem(int? id, Item item, string code, 
+        decimal price, decimal alternateQuantity, 
+        string alternateUnit, bool isAlternate,
+        string alternateDescription, bool isElected,
+        string electionReason
+        )
     {
-        // Parent
-        public VendorResponse VendorResponse { get; set; }
+        Id = id.HasValue ? id.Value : 0;
+        Item = item;
+        Code = code;
+        Price = price;
+        AlternateQuantity = alternateQuantity;
+        AlternateUnit = alternateUnit;
+        IsAlternate = isAlternate;
+        AlternateDescription = alternateDescription;
+        Elected = isElected;
+        ElectionReason = electionReason;
+    }
 
-        //Fields
-        [Required]
-        public int Id { get; set; }
-
-        [Required]
-        public Item Item { get; set; }
-
-        [Required, MaxLength(50)]
-        public string Code { get; set; }
-
-        [Required, Column(TypeName = "decimal(18,5)")]
-        public decimal Price { get; set; }
-
-        [Required, Column(TypeName = "decimal(18,5)")]
-        public decimal AlternateQuantity { get; set; }
-
-        [MaxLength(30)]
-        public string AlternateUnit { get; set; }
-
-        [Required]
-        public bool IsAlternate { get; set; }
-
-        [MaxLength(500)]
-        public string AlternateDescription { get; set; }
-
-        public bool Elected { get; set; }
-
-        public string ElectionReason { get; set; }
-
-        private ResponseItem() { }
-
-        public ResponseItem(int? id, Item item, string code, 
-            decimal price, decimal alternateQuantity, 
-            string alternateUnit, bool isAlternate,
-            string alternateDescription, bool isElected,
-            string electionReason
-            )
+    public decimal Get_Quantity(IRequestingRepo requestingRepo)
+    {
+        if (IsAlternate)
         {
-            Id = id.HasValue ? id.Value : 0;
-            Item = item;
-            Code = code;
-            Price = price;
-            AlternateQuantity = alternateQuantity;
-            AlternateUnit = alternateUnit;
-            IsAlternate = isAlternate;
-            AlternateDescription = alternateDescription;
-            Elected = isElected;
-            ElectionReason = electionReason;
+            return AlternateQuantity;
+        }
+        else
+        {
+            return Item.GetRequestedQuantity(requestingRepo);
+        }
+    }
+
+    public decimal GetExtendedPrice(IRequestingRepo requestingRepo)
+    {
+        return Math.Round(Price * Get_Quantity(requestingRepo), 2);
+    }
+
+    public bool GetGet_IsLowBid(IRespondingRepo respondingRepo, IRequestingRepo requestingRepo)
+        => respondingRepo.Check_ResponseItemIsLowestBid(Id, requestingRepo);
+
+    public override string ToString()
+    {
+        return $"{VendorResponse}_RI{Item.FormattedCode}";
+    }
+
+    public void Validate()
+    {
+        if (Item is null)
+        {
+            throw new DataValidationException("ResponseItem Item is null");
         }
 
-        public decimal Get_Quantity(IRequestingRepo requestingRepo)
+        if (Code.Length > 255)
         {
-            if (IsAlternate)
-            {
-                return AlternateQuantity;
-            }
-            else
-            {
-                return Item.GetRequestedQuantity(requestingRepo);
-            }
+            throw new DataValidationException("ResponseItem Code is invalid");
+        }
+        if (Price <= 0)
+        {
+            throw new DataValidationException("ResponseItem Price is invalid");
         }
 
-        public decimal GetExtendedPrice(IRequestingRepo requestingRepo)
+        // election properties
+        if (Elected && ElectionReason == null)
         {
-            return Math.Round(Price * Get_Quantity(requestingRepo), 2);
+            throw new DataValidationException("ResponseItem ReasonElected is invalid");
         }
-
-        public bool GetGet_IsLowBid(IRespondingRepo respondingRepo, IRequestingRepo requestingRepo)
-            => respondingRepo.Check_ResponseItemIsLowestBid(Id, requestingRepo);
-
-        public override string ToString()
+        if (Elected && ElectionReason != null)
         {
-            return $"{VendorResponse}_RI{Item.FormattedCode}";
-        }
-
-        public void Validate()
-        {
-            if (Item is null)
-            {
-                throw new DataValidationException("ResponseItem Item is null");
-            }
-
-            if (Code.Length > 255)
-            {
-                throw new DataValidationException("ResponseItem Code is invalid");
-            }
-            if (Price <= 0)
-            {
-                throw new DataValidationException("ResponseItem Price is invalid");
-            }
-
-            // election properties
-            if (Elected && ElectionReason == null)
+            if (Elected == (ElectionReason == null))
             {
                 throw new DataValidationException("ResponseItem ReasonElected is invalid");
             }
-            if (Elected && ElectionReason != null)
-            {
-                if (Elected == (ElectionReason == null))
-                {
-                    throw new DataValidationException("ResponseItem ReasonElected is invalid");
-                }
-            }
-            //Above replaced this below
-            //if (Elected && ElectionReason != null)
-            //{
-                //throw new DataValidationException("ResponseItem ReasonElected is invalid");
-            //}
+        }
+        //Above replaced this below
+        //if (Elected && ElectionReason != null)
+        //{
+            //throw new DataValidationException("ResponseItem ReasonElected is invalid");
+        //}
 
-            // alternate properties
-            if (IsAlternate)
+        // alternate properties
+        if (IsAlternate)
+        {
+            if (AlternateDescription == null || AlternateDescription.Length > 255)
             {
-                if (AlternateDescription == null || AlternateDescription.Length > 255)
-                {
-                    throw new DataValidationException("ResponseItem AlternateDescription is invalid");
-                }
-                if (AlternateUnit == null || AlternateUnit.Length > 255)
-                {
-                    throw new DataValidationException("ResponseItem AlternateUnit is invalid");
-                }
-                if (AlternateQuantity <= 0)
-                {
-                    throw new DataValidationException("ResponseItem AlternateQuantity is invalid");
-                }
+                throw new DataValidationException("ResponseItem AlternateDescription is invalid");
             }
-            else
+            if (AlternateUnit == null || AlternateUnit.Length > 255)
             {
-                if (AlternateDescription != null)
-                {
-                    throw new DataValidationException("ResponseItem AlternateDescription must be null if not alternate");
-                }
-                if (AlternateUnit != null)
-                {
-                    throw new DataValidationException("ResponseItem AlternateUnit must be null if not alternate");
-                }
-                if (AlternateQuantity != 0)
-                {
-                    throw new DataValidationException("ResponseItem AlternateQuantity must be null if not alternate");
-                }
+                throw new DataValidationException("ResponseItem AlternateUnit is invalid");
+            }
+            if (AlternateQuantity <= 0)
+            {
+                throw new DataValidationException("ResponseItem AlternateQuantity is invalid");
+            }
+        }
+        else
+        {
+            if (AlternateDescription != null)
+            {
+                throw new DataValidationException("ResponseItem AlternateDescription must be null if not alternate");
+            }
+            if (AlternateUnit != null)
+            {
+                throw new DataValidationException("ResponseItem AlternateUnit must be null if not alternate");
+            }
+            if (AlternateQuantity != 0)
+            {
+                throw new DataValidationException("ResponseItem AlternateQuantity must be null if not alternate");
             }
         }
     }

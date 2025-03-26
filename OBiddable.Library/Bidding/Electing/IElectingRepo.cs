@@ -1,15 +1,13 @@
-﻿using Ccd.Bidding.Manager.Library.Bidding.Cataloging;
-using Ccd.Bidding.Manager.Library.Bidding.Electing.Elections;
-using System.Collections.Generic;
+﻿using OBiddable.Library.Bidding.Cataloging;
+using OBiddable.Library.Bidding.Electing.Elections;
 
-namespace Ccd.Bidding.Manager.Library.Bidding.Electing
+namespace OBiddable.Library.Bidding.Electing;
+
+public interface IElectingRepo
 {
-    public interface IElectingRepo
-    {
-        IEnumerable<MarkedElection> GetMarkedElectionsForBid(Bid bid);
+    IEnumerable<MarkedElection> GetMarkedElectionsForBid(Bid bid);
 
-        void UpdateElections(IEnumerable<Election> elections);
+    void UpdateElections(IEnumerable<Election> elections);
 
-        MarkedElection GetMarkedElectionForItem(Item item);
-    }
+    MarkedElection GetMarkedElectionForItem(Item item);
 }

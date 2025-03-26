@@ -1,6 +1,6 @@
-﻿using Ccd.Bidding.Manager.Library.Bidding;
-using Ccd.Bidding.Manager.Library.Bidding.Requesting;
-using Ccd.Bidding.Manager.Library.EF.Bidding.Requesting;
+﻿using Ccd.Bidding.Manager.Library.EF.Bidding.Requesting;
+using OBiddable.Library.Bidding;
+using OBiddable.Library.Bidding.Requesting;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

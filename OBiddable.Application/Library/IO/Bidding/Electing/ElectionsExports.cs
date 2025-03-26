@@ -1,12 +1,12 @@
 ﻿using System;
-using Ccd.Bidding.Manager.Library.Bidding;
 using Ccd.Bidding.Manager.Library.Bidding.Cataloging;
 using Ccd.Bidding.Manager.Library.Bidding.Responding;
-using Ccd.Bidding.Manager.Library.Conversions.Bidding.Electing;
 using Ccd.Bidding.Manager.Library.EF.Bidding.Cataloging;
 using Ccd.Bidding.Manager.Library.EF.Bidding.Responding;
 using Ccd.Bidding.Manager.Win.Library.IO;
 using Ccd.Bidding.Manager.Win.UI.Bidding.Electing;
+using OBiddable.Library.Bidding;
+using OBiddable.Library.Conversions.Bidding.Electing;
 
 namespace Ccd.Bidding.Manager.Win.Library.IO.Bidding.Electing
 {

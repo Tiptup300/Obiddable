@@ -1,10 +1,10 @@
-﻿using Ccd.Bidding.Manager.Library.Bidding;
-using Ccd.Bidding.Manager.Library.Bidding.Electing;
-using Ccd.Bidding.Manager.Library.Bidding.Purchasing;
-using Ccd.Bidding.Manager.Reporting.Bidding;
+﻿using Ccd.Bidding.Manager.Reporting.Bidding;
 using Ccd.Bidding.Manager.Reporting.Bidding.VendorResponses;
 using Ccd.Bidding.Manager.Win.Library.IO;
 using Ccd.Bidding.Manager.Win.UI.Bidding.Purchasing;
+using OBiddable.Library.Bidding;
+using OBiddable.Library.Bidding.Electing;
+using OBiddable.Library.Bidding.Purchasing;
 using System.Collections.Generic;
 
 namespace Ccd.Bidding.Manager.Win.Library.Operations.Bidding

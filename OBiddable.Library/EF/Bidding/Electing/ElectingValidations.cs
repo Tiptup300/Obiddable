@@ -1,15 +1,12 @@
-﻿using Ccd.Bidding.Manager.Library.Validations;
+﻿namespace OBiddable.Library.EF.Bidding.Electing;
 
-namespace Ccd.Bidding.Manager.Library.EF.Bidding.Electing
+public static class ElectingValidations
 {
-    public static class ElectingValidations
+    public static void Validate_UpdateResponseItem_Elect(this Dbc dbc, int itemId, int responseItemId, string reasonElected)
     {
-        public static void Validate_UpdateResponseItem_Elect(this Dbc dbc, int itemId, int responseItemId, string reasonElected)
+        if (reasonElected is null)
         {
-            if (reasonElected is null)
-            {
-                throw new DataValidationException("reason elected cannot be null");
-            }
+            throw new DataValidationException("reason elected cannot be null");
         }
     }
 }

@@ -1,15 +1,10 @@
-﻿using System.Collections.Generic;
+﻿namespace OBiddable.Library.Bidding.Cataloging;
 
-namespace Ccd.Bidding.Manager.Library.Bidding.Cataloging
+public interface ICatalogingRepo
 {
-    public interface ICatalogingRepo
-    {
-        void AddItem(Item item, int bidId);
-        Item GetItem(int itemId);
-        IEnumerable<Item> GetItems(int bidId);
-        void UpdateItem(Item item);
-        void DeleteItem(int itemId);
-
-
-    }
+    void AddItem(Item item, int bidId);
+    Item GetItem(int itemId);
+    IEnumerable<Item> GetItems(int bidId);
+    void UpdateItem(Item item);
+    void DeleteItem(int itemId);
 }

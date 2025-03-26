@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Configuration;
 using System.Windows.Forms;
-using Ccd.Bidding.Manager.Library.EF;
-using Ccd.Bidding.Manager.Library.EF.Bidding.Electing;
 using Ccd.Bidding.Manager.Win.Library;
 using Ccd.Bidding.Manager.Win.UI;
+using OBiddable.Library.EF;
+using OBiddable.Library.EF.Bidding.Electing;
 
 namespace Ccd.Bidding.Manager.Win
 {

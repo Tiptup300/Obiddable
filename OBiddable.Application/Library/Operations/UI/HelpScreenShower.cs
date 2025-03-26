@@ -1,4 +1,4 @@
-﻿using Ccd.Bidding.Manager.Library.Operations;
+﻿using OBiddable.Library.Operations;
 
 namespace Ccd.Bidding.Manager.Win.Library.Operations.UI
 {

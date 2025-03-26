@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace OBiddable.Library.Bidding.Requesting;
 
-namespace Ccd.Bidding.Manager.Library.Bidding.Requesting
+public class RequestItemNotElectedException : Exception
 {
-    public class RequestItemNotElectedException : Exception
+    public RequestItemNotElectedException() : base()
     {
-        public RequestItemNotElectedException() : base()
-        {
-        }
     }
 }

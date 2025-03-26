@@ -8,10 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-using Ccd.Bidding.Manager.Library.Bidding.Purchasing;
 using Ccd.Bidding.Manager.Win.Library.UI;
 using Ccd.Bidding.Manager.Win.Library.IO.Bidding.Purchasing;
 using Ccd.Bidding.Manager.Library.EF.Bidding.Purchasing;
+using OBiddable.Library.Bidding.Purchasing;
 
 namespace Ccd.Bidding.Manager.Win.UI.Bidding.Purchasing
 {

@@ -1,5 +1,5 @@
-﻿using Ccd.Bidding.Manager.Library.Bidding.Purchasing;
-using Ccd.Bidding.Manager.Win.Library.UI;
+﻿using Ccd.Bidding.Manager.Win.Library.UI;
+using OBiddable.Library.Bidding.Purchasing;
 using System;
 using System.Collections.Generic;
 using System.Linq;

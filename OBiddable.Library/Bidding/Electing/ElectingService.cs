@@ -1,41 +1,34 @@
-﻿using Ccd.Bidding.Manager.Library.Bidding.Cataloging;
-using Ccd.Bidding.Manager.Library.Bidding.Electing.Elections;
-using Ccd.Bidding.Manager.Library.EF.Bidding.Cataloging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using OBiddable.Library.Bidding.Cataloging;
+using OBiddable.Library.Bidding.Electing.Elections;
 
-namespace Ccd.Bidding.Manager.Library.Bidding.Electing
+namespace OBiddable.Library.Bidding.Electing;
+
+public class ElectingService
 {
-    public class ElectingService
+    private readonly IElectingRepo _electionsRepo;
+    private readonly ICatalogingRepo _itemsRepo;
+    private readonly ElectionsSetFactory _factory;
+
+    public ElectingService(IElectingRepo electionsRepo, ICatalogingRepo itemsRepo, ElectionsSetFactory factory)
     {
-        private readonly IElectingRepo _electionsRepo;
-        private readonly ICatalogingRepo _itemsRepo;
-        private readonly ElectionsSetFactory _factory;
-
-        public ElectingService(IElectingRepo electionsRepo, ICatalogingRepo itemsRepo, ElectionsSetFactory factory)
-        {
-            _electionsRepo = electionsRepo;
-            _itemsRepo = itemsRepo;
-            _factory = factory;
-        }
-
-        public ElectionSet GetElectionSetForBid(Bid bid)
-        {
-            ElectionSet output;
-            IEnumerable<Item> bidItems;
-            IEnumerable<MarkedElection> markedElections;
-
-            bidItems = _itemsRepo.GetItems(bid.Id);
-            markedElections = _electionsRepo.GetMarkedElectionsForBid(bid);
-            output = _factory.Build(bidItems, markedElections);
-
-            return output;
-        }
-
-        public void SaveElections(IEnumerable<Election> elections) 
-            => _electionsRepo.UpdateElections(elections);
+        _electionsRepo = electionsRepo;
+        _itemsRepo = itemsRepo;
+        _factory = factory;
     }
+
+    public ElectionSet GetElectionSetForBid(Bid bid)
+    {
+        ElectionSet output;
+        IEnumerable<Item> bidItems;
+        IEnumerable<MarkedElection> markedElections;
+
+        bidItems = _itemsRepo.GetItems(bid.Id);
+        markedElections = _electionsRepo.GetMarkedElectionsForBid(bid);
+        output = _factory.Build(bidItems, markedElections);
+
+        return output;
+    }
+
+    public void SaveElections(IEnumerable<Election> elections) 
+        => _electionsRepo.UpdateElections(elections);
 }

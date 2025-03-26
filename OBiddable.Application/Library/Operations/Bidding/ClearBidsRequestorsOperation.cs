@@ -1,7 +1,7 @@
-﻿using Ccd.Bidding.Manager.Library.Bidding;
-using Ccd.Bidding.Manager.Library.Bidding.Requesting;
-using Ccd.Bidding.Manager.Library.EF.Bidding.Requesting;
+﻿using Ccd.Bidding.Manager.Library.EF.Bidding.Requesting;
 using Ccd.Bidding.Manager.Win.UI.Bidding;
+using OBiddable.Library.Bidding;
+using OBiddable.Library.Bidding.Requesting;
 
 namespace Ccd.Bidding.Manager.Win.Library.Operations.Bidding
 {

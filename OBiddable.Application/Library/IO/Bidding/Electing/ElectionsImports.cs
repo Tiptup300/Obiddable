@@ -1,19 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using Ccd.Bidding.Manager.Library.Bidding;
-using Ccd.Bidding.Manager.Library.Bidding.Responding;
-using Ccd.Bidding.Manager.Library.Bidding.Electing;
 using Ccd.Bidding.Manager.Win.Library.IO;
-using Ccd.Bidding.Manager.Library.Conversions.Bidding.Electing;
-using Ccd.Bidding.Manager.Library.Validations;
 using Ccd.Bidding.Manager.Library.EF.Bidding.Electing;
 using Ccd.Bidding.Manager.Win.UI;
 using Ccd.Bidding.Manager.Win.UI.Bidding.Electing;
-using Ccd.Bidding.Manager.Library.Bidding.Cataloging;
 using Ccd.Bidding.Manager.Library.EF.Bidding.Cataloging;
 using Ccd.Bidding.Manager.Library.EF.Bidding.Responding;
 using Ccd.Bidding.Manager.Win.Library.Operations.Bidding.Electing;
+using OBiddable.Library.Conversions.Bidding.Electing;
+using OBiddable.Library.Bidding.Responding;
+using OBiddable.Library.Bidding.Electing;
+using OBiddable.Library.Bidding;
+using OBiddable.Library.Validations;
+using OBiddable.Library.Bidding.Cataloging;
 
 namespace Ccd.Bidding.Manager.Win.Library.IO.Bidding.Electing
 {

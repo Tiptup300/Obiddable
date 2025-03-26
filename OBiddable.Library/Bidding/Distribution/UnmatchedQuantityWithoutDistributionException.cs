@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace OBiddable.Library.Bidding.Distribution;
 
-namespace Ccd.Bidding.Manager.Library.Bidding.Distribution
+public class UnmatchedQuantityWithoutDistributionException : Exception
 {
-    public class UnmatchedQuantityWithoutDistributionException : Exception
+    public UnmatchedQuantityWithoutDistributionException() : base()
     {
-        public UnmatchedQuantityWithoutDistributionException() : base()
-        {
-        }
     }
 }

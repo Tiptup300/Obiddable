@@ -1,24 +1,18 @@
-﻿using Ccd.Bidding.Manager.Library.Bidding.Cataloging;
-using Ccd.Bidding.Manager.Library.Bidding.Requesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using OBiddable.Library.Bidding.Cataloging;
 
-namespace Ccd.Bidding.Manager.Library.Bidding.Distribution
-{
+namespace OBiddable.Library.Bidding.Distribution;
+
 	public class DistributedQuantity
 	{
 		private Bid _bid;
 		public Bid Bid
-        {
+    {
 			get => _bid;
 			private set
-            {
+        {
 				_bid = value;
-            }
         }
+    }
 
 		private Item _item;
 		public Item Item
@@ -27,9 +21,9 @@ namespace Ccd.Bidding.Manager.Library.Bidding.Distribution
 			private set
 			{
 				if(value.Bid.Id != Bid.Id)
-                {
+            {
 					throw new ArgumentException("Item Bid must match bid.");
-                }
+            }
 				_item = value;
 			}
 		}
@@ -55,9 +49,9 @@ namespace Ccd.Bidding.Manager.Library.Bidding.Distribution
 			private set
 			{
 				if(value < 0)
-                {
+            {
 					throw new ArgumentException("Quantity cannot be negative.");
-                }
+            }
 				_quantity = value;
 			}
 		}
@@ -71,4 +65,3 @@ namespace Ccd.Bidding.Manager.Library.Bidding.Distribution
 			Quantity = quantity;
 		}
 	}
-}

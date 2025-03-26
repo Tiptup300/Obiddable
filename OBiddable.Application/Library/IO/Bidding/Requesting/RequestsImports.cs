@@ -1,14 +1,14 @@
 ﻿using System;
 using System.IO;
-using Ccd.Bidding.Manager.Library.Bidding.Requesting;
 using Ccd.Bidding.Manager.Library.Bidding;
 using Ccd.Bidding.Manager.Win.Library.IO;
-using Ccd.Bidding.Manager.Library.Conversions.Bidding.Requesting;
-using Ccd.Bidding.Manager.Library.Validations;
 using Ccd.Bidding.Manager.Library.EF.Bidding.Requesting;
 using Ccd.Bidding.Manager.Win.UI;
 using Ccd.Bidding.Manager.Win.UI.Bidding.Requesting;
-using Ccd.Bidding.Manager.Library.Bidding.Cataloging;
+using OBiddable.Library.Bidding.Cataloging;
+using OBiddable.Library.Bidding.Requesting;
+using OBiddable.Library.Validations;
+using OBiddable.Library.Conversions.Bidding.Requesting;
 
 namespace Ccd.Bidding.Manager.Win.Library.IO.Bidding.Requesting
 {

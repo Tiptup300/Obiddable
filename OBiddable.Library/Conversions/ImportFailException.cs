@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace OBiddable.Library.Conversions;
 
-namespace Ccd.Bidding.Manager.Library.Conversions
+public class ImportFailException : Exception
 {
-    public class ImportFailException : Exception
+    public ImportFailException(string message) : base(message)
     {
-        public ImportFailException(string message) : base(message)
-        {
-        }
     }
 }

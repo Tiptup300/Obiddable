@@ -1,5 +1,4 @@
-﻿using Ccd.Bidding.Manager.Library.Bidding;
-using Ccd.Bidding.Manager.Win.Library.IO;
+﻿using Ccd.Bidding.Manager.Win.Library.IO;
 using Ccd.Bidding.Manager.Reporting;
 using Ccd.Bidding.Manager.Reporting.Bidding;
 using Ccd.Bidding.Manager.Reporting.Bidding.Electings;
@@ -9,10 +8,11 @@ using Ccd.Bidding.Manager.Reporting.Bidding.VendorResponses;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
-using Ccd.Bidding.Manager.Library.Bidding.Distribution;
 using Ccd.Bidding.Manager.Library.EF.Bidding.Requesting;
 using Ccd.Bidding.Manager.Library.EF.Bidding.Responding;
 using Ccd.Bidding.Manager.Library.EF.Bidding.Electing;
+using OBiddable.Library.Bidding;
+using OBiddable.Library.Bidding.Distribution;
 
 namespace Ccd.Bidding.Manager.Win.Library.UI.Reporting
 {

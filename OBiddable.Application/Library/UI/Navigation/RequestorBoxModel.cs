@@ -1,5 +1,5 @@
-﻿using Ccd.Bidding.Manager.Library.Bidding;
-using Ccd.Bidding.Manager.Library.Bidding.Requesting.Extensions;
+﻿using OBiddable.Library.Bidding;
+using OBiddable.Library.Bidding.Requesting.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using Ccd.Bidding.Manager.Library.Bidding;
-using Ccd.Bidding.Manager.Library.Bidding.Requesting;
 using Ccd.Bidding.Manager.Win.Library.UI;
 using Ccd.Bidding.Manager.Win.Library.IO.Bidding.Requesting;
 using Ccd.Bidding.Manager.Library.EF.Bidding;
 using Ccd.Bidding.Manager.Library.EF.Bidding.Requesting;
-using Ccd.Bidding.Manager.Library.Bidding.Requesting.Extensions;
+using OBiddable.Library.Bidding;
+using OBiddable.Library.Bidding.Requesting;
+using OBiddable.Library.Bidding.Requesting.Extensions;
 
 namespace Ccd.Bidding.Manager.Win.UI.Bidding.Requesting
 {

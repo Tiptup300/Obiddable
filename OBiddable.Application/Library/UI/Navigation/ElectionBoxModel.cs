@@ -1,13 +1,13 @@
-﻿using Ccd.Bidding.Manager.Library.Bidding;
-using Ccd.Bidding.Manager.Library.Bidding.Electing;
-using Ccd.Bidding.Manager.Library.Bidding.Cataloging;
-using Ccd.Bidding.Manager.Library.Bidding.Requesting;
+﻿using Ccd.Bidding.Manager.Library.Bidding.Cataloging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Ccd.Bidding.Manager.Library.EF.Bidding.Requesting;
+using OBiddable.Library.Bidding;
+using OBiddable.Library.Bidding.Electing;
+using OBiddable.Library.Bidding.Requesting;
 
 namespace Ccd.Bidding.Manager.Win.Library.UI.Navigation
 {

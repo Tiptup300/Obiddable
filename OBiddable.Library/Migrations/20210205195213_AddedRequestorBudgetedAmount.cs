@@ -1,22 +1,19 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿namespace Ccd.Bidding.Manager.Library.Migrations;
 
-namespace Ccd.Bidding.Manager.Library.Migrations
+public partial class AddedRequestorBudgetedAmount : Migration
 {
-    public partial class AddedRequestorBudgetedAmount : Migration
+    protected override void Up(MigrationBuilder migrationBuilder)
     {
-        protected override void Up(MigrationBuilder migrationBuilder)
-        {
-            migrationBuilder.AddColumn<decimal>(
-                name: "AmountBudgeted",
-                table: "Requestors",
-                nullable: true);
-        }
+        migrationBuilder.AddColumn<decimal>(
+            name: "AmountBudgeted",
+            table: "Requestors",
+            nullable: true);
+    }
 
-        protected override void Down(MigrationBuilder migrationBuilder)
-        {
-            migrationBuilder.DropColumn(
-                name: "AmountBudgeted",
-                table: "Requestors");
-        }
+    protected override void Down(MigrationBuilder migrationBuilder)
+    {
+        migrationBuilder.DropColumn(
+            name: "AmountBudgeted",
+            table: "Requestors");
     }
 }

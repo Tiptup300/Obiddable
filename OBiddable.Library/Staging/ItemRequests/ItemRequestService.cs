@@ -1,78 +1,71 @@
-﻿using Ccd.Bidding.Manager.Library.Bidding.Cataloging;
-using Ccd.Bidding.Manager.Library.Bidding.Requesting;
-using Ccd.Bidding.Manager.Library.Staging.ItemRequests;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using OBiddable.Library.Bidding.Cataloging;
+using OBiddable.Library.Bidding.Requesting;
 
-namespace Ccd.Bidding.Manager.Library.Staging
+namespace OBiddable.Library.Staging.ItemRequests;
+
+public class ItemRequestService
 {
-    public class ItemRequestService
+    private readonly IRequestingRepo _requestingRepo;
+    private readonly ICatalogingRepo _catalogingRepo;
+
+    public ItemRequestService(IRequestingRepo requestingRepo, ICatalogingRepo catalogingRepo)
     {
-        private readonly IRequestingRepo _requestingRepo;
-        private readonly ICatalogingRepo _catalogingRepo;
+        _requestingRepo = requestingRepo;
+        _catalogingRepo = catalogingRepo;
+    }
+    public ItemRequest GetItemRequestForItem(int itemId)
+    {
+        ItemRequest output;
 
-        public ItemRequestService(IRequestingRepo requestingRepo, ICatalogingRepo catalogingRepo)
-        {
-            _requestingRepo = requestingRepo;
-            _catalogingRepo = catalogingRepo;
-        }
-        public ItemRequest GetItemRequestForItem(int itemId)
-        {
-            ItemRequest output;
+        Item item = _catalogingRepo.GetItem(itemId);
+        output = buildItemRequestFromItem(item);
 
-            Item item = _catalogingRepo.GetItem(itemId);
-            output = buildItemRequestFromItem(item);
+        return output;
+    }
 
-            return output;
-        }
+    public IEnumerable<ItemRequest> GetItemRequestsForBid(int bidId)
+    {
+        IEnumerable<ItemRequest> output;
+        IEnumerable<Item> bidItems;
 
-        public IEnumerable<ItemRequest> GetItemRequestsForBid(int bidId)
-        {
-            IEnumerable<ItemRequest> output;
-            IEnumerable<Item> bidItems;
+        bidItems = _catalogingRepo.GetItems(bidId);
+        output = bidItems.Select(item => buildItemRequestFromItem(item));
 
-            bidItems = _catalogingRepo.GetItems(bidId);
-            output = bidItems.Select(item => buildItemRequestFromItem(item));
+        return output;
+    }
 
-            return output;
-        }
+    public IEnumerable<ItemRequest> GetItemRequestsForRequestor(int requestorId)
+    {
+        IEnumerable<ItemRequest> output;
+        IEnumerable<RequestItem> requestorRequestItems;
 
-        public IEnumerable<ItemRequest> GetItemRequestsForRequestor(int requestorId)
-        {
-            IEnumerable<ItemRequest> output;
-            IEnumerable<RequestItem> requestorRequestItems;
+        requestorRequestItems = _requestingRepo.GetRequestItems_ByRequestor(requestorId);
+        output = requestorRequestItems.Select(requestItem => buildItemRequestFromItem(requestItem.Item));
 
-            requestorRequestItems = _requestingRepo.GetRequestItems_ByRequestor(requestorId);
-            output = requestorRequestItems.Select(requestItem => buildItemRequestFromItem(requestItem.Item));
+        return output;
+    }
 
-            return output;
-        }
+    public IEnumerable<ItemRequest> GetItemRequestsForBuilding(int bidId, string buildingName)
+    {
+        IEnumerable<ItemRequest> output;
+        IEnumerable<Requestor> requestors;
+        IEnumerable<RequestItem> buildingRequestItems;
 
-        public IEnumerable<ItemRequest> GetItemRequestsForBuilding(int bidId, string buildingName)
-        {
-            IEnumerable<ItemRequest> output;
-            IEnumerable<Requestor> requestors;
-            IEnumerable<RequestItem> buildingRequestItems;
+        requestors = _requestingRepo.GetRequestors_ByBuildingName(bidId, buildingName);
+        buildingRequestItems = requestors.SelectMany(requestor => _requestingRepo.GetRequestItems_ByRequestor(requestor.Id));
+        output = buildingRequestItems.Select(requestItem => buildItemRequestFromItem(requestItem.Item));
 
-            requestors = _requestingRepo.GetRequestors_ByBuildingName(bidId, buildingName);
-            buildingRequestItems = requestors.SelectMany(requestor => _requestingRepo.GetRequestItems_ByRequestor(requestor.Id));
-            output = buildingRequestItems.Select(requestItem => buildItemRequestFromItem(requestItem.Item));
+        return output;
+    }
 
-            return output;
-        }
+    private ItemRequest buildItemRequestFromItem(Item item)
+    {
+        ItemRequest output;
+        IEnumerable<RequestItem> requestItems;
 
-        private ItemRequest buildItemRequestFromItem(Item item)
-        {
-            ItemRequest output;
-            IEnumerable<RequestItem> requestItems;
+        requestItems = _requestingRepo.GetRequestItems_ByItem(item.Id);
+        output = new ItemRequest(item, requestItems);
 
-            requestItems = _requestingRepo.GetRequestItems_ByItem(item.Id);
-            output = new ItemRequest(item, requestItems);
-
-            return output;
-        }
+        return output;
     }
 }

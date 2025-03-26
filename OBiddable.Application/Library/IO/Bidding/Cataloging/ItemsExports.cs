@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.IO;
 using Ccd.Bidding.Manager.Library.Bidding.Requesting;
-using Ccd.Bidding.Manager.Library.Bidding;
 using Ccd.Bidding.Manager.Library.Bidding.Purchasing;
 using Ccd.Bidding.Manager.Library.Bidding.Responding;
 using Ccd.Bidding.Manager.Win.Library.IO;
-using Ccd.Bidding.Manager.Library.Conversions.Bidding.Cataloging;
 using Ccd.Bidding.Manager.Win.UI;
-using Ccd.Bidding.Manager.Library.Bidding.Cataloging;
+using OBiddable.Library.Bidding;
+using OBiddable.Library.Conversions.Bidding.Cataloging;
+using OBiddable.Library.Bidding.Cataloging;
 
 namespace Ccd.Bidding.Manager.Win.Library.IO.Bidding.Cataloging
 {

@@ -1,23 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace OBiddable.Library.Bidding.Requesting.Extensions;
 
-namespace Ccd.Bidding.Manager.Library.Bidding.Requesting.Extensions
+public static class RequestorExtensions
 {
-    public static class RequestorExtensions
-    {
-        public static decimal TotalPrice(this Requestor requestor)
-            => requestor.Requests.Select(x => x.ExtendedPriceSum()).Sum();
+    public static decimal TotalPrice(this Requestor requestor)
+        => requestor.Requests.Select(x => x.ExtendedPriceSum()).Sum();
 
-        public static decimal TotalPriceWithOverride(this Requestor requestor)
-            => requestor.Requests.Select(x => x.ExtendedPriceWithOverridesSum()).Sum();
+    public static decimal TotalPriceWithOverride(this Requestor requestor)
+        => requestor.Requests.Select(x => x.ExtendedPriceWithOverridesSum()).Sum();
 
-        public static int RequestItemsCount(this Requestor requestor)
-            => requestor.Requests.Select(x => x.RequestItems.Count).Sum();
+    public static int RequestItemsCount(this Requestor requestor)
+        => requestor.Requests.Select(x => x.RequestItems.Count).Sum();
 
-        public static decimal QuantitySum(this Requestor requestor)
-            => requestor.Requests.Select(x => x.QuantitySum()).Sum();
-    }
+    public static decimal QuantitySum(this Requestor requestor)
+        => requestor.Requests.Select(x => x.QuantitySum()).Sum();
 }

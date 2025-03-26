@@ -1,6 +1,7 @@
-﻿using Ccd.Bidding.Manager.Library.Bidding.Requesting;
-using Ccd.Bidding.Manager.Library.Bidding.Requesting.Extensions;
+﻿using Ccd.Bidding.Manager.Library.Bidding.Requesting.Extensions;
 using Ccd.Bidding.Manager.Win.Library.UI;
+using OBiddable.Library.Bidding.Requesting;
+using OBiddable.Library.Bidding.Requesting.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;

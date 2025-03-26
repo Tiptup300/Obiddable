@@ -1,25 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace OBiddable.Library.Bidding;
 
-namespace Ccd.Bidding.Manager.Library.Bidding
+public class BiddingService
 {
-    public class BiddingService
+    private readonly IBiddingRepo _biddingRepo;
+
+    public BiddingService(IBiddingRepo biddingRepo)
     {
-        private readonly IBiddingRepo _biddingRepo;
+        _biddingRepo = biddingRepo;
+    }
 
-        public BiddingService(IBiddingRepo biddingRepo)
-        {
-            _biddingRepo = biddingRepo;
-        }
-
-        public bool BidNameExists(string text, int bidId)
-        {
-            return _biddingRepo.GetBids()
-                .Where(bid => bid.Id != bidId)
-                .Any(bid => bid.Name == text);
-        }
+    public bool BidNameExists(string text, int bidId)
+    {
+        return _biddingRepo.GetBids()
+            .Where(bid => bid.Id != bidId)
+            .Any(bid => bid.Name == text);
     }
 }

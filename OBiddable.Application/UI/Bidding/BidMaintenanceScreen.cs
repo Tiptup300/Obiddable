@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using Ccd.Bidding.Manager.Library.Bidding;
 using Ccd.Bidding.Manager.Win.Library.Operations;
 using Ccd.Bidding.Manager.Win.Library.UI;
 using Ccd.Bidding.Manager.Win.Library.Operations.Bidding;
@@ -10,6 +9,7 @@ using Ccd.Bidding.Manager.Win.Library;
 using Ccd.Bidding.Manager.Win.UI.Bidding.Navigation;
 using Ccd.Bidding.Manager.Library.EF.Bidding;
 using Ccd.Bidding.Manager.Library.EF.Bidding.Cataloging;
+using OBiddable.Library.Bidding;
 
 namespace Ccd.Bidding.Manager.Win.UI.Bidding
 {

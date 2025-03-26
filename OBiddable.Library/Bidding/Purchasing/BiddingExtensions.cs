@@ -1,31 +1,25 @@
-﻿using Ccd.Bidding.Manager.Library.Bidding.Electing;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using OBiddable.Library.Bidding.Electing;
 
-namespace Ccd.Bidding.Manager.Library.Bidding.Purchasing
+namespace OBiddable.Library.Bidding.Purchasing;
+
+public static class BiddingExtensions
 {
-    public static class BiddingExtensions
+    public static bool CanEditPurchaseOrders(this Bid bid)
     {
-        public static bool CanEditPurchaseOrders(this Bid bid)
+        if (bid.GetElectedItemsCount() > 0)
         {
-            if (bid.GetElectedItemsCount() > 0)
-            {
-                return true;
-            }
-            if (bid.GetPurchaseOrdersCount() > 0)
-            {
-                return true;
-            }
-            return false;
+            return true;
         }
-        public static int GetPurchaseOrdersCount(this Bid bid) 
-            => bid.PurchaseOrders.Count();
-        public static int GetPurchaseOrdersItemsCount(this Bid bid) 
-            => bid.PurchaseOrders.Sum(x => x.LineItems.Count());
-        public static decimal GetPurchaseOrdersTotalPriceSum(this Bid bid) 
-            => bid.PurchaseOrders.Sum(x => x.LineItems.Sum(y => y.GetRoundedExtendedPrice()));
+        if (bid.GetPurchaseOrdersCount() > 0)
+        {
+            return true;
+        }
+        return false;
     }
+    public static int GetPurchaseOrdersCount(this Bid bid) 
+        => bid.PurchaseOrders.Count();
+    public static int GetPurchaseOrdersItemsCount(this Bid bid) 
+        => bid.PurchaseOrders.Sum(x => x.LineItems.Count());
+    public static decimal GetPurchaseOrdersTotalPriceSum(this Bid bid) 
+        => bid.PurchaseOrders.Sum(x => x.LineItems.Sum(y => y.GetRoundedExtendedPrice()));
 }

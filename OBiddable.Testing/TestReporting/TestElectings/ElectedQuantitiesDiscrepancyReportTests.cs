@@ -60,7 +60,7 @@ namespace Ccd.Bidding.Manager.Test.Reporting.Electings
             {
                 Requestor output;
 
-                output = new Requestor() { Id = 374, Bid = bid, Name = "John Yogus", Building = "HAJH", Code = 23 };
+                output = new Requestor() { Id = 374, Bid = bid, Name = "John Yogus", Building = "BAJH", Code = 23 };
                 output.Requests.Add(buildRequest(output));
 
                 return output;
@@ -70,7 +70,7 @@ namespace Ccd.Bidding.Manager.Test.Reporting.Electings
             {
                 Request output;
 
-                output = new Request() { Id = 375, Account_Number = "10.1110.610.000.30.31.12.0020", Requestor = requestor };
+                output = new Request() { Id = 375, Account_Number = "99.1110.610.000.30.31.12.0020", Requestor = requestor };
                 output.RequestItems = new List<RequestItem>()
                 {
                     new RequestItem() { Id = 1078, Item = requestor.Bid.Items[0], Quantity = 12, Request = output  },

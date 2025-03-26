@@ -1,14 +1,5 @@
-﻿using Ccd.Bidding.Manager.Library.Bidding.Responding;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace OBiddable.Library.EF.Bidding.Responding;
 
-namespace Ccd.Bidding.Manager.Library.EF.Bidding.Responding
+public static class DbcExtensions
 {
-    public static class DbcExtensions
-    {
-    }
 }

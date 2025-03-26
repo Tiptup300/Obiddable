@@ -1,5 +1,5 @@
-﻿using Ccd.Bidding.Manager.Library.Validations;
-using Ccd.Bidding.Manager.Win.Library.UI;
+﻿using Ccd.Bidding.Manager.Win.Library.UI;
+using OBiddable.Library.Validations;
 using System;
 using System.Collections.Generic;
 using System.Linq;

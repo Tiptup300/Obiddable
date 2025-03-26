@@ -1,9 +1,6 @@
-﻿using System;
+﻿namespace OBiddable.Library.Validations;
 
-namespace Ccd.Bidding.Manager.Library.Validations
+public class DataValidationException : Exception
 {
-    public class DataValidationException : Exception
-    {
-        public DataValidationException(string message) : base(message) { }
-    }
+    public DataValidationException(string message) : base(message) { }
 }

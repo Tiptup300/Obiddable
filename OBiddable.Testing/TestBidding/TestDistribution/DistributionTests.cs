@@ -39,7 +39,7 @@ namespace Ccd.Bidding.Manager.Test
 
             Assert.Equal(3, distributedQuantity.Quantity);
             Assert.Equal(74, distributedQuantity.Bid.Id);
-            Assert.Equal("HAJH", distributedQuantity.Building.Name);
+            Assert.Equal("BAJH", distributedQuantity.Building.Name);
             Assert.Equal(24214, distributedQuantity.Item.Id);
         }
 
@@ -60,7 +60,7 @@ namespace Ccd.Bidding.Manager.Test
             building = distributionService.GetBuildingByRequestor(john);
 
             Assert.Equal(74, building.Bid.Id);
-            Assert.Equal("HAJH", building.Name);
+            Assert.Equal("BAJH", building.Name);
             Assert.Equal(2, building.Requestors.Count());
             Assert.Contains(john, building.Requestors);
         }
@@ -79,7 +79,7 @@ namespace Ccd.Bidding.Manager.Test
             building = distributionService.GetBuilding(bid, "HAJH");
 
             Assert.Equal(74, building.Bid.Id);
-            Assert.Equal("HAJH", building.Name);
+            Assert.Equal("BAJH", building.Name);
             Assert.Equal(2, building.Requestors.Count());
             Assert.Contains("John Yogus", building.Requestors.Select(x => x.Name));
             Assert.Contains("Todd Russell", building.Requestors.Select(x => x.Name));
@@ -91,7 +91,7 @@ namespace Ccd.Bidding.Manager.Test
             Mocker mocker = new Mocker(new TheNewBidMock());
             DistributionService distributionService = mocker.GetDistributionService();
             Bid bid = mocker.GetBiddingRepo().GetBid(74);
-            Building building = distributionService.GetBuilding(bid, "HAJH");
+            Building building = distributionService.GetBuilding(bid, "BAJH");
 
 
             Assert.Equal(2, building.GetRequestedQuantity(24197));
@@ -108,8 +108,8 @@ namespace Ccd.Bidding.Manager.Test
             buildings = distributionService.GetRequestorsBuildingNames_Elected_ByVendorResponse(89);
 
             Assert.Equal(2, buildings.Count());
-            Assert.Contains("HASH", buildings);
-            Assert.Contains("HAJH", buildings);
+            Assert.Contains("BASH", buildings);
+            Assert.Contains("BAJH", buildings);
         }
 
         [Fact]
@@ -120,7 +120,7 @@ namespace Ccd.Bidding.Manager.Test
             Mocker mocker = new Mocker(new TheNewBidMock()); ;
             DistributionService distributionService = mocker.GetDistributionService();
 
-            responseItems = distributionService.GetResponseItems_ByBuildingName_ByVendorResponse("HAJH", 88);
+            responseItems = distributionService.GetResponseItems_ByBuildingName_ByVendorResponse("BAJH", 88);
             responseItemsIds = responseItems.Select(x => x.Id);
 
             Assert.Equal(2, responseItems.Count());

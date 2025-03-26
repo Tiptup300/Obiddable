@@ -1,310 +1,303 @@
-﻿using Ccd.Bidding.Manager.Library.Bidding;
-using Ccd.Bidding.Manager.Library.Bidding.Cataloging;
-using Ccd.Bidding.Manager.Library.Bidding.Requesting;
-using Ccd.Bidding.Manager.Library.Bidding.Responding;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using OBiddable.Library.Bidding;
+using OBiddable.Library.Bidding.Cataloging;
+using OBiddable.Library.Bidding.Requesting;
+using OBiddable.Library.Bidding.Responding;
 
-namespace Ccd.Bidding.Manager.Library.EF.Bidding.Responding
+namespace OBiddable.Library.EF.Bidding.Responding;
+
+public class EFRespondingRepo : IRespondingRepo
 {
-    public class EFRespondingRepo : IRespondingRepo
+    #region Vendor Responses
+    public VendorResponse GetVendorResponse(int vendorResponseId)
     {
-        #region Vendor Responses
-        public VendorResponse GetVendorResponse(int vendorResponseId)
+        using (var dbc = new Dbc())
         {
-            using (var dbc = new Dbc())
-            {
-                return dbc.VendorResponses
-                    .Where(x => x.Id == vendorResponseId)
-                    .Include(x => x.Bid)
-                    .Include(x => x.ResponseItems)
-                    .ThenInclude(x => x.Item)
-                    .Single();
-            }
+            return dbc.VendorResponses
+                .Where(x => x.Id == vendorResponseId)
+                .Include(x => x.Bid)
+                .Include(x => x.ResponseItems)
+                .ThenInclude(x => x.Item)
+                .Single();
         }
-        public List<VendorResponse> GetVendorResponses_ByBid(int bidId)
+    }
+    public List<VendorResponse> GetVendorResponses_ByBid(int bidId)
+    {
+        using (var dbc = new Dbc())
         {
-            using (var dbc = new Dbc())
-            {
-                return dbc.VendorResponses
-                    .Include(q => q.ResponseItems)
-                    .ThenInclude(q => q.Item)
-                    .Include(b => b.Bid)
-                    .Where(x => x.Bid.Id == bidId)
-                    .ToList();
-            }
+            return dbc.VendorResponses
+                .Include(q => q.ResponseItems)
+                .ThenInclude(q => q.Item)
+                .Include(b => b.Bid)
+                .Where(x => x.Bid.Id == bidId)
+                .ToList();
         }
+    }
 
-        public void AddVendorResponse_ToBid(VendorResponse obj, int bidId)
+    public void AddVendorResponse_ToBid(VendorResponse obj, int bidId)
+    {
+        using (var dbc = new Dbc())
         {
-            using (var dbc = new Dbc())
-            {
-                dbc.Validate_AddVendorResponse_ToBid(obj, bidId);
+            dbc.Validate_AddVendorResponse_ToBid(obj, bidId);
 
-                Bid bid = dbc.Bids
-                    .Where(x => x.Id == bidId)
-                    .Include(a => a.VendorResponses)
-                    .Single();
+            Bid bid = dbc.Bids
+                .Where(x => x.Id == bidId)
+                .Include(a => a.VendorResponses)
+                .Single();
 
-                bid.VendorResponses.Add(obj);
-                dbc.SaveChanges();
-            }
+            bid.VendorResponses.Add(obj);
+            dbc.SaveChanges();
         }
-        public void UpdateVendorResponse(VendorResponse obj)
+    }
+    public void UpdateVendorResponse(VendorResponse obj)
+    {
+        using (var dbc = new Dbc())
         {
-            using (var dbc = new Dbc())
-            {
-                dbc.Validate_UpdateVendorResponse(obj);
+            dbc.Validate_UpdateVendorResponse(obj);
 
-                var r = dbc.VendorResponses.SingleOrDefault(x => x.Id == obj.Id);
+            var r = dbc.VendorResponses.SingleOrDefault(x => x.Id == obj.Id);
 
-                if (r is null)
-                    return;
+            if (r is null)
+                return;
 
-                r.VendorName = obj.VendorName;
+            r.VendorName = obj.VendorName;
 
-                dbc.SaveChanges();
+            dbc.SaveChanges();
 
-            }
         }
-        public void DeleteVendorResponse(int vendorResponseId)
+    }
+    public void DeleteVendorResponse(int vendorResponseId)
+    {
+        using (var dbc = new Dbc())
         {
-            using (var dbc = new Dbc())
-            {
-                dbc.Validate_DeleteVendorResponse(vendorResponseId);
+            dbc.Validate_DeleteVendorResponse(vendorResponseId);
 
-                var r = dbc.VendorResponses.SingleOrDefault(x => x.Id == vendorResponseId);
+            var r = dbc.VendorResponses.SingleOrDefault(x => x.Id == vendorResponseId);
 
-                if (r is null)
-                    return;
+            if (r is null)
+                return;
 
-                dbc.Remove(r);
-                dbc.SaveChanges();
-            }
+            dbc.Remove(r);
+            dbc.SaveChanges();
         }
-        public void DeleteVendorResponses_ByBid(int bidId)
+    }
+    public void DeleteVendorResponses_ByBid(int bidId)
+    {
+        using (var dbc = new Dbc())
         {
-            using (var dbc = new Dbc())
-            {
-                dbc.Validate_DeleteVendorResponses_ByBid(bidId);
+            dbc.Validate_DeleteVendorResponses_ByBid(bidId);
 
-                Bid bid = dbc.Bids
-                    .Where(x => x.Id == bidId)
-                    .Include(a => a.VendorResponses)
-                    .Single();
+            Bid bid = dbc.Bids
+                .Where(x => x.Id == bidId)
+                .Include(a => a.VendorResponses)
+                .Single();
 
 
-                bid.VendorResponses.ForEach(x => dbc.Remove(x));
+            bid.VendorResponses.ForEach(x => dbc.Remove(x));
 
-                dbc.SaveChanges();
-            }
+            dbc.SaveChanges();
         }
+    }
 
-        public bool Check_VendorResponseVendorNameAlreadyExists_InBid(string text, int bidId, int vendorResponseId)
+    public bool Check_VendorResponseVendorNameAlreadyExists_InBid(string text, int bidId, int vendorResponseId)
+    {
+        using (var dbc = new Dbc())
         {
-            using (var dbc = new Dbc())
-            {
-                return dbc.VendorResponses
-                    .Include(x => x.Bid)
-                    .Where(x => x.Bid.Id == bidId)
-                    .Any(x => x.VendorName == text);
-            }
+            return dbc.VendorResponses
+                .Include(x => x.Bid)
+                .Where(x => x.Bid.Id == bidId)
+                .Any(x => x.VendorName == text);
         }
-        #endregion
+    }
+    #endregion
 
-        #region Response Items
-        public ResponseItem GetResponseItem(int responseItemId)
+    #region Response Items
+    public ResponseItem GetResponseItem(int responseItemId)
+    {
+        ResponseItem output;
+
+        using (var dbc = new Dbc())
         {
-            ResponseItem output;
-
-            using (var dbc = new Dbc())
-            {
-                output = dbc.ResponseItems
-                    .AsNoTracking()
-                    .Where(x => x.Id == responseItemId)
-                    .Include(x => x.VendorResponse.Bid)
-                    .Include(x => x.VendorResponse)
-                    .Include(x => x.Item)
-                    .Single();
-            }
-            return output;
+            output = dbc.ResponseItems
+                .AsNoTracking()
+                .Where(x => x.Id == responseItemId)
+                .Include(x => x.VendorResponse.Bid)
+                .Include(x => x.VendorResponse)
+                .Include(x => x.Item)
+                .Single();
         }
-        public List<ResponseItem> GetResponseItems_ByBid(int bidId)
+        return output;
+    }
+    public List<ResponseItem> GetResponseItems_ByBid(int bidId)
+    {
+        using (var dbc = new Dbc())
         {
-            using (var dbc = new Dbc())
-            {
-                return dbc.ResponseItems
+            return dbc.ResponseItems
+            .Include(x => x.VendorResponse)
+            .ThenInclude(x => x.Bid)
+            .Include(x => x.Item)
+            .Where(x => x.VendorResponse.Bid.Id == bidId)
+            .ToList();
+        }
+    }
+    public List<ResponseItem> GetResponseItems_ByItem(int itemId)
+    {
+        using (var dbc = new Dbc())
+        {
+            return dbc.ResponseItems
+                .Include(x => x.Item)
                 .Include(x => x.VendorResponse)
                 .ThenInclude(x => x.Bid)
+                .Where(ri => ri.Item.Id == itemId)
+                .ToList();
+        }
+    }
+    public List<ResponseItem> GetResponseItems_ByVendorResponse(int vendorResponseId)
+    {
+        using (var dbc = new Dbc())
+        {
+            return dbc.ResponseItems
+            .Include(x => x.VendorResponse)
+            .Include(x => x.VendorResponse.Bid)
+            .Include(x => x.Item)
+            .Where(ri => ri.VendorResponse.Id == vendorResponseId)
+            .ToList();
+        }
+    }
+
+    public void AddResponseItem_ToVendorResponse(ResponseItem obj, int vendorResponseId)
+    {
+        using (var dbc = new Dbc())
+        {
+            dbc.Validate_AddResponseItem_ToVendorResponse(obj, vendorResponseId);
+
+            VendorResponse response = dbc.VendorResponses
+                .Where(x => x.Id == vendorResponseId)
+                .Include(x => x.ResponseItems)
+                .Single();
+
+            response.ResponseItems.Add(obj);
+            dbc.SaveChanges();
+        }
+    }
+    public void UpdateResponseItem(ResponseItem obj)
+    {
+        using (var dbc = new Dbc())
+        {
+            dbc.Validate_UpdateResponseItem(obj);
+
+            var r = dbc.ResponseItems.Include(x => x.Item).SingleOrDefault(x => x.Id == obj.Id);
+
+            if (r is null)
+                return;
+            //r.Item = v.Item;
+            r.Code = obj.Code;
+            r.Price = obj.Price;
+            r.AlternateQuantity = obj.AlternateQuantity;
+            r.AlternateUnit = obj.AlternateUnit;
+            r.IsAlternate = obj.IsAlternate;
+            r.AlternateDescription = obj.AlternateDescription;
+            r.Elected = obj.Elected;
+            r.ElectionReason = obj.ElectionReason;
+
+            dbc.SaveChanges();
+        }
+    }
+    public void DeleteResponseItem(int responseItemId)
+    {
+        using (var dbc = new Dbc())
+        {
+            dbc.Validate_DeleteResponseItem(responseItemId);
+
+            var r = dbc.ResponseItems.SingleOrDefault(x => x.Id == responseItemId);
+
+            if (r is null)
+                return;
+
+            dbc.Remove(r);
+            dbc.SaveChanges();
+        }
+    }
+    public void DeleteResponseItems_ByVendorResponse(int vendorResponseId)
+    {
+        using (var dbc = new Dbc())
+        {
+            dbc.Validate_DeleteResponseItems_ByVendorResponse(vendorResponseId);
+
+            VendorResponse response = dbc.VendorResponses
+                .Where(x => x.Id == vendorResponseId)
+                .Include(a => a.ResponseItems)
+                .Single();
+
+            response.ResponseItems.ForEach(x => dbc.Remove(x));
+
+            dbc.SaveChanges();
+        }
+    }
+    public void DeleteResponseItems_ByBid(int bidId)
+    {
+        using (var dbc = new Dbc())
+        {
+            dbc.Validate_DeleteResponseItems_ByBid(bidId);
+
+            var responseItems = dbc.ResponseItems.Include(x => x.VendorResponse).ThenInclude(x => x.Bid).Where(x => x.VendorResponse.Bid.Id == bidId).ToList();
+            responseItems.ForEach(x => dbc.Remove(x));
+            dbc.SaveChanges();
+        }
+    }
+
+
+    public bool Check_ResponseItemIsLowestBid(int vendorResponseId, IRequestingRepo requestingRepo)
+    {
+        using (var dbc = new Dbc())
+        {
+            ResponseItem ri = dbc.ResponseItems.Include(x => x.Item).SingleOrDefault(x => x.Id == vendorResponseId);
+
+            if (ri is null)
+                return false;
+
+            Item i = ri.Item;
+
+            List<ResponseItem> responseItemsForThisItem = dbc.ResponseItems
                 .Include(x => x.Item)
+                .Where(x => x.Item.Id == i.Id)
+                //.Where(x => !x.IsAlternate)
+                .ToList();
+
+            if (responseItemsForThisItem.Count() == 0)
+                return false;
+
+            ResponseItem lowBidResponseItem = responseItemsForThisItem.OrderBy(x => x.GetExtendedPrice(requestingRepo)).First();
+
+            return ri.Id == lowBidResponseItem.Id;
+        }
+    }
+    #endregion
+
+    #region Cataloging
+    public bool Check_ItemResponded(int itemId)
+    {
+        using (var dbc = new Dbc())
+        {
+            return dbc.ResponseItems.Include(x => x.Item).Any(x => x.Item.Id == itemId);
+
+        }
+    }
+    public List<Item> GetItems_Responded_ByBid(int bidId)
+    {
+        using (var dbc = new Dbc())
+        {
+            List<Item> allBidItems = dbc.Items.Include(a => a.Bid).Where(b => b.Bid.Id == bidId).ToList();
+
+            List<ResponseItem> allResponseItems = dbc.ResponseItems
+                .Include(x => x.Item)
+                .Include(x => x.VendorResponse)
+                .ThenInclude(x => x.Bid)
                 .Where(x => x.VendorResponse.Bid.Id == bidId)
                 .ToList();
-            }
+
+            return allBidItems.Where(x => allResponseItems.Any(y => y.Item.Id == x.Id)).ToList();
         }
-        public List<ResponseItem> GetResponseItems_ByItem(int itemId)
-        {
-            using (var dbc = new Dbc())
-            {
-                return dbc.ResponseItems
-                    .Include(x => x.Item)
-                    .Include(x => x.VendorResponse)
-                    .ThenInclude(x => x.Bid)
-                    .Where(ri => ri.Item.Id == itemId)
-                    .ToList();
-            }
-        }
-        public List<ResponseItem> GetResponseItems_ByVendorResponse(int vendorResponseId)
-        {
-            using (var dbc = new Dbc())
-            {
-                return dbc.ResponseItems
-                .Include(x => x.VendorResponse)
-                .Include(x => x.VendorResponse.Bid)
-                .Include(x => x.Item)
-                .Where(ri => ri.VendorResponse.Id == vendorResponseId)
-                .ToList();
-            }
-        }
-
-        public void AddResponseItem_ToVendorResponse(ResponseItem obj, int vendorResponseId)
-        {
-            using (var dbc = new Dbc())
-            {
-                dbc.Validate_AddResponseItem_ToVendorResponse(obj, vendorResponseId);
-
-                VendorResponse response = dbc.VendorResponses
-                    .Where(x => x.Id == vendorResponseId)
-                    .Include(x => x.ResponseItems)
-                    .Single();
-
-                response.ResponseItems.Add(obj);
-                dbc.SaveChanges();
-            }
-        }
-        public void UpdateResponseItem(ResponseItem obj)
-        {
-            using (var dbc = new Dbc())
-            {
-                dbc.Validate_UpdateResponseItem(obj);
-
-                var r = dbc.ResponseItems.Include(x => x.Item).SingleOrDefault(x => x.Id == obj.Id);
-
-                if (r is null)
-                    return;
-                //r.Item = v.Item;
-                r.Code = obj.Code;
-                r.Price = obj.Price;
-                r.AlternateQuantity = obj.AlternateQuantity;
-                r.AlternateUnit = obj.AlternateUnit;
-                r.IsAlternate = obj.IsAlternate;
-                r.AlternateDescription = obj.AlternateDescription;
-                r.Elected = obj.Elected;
-                r.ElectionReason = obj.ElectionReason;
-
-                dbc.SaveChanges();
-            }
-        }
-        public void DeleteResponseItem(int responseItemId)
-        {
-            using (var dbc = new Dbc())
-            {
-                dbc.Validate_DeleteResponseItem(responseItemId);
-
-                var r = dbc.ResponseItems.SingleOrDefault(x => x.Id == responseItemId);
-
-                if (r is null)
-                    return;
-
-                dbc.Remove(r);
-                dbc.SaveChanges();
-            }
-        }
-        public void DeleteResponseItems_ByVendorResponse(int vendorResponseId)
-        {
-            using (var dbc = new Dbc())
-            {
-                dbc.Validate_DeleteResponseItems_ByVendorResponse(vendorResponseId);
-
-                VendorResponse response = dbc.VendorResponses
-                    .Where(x => x.Id == vendorResponseId)
-                    .Include(a => a.ResponseItems)
-                    .Single();
-
-                response.ResponseItems.ForEach(x => dbc.Remove(x));
-
-                dbc.SaveChanges();
-            }
-        }
-        public void DeleteResponseItems_ByBid(int bidId)
-        {
-            using (var dbc = new Dbc())
-            {
-                dbc.Validate_DeleteResponseItems_ByBid(bidId);
-
-                var responseItems = dbc.ResponseItems.Include(x => x.VendorResponse).ThenInclude(x => x.Bid).Where(x => x.VendorResponse.Bid.Id == bidId).ToList();
-                responseItems.ForEach(x => dbc.Remove(x));
-                dbc.SaveChanges();
-            }
-        }
-
-
-        public bool Check_ResponseItemIsLowestBid(int vendorResponseId, IRequestingRepo requestingRepo)
-        {
-            using (var dbc = new Dbc())
-            {
-                ResponseItem ri = dbc.ResponseItems.Include(x => x.Item).SingleOrDefault(x => x.Id == vendorResponseId);
-
-                if (ri is null)
-                    return false;
-
-                Item i = ri.Item;
-
-                List<ResponseItem> responseItemsForThisItem = dbc.ResponseItems
-                    .Include(x => x.Item)
-                    .Where(x => x.Item.Id == i.Id)
-                    //.Where(x => !x.IsAlternate)
-                    .ToList();
-
-                if (responseItemsForThisItem.Count() == 0)
-                    return false;
-
-                ResponseItem lowBidResponseItem = responseItemsForThisItem.OrderBy(x => x.GetExtendedPrice(requestingRepo)).First();
-
-                return ri.Id == lowBidResponseItem.Id;
-            }
-        }
-        #endregion
-
-        #region Cataloging
-        public bool Check_ItemResponded(int itemId)
-        {
-            using (var dbc = new Dbc())
-            {
-                return dbc.ResponseItems.Include(x => x.Item).Any(x => x.Item.Id == itemId);
-
-            }
-        }
-        public List<Item> GetItems_Responded_ByBid(int bidId)
-        {
-            using (var dbc = new Dbc())
-            {
-                List<Item> allBidItems = dbc.Items.Include(a => a.Bid).Where(b => b.Bid.Id == bidId).ToList();
-
-                List<ResponseItem> allResponseItems = dbc.ResponseItems
-                    .Include(x => x.Item)
-                    .Include(x => x.VendorResponse)
-                    .ThenInclude(x => x.Bid)
-                    .Where(x => x.VendorResponse.Bid.Id == bidId)
-                    .ToList();
-
-                return allBidItems.Where(x => allResponseItems.Any(y => y.Item.Id == x.Id)).ToList();
-            }
-        }
-
-        #endregion
     }
+
+    #endregion
 }

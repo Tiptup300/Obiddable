@@ -1,15 +1,13 @@
-﻿using Ccd.Bidding.Manager.Library.Bidding.Electing;
-using Ccd.Bidding.Manager.Library.Bidding.Requesting;
-using System.Linq;
+﻿using OBiddable.Library.Bidding.Electing;
+using OBiddable.Library.Bidding.Requesting;
 
-namespace Ccd.Bidding.Manager.Library.Bidding.Distribution
+namespace OBiddable.Library.Bidding.Distribution;
+
+public static class BiddingExtensions
 {
-    public static class BiddingExtensions
+    public static bool HasUnmatchedQuantities(this Bid bid, IRequestingRepo requestingRepo, ILegacyElectionsRepo electionsRepo)
     {
-        public static bool HasUnmatchedQuantities(this Bid bid, IRequestingRepo requestingRepo, ILegacyElectionsRepo electionsRepo)
-        {
-            return electionsRepo.GetElectedResponseItemsByBid(bid.Id)
-                .Any(responseItem => responseItem.IsMismatchedQuantity(requestingRepo));
-        }
+        return electionsRepo.GetElectedResponseItemsByBid(bid.Id)
+            .Any(responseItem => responseItem.IsMismatchedQuantity(requestingRepo));
     }
 }

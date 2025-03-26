@@ -1,16 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace OBiddable.Library.Bidding;
 
-namespace Ccd.Bidding.Manager.Library.Bidding
+public interface IBiddingOperations
 {
-    public interface IBiddingOperations
-    {
-        bool ClearAndDeleteBid(Bid bid);
-        Bid DuplicateBid(int bidId);
-        Bid RollBid(int bidId);
-    }
-
+    bool ClearAndDeleteBid(Bid bid);
+    Bid DuplicateBid(int bidId);
+    Bid RollBid(int bidId);
 }

@@ -1,4 +1,4 @@
-﻿using Ccd.Bidding.Manager.Library.Operations;
+﻿using OBiddable.Library.Operations;
 using System;
 using System.Collections.Generic;
 using System.Linq;

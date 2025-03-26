@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.IO;
 using Ccd.Bidding.Manager.Library.Bidding.Requesting;
 using Ccd.Bidding.Manager.Library.Bidding;
-using Ccd.Bidding.Manager.Library.Bidding.Purchasing;
 using Ccd.Bidding.Manager.Library.Bidding.Responding;
 using Ccd.Bidding.Manager.Win.Library.IO;
-using Ccd.Bidding.Manager.Library.Conversions.Bidding.Purchasing;
 using Ccd.Bidding.Manager.Win.UI.Bidding.Purchasing;
+using OBiddable.Library.Conversions.Bidding.Purchasing;
+using OBiddable.Library.Bidding.Purchasing;
 
 namespace Ccd.Bidding.Manager.Win.Library.IO.Bidding.Purchasing
 {

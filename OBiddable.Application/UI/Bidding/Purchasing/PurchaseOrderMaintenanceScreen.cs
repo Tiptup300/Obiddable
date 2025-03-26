@@ -3,12 +3,6 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
-using Ccd.Bidding.Manager.Library.Bidding;
-using Ccd.Bidding.Manager.Library.Bidding.Purchasing;
-using Ccd.Bidding.Manager.Library.Bidding.Requesting;
-using Ccd.Bidding.Manager.Library.Bidding.Electing;
-using Ccd.Bidding.Manager.Library.Bidding.Responding;
-using Ccd.Bidding.Manager.Library.Bidding.Distribution;
 using Ccd.Bidding.Manager.Library.EF.Bidding;
 using Ccd.Bidding.Manager.Library.EF.Bidding.Requesting;
 using Ccd.Bidding.Manager.Library.EF.Bidding.Responding;
@@ -22,6 +16,12 @@ using Ccd.Bidding.Manager.Reporting.Bidding.VendorResponses;
 using Ccd.Bidding.Manager.Library.EF.Bidding.Distribution;
 using Ccd.Bidding.Manager.Win.Library.Operations.Bidding;
 using Ccd.Bidding.Manager.Win.Library.IO.Bidding.Purchasing;
+using OBiddable.Library.Bidding.Distribution;
+using OBiddable.Library.Bidding.Responding;
+using OBiddable.Library.Bidding.Purchasing;
+using OBiddable.Library.Bidding.Electing;
+using OBiddable.Library.Bidding;
+using OBiddable.Library.Bidding.Requesting;
 
 namespace Ccd.Bidding.Manager.Win.UI.Bidding.Purchasing
 {
