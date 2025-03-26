@@ -1,0 +1,11 @@
+﻿<h3>Available Actions</h3>
+<p>
+    Below are the available actions for this screen.
+</p>
+<ul>
+    <li>Generate Purchase Orders</li>
+    <li>Export Purchase Order to Excel</li>
+</ul>
+
+
+

@@ -1,0 +1,14 @@
+﻿<h3>Available Actions</h3>
+<p>
+    Below are the available actions for this screen.
+</p>
+<ul>
+    <li>Import Requestors From CSV</li>
+    <li>Export All Requestors To CSV</li>
+    <li>Generate Requestor Import Template To CSV</li>
+    <li>Generate Blank Requests For All Requestors To Excel</li>
+    <li>Clear Selected Requestors Requests</li>
+</ul>
+
+
+

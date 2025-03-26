@@ -1,0 +1,13 @@
+﻿<h3>Available Actions</h3>
+<p>
+    Below are the available actions for this screen.
+</p>
+<ul>
+    <li>Update All Item Prices</li>
+    <li>Reset All Item Prices</li>
+    <li>Import Items From CSV</li>
+    <li>Export All Items To CSV</li>
+    <li>Generate Item Import Template To CSV</li>
+</ul>
+
+

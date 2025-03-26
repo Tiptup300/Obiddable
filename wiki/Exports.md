@@ -1,0 +1,6 @@
+<h1>Exports</h1>
+<p>
+    The application is able to export data to user editable and viewable files. This is primarily through CSV &amp; Excel file formats. This documentation 
+    will help the user to understand how the exports work on the system and what they are able to do with these exports. Such as editing in excel, or 
+    importing back into the system.
+</p>
