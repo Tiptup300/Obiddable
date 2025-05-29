@@ -1,6 +1,5 @@
 ﻿using Ccd.Bidding.Manager.Library.Bidding;
 using Ccd.Bidding.Manager.Library.Bidding.Cataloging;
-using Ccd.Bidding.Manager.Library.Bidding.Purchasing;
 using Ccd.Bidding.Manager.Library.Bidding.Requesting;
 using Ccd.Bidding.Manager.Library.Bidding.Responding;
 using Ccd.Bidding.Manager.Test.Repos;
@@ -9,107 +8,107 @@ using System.Linq;
 
 namespace Ccd.Bidding.Manager.Test.MockBids
 {
-    class UnmatchedAlternateMultipleMockBidBuilder : IMockBidBuilder
-    {
-        public Bid BuildBid()
-        {
-            Bid bid;
+   class UnmatchedAlternateMultipleMockBidBuilder : IMockBidBuilder
+   {
+      public Bid BuildBid()
+      {
+         Bid bid;
 
-            bid = new Bid() { Id = 74, Name = "THE NEW BID - With UnmatchedALternate" };
-            bid.Items = buildItems(bid);
-            bid.Requestors = buildRequestors(bid);
-            bid.VendorResponses = buildVendorResponses(bid);
-            markElections(bid);
+         bid = new Bid() { Id = 74, Name = "THE NEW BID - With UnmatchedALternate" };
+         bid.Items = buildItems(bid);
+         bid.Requestors = buildRequestors(bid);
+         bid.VendorResponses = buildVendorResponses(bid);
+         markElections(bid);
 
-            return bid;
-        }
+         return bid;
+      }
 
 
-        private List<Item> buildItems(Bid bid)
-        {
-            return new List<Item>()
+      private List<Item> buildItems(Bid bid)
+      {
+         return new List<Item>()
             {
                 new Item(24197, bid, 001800, "", "Acid Rain Bio Kit", false, "EACH", 0, 0)
             };
-        }
+      }
 
-        private List<Requestor> buildRequestors(Bid bid)
-        {
-            return new List<Requestor>()
+      private List<Requestor> buildRequestors(Bid bid)
+      {
+         return new List<Requestor>()
             {
                 buildJohn(bid),
                 buildJill(bid)
             };
-        }
+      }
 
-        private Requestor buildJohn(Bid bid)
-        {
-            Requestor output;
-            Request request;
+      private Requestor buildJohn(Bid bid)
+      {
+         Requestor output;
+         Request request;
 
-            output = new Requestor() { Id = 374, Bid = bid, Name = "John Yogus", Building = "HAJH", Code = 23 };
-            request = new Request() { Id = 375, Account_Number = "10.1110.610.000.30.31.12.0020", Requestor = output };
-            request.RequestItems = new List<RequestItem>()
+         output = new Requestor() { Id = 374, Bid = bid, Name = "John Yogus", Building = "HAJH", Code = 23 };
+         request = new Request() { Id = 375, Account_Number = "10.1110.610.000.30.31.12.0020", Requestor = output };
+         request.RequestItems = new List<RequestItem>()
             {
                 new RequestItem() { Id = 1078, Item = bid.Items[0], Quantity = 5, Request = request  }
             };
-            output.Requests = new List<Request>() { request };
+         output.Requests = new List<Request>() { request };
 
-            return output;
-        }
+         return output;
+      }
 
-        private Requestor buildJill(Bid bid)
-        {
-            Requestor output;
-            Request request;
+      private Requestor buildJill(Bid bid)
+      {
+         Requestor output;
+         Request request;
 
-            output = new Requestor() { Id = 375, Bid = bid, Name = "Jill Hillman", Building = "HASH", Code = 24 };
-            request = new Request() { Id = 376, Account_Number = "10.1110.610.000.30.31.12.0020", Requestor = output };
-            request.RequestItems = new List<RequestItem>()
+         output = new Requestor() { Id = 375, Bid = bid, Name = "Jill Hillman", Building = "HASH", Code = 24 };
+         request = new Request() { Id = 376, Account_Number = "10.1110.610.000.30.31.12.0020", Requestor = output };
+         request.RequestItems = new List<RequestItem>()
             {
                 new RequestItem() { Id = 1079, Item = bid.Items[0], Quantity = 5, Request = request  }
             };
-            output.Requests = new List<Request>() { request };
+         output.Requests = new List<Request>() { request };
 
-            return output;
-        }
+         return output;
+      }
 
-        private List<VendorResponse> buildVendorResponses(Bid bid)
-        {
-            return new List<VendorResponse>()
+      private List<VendorResponse> buildVendorResponses(Bid bid)
+      {
+         return new List<VendorResponse>()
             {
                 buildHorvak(bid)
             };
-        }
+      }
 
-        private VendorResponse buildHorvak(Bid bid)
-        {
-            VendorResponse output;
+      private VendorResponse buildHorvak(Bid bid)
+      {
+         VendorResponse output;
 
-            output = new VendorResponse() { Id = 89, Bid = bid, VendorName = "Horvak Chemical Supply" };
-            output.ResponseItems = new List<ResponseItem>()
+         output = new VendorResponse() { Id = 89, Bid = bid, VendorName = "Horvak Chemical Supply" };
+         output.ResponseItems = new List<ResponseItem>()
             {
                 new ResponseItem(847, bid.Items[0], "1", 1M, 1M, "CASE", true, "sams club", false, null)
             };
-            output.ResponseItems.ForEach(x => x.VendorResponse = output);
+         output.ResponseItems.ForEach(x => x.VendorResponse = output);
 
-            return output;
-        }
-        private void markElections(Bid bid)
-        {
-            IEnumerable<ResponseItem> responseItems;
+         return output;
+      }
+      private void markElections(Bid bid)
+      {
+         IEnumerable<ResponseItem> responseItems;
 
-            responseItems = bid.VendorResponses.SelectMany(x => x.ResponseItems);
-            electResponseItemById(responseItems, 847, "The one we want");
-        }
+         responseItems = bid.VendorResponses.SelectMany(x => x.ResponseItems);
+         electResponseItemById(responseItems, 847, "The one we want");
+      }
 
-        private void electResponseItemById(IEnumerable<ResponseItem> responseItems, int id, string reason)
-        {
-            ResponseItem electedResponseItem;
+      private void electResponseItemById(IEnumerable<ResponseItem> responseItems, int id, string reason)
+      {
+         ResponseItem electedResponseItem;
 
-            electedResponseItem = responseItems.Single(x => x.Id == id);
-            electedResponseItem.Elected = true;
-            electedResponseItem.ElectionReason = reason;
-        }
-    }
+         electedResponseItem = responseItems.Single(x => x.Id == id);
+         electedResponseItem.Elected = true;
+         electedResponseItem.ElectionReason = reason;
+      }
+   }
 }

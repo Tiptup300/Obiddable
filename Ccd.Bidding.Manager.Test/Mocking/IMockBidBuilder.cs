@@ -2,8 +2,8 @@
 
 namespace Ccd.Bidding.Manager.Test.Repos
 {
-    public interface IMockBidBuilder
-    {
-        Bid BuildBid();
-    }
+   public interface IMockBidBuilder
+   {
+      Bid BuildBid();
+   }
 }

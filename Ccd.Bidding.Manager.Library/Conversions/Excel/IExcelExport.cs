@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.IO;
 
 namespace Ccd.Bidding.Manager.Library.Conversions.Excel
 {
-    public interface IExcelExport
-    {
-        MemoryStream Generate();
-    }
+   public interface IExcelExport
+   {
+      MemoryStream Generate();
+   }
 }

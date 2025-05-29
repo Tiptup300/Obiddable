@@ -1,21 +1,16 @@
-﻿using Ccd.Bidding.Manager.Win.UI.Bidding.Electing;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 
 namespace Ccd.Bidding.Manager.Win.Library.UI
 {
-    public class HostScreenResolver
-    {
-        public HostScreen Resolve<TScreen>() where TScreen : HostScreen
-        {
-            HostScreen output;
+   public class HostScreenResolver
+   {
+      public HostScreen Resolve<TScreen>() where TScreen : HostScreen
+      {
+         HostScreen output;
 
-            output = (HostScreen)Activator.CreateInstance<TScreen>();
+         output = (HostScreen)Activator.CreateInstance<TScreen>();
 
-            return output;
-        }
-    }
+         return output;
+      }
+   }
 }

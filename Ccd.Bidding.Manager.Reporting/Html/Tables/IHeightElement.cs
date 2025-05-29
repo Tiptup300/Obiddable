@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Ccd.Bidding.Manager.Reporting.Html.Tables
+﻿namespace Ccd.Bidding.Manager.Reporting.Html.Tables
 {
-    public interface IHeightElement
-    {
-        int LineHeight { get; }
-    }
+   public interface IHeightElement
+   {
+      int LineHeight { get; }
+   }
 }

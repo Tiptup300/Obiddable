@@ -1,103 +1,97 @@
 ﻿using Ccd.Bidding.Manager.Library.Bidding;
 using Ccd.Bidding.Manager.Library.EF.Bidding;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Ccd.Bidding.Manager.Win.UI.Bidding
 {
-    public partial class BidEditForm : Form
-    {
-        private readonly IBiddingRepo _biddingRepo = new EFBiddingRepo();
-        private readonly BiddingService _biddingService = new BiddingService(new EFBiddingRepo());
+   public partial class BidEditForm : Form
+   {
+      private readonly IBiddingRepo _biddingRepo = new EFBiddingRepo();
+      private readonly BiddingService _biddingService = new BiddingService(new EFBiddingRepo());
 
-        private int _bidId;
+      private int _bidId;
 
-        public BidEditForm()
-        {
-            InitializeComponent();
-        }
+      public BidEditForm()
+      {
+         InitializeComponent();
+      }
 
-        public BidEditForm(Bid bid)
-        {
-            InitializeComponent();
-            Text = "Edit Bid";
+      public BidEditForm(Bid bid)
+      {
+         InitializeComponent();
+         Text = "Edit Bid";
 
-            _bidId = bid.Id;
-            nameTextBox.Text = bid.Name;
-        }
+         _bidId = bid.Id;
+         nameTextBox.Text = bid.Name;
+      }
 
-        #region GET OBJECT METHOD
-        public Bid GetBid()
-        {
-            if (dataIsValid())
-                return new Bid() {
-                    Id = _bidId, 
-                    Name = nameTextBox.Text 
-                };
-            else
-                return null;
-        }
-        #endregion
-
-        #region DATA VALIDATION METHOD
-        private bool dataIsValid()
-        {
-            if (nameTextBox.Text.Length == 0)
+      #region GET OBJECT METHOD
+      public Bid GetBid()
+      {
+         if (dataIsValid())
+            return new Bid()
             {
-                errorProvider1.SetError(nameTextBox, BiddingMessaging.Instance.GetBidNameCannotBeBlank());
-                return false;
-            }
-            if (nameTextBox.Text.Length > 100)
-            {
-                errorProvider1.SetError(nameTextBox, BiddingMessaging.Instance.GetBidNameCannotBeTooLong());
-                return false;
-            }
+               Id = _bidId,
+               Name = nameTextBox.Text
+            };
+         else
+            return null;
+      }
+      #endregion
 
-            if (_biddingService.BidNameExists(nameTextBox.Text,_bidId))
-            {
-                errorProvider1.SetError(nameTextBox, BiddingMessaging.Instance.GetBidNameCannotAlreadyExist());
-                return false;
-            }
+      #region DATA VALIDATION METHOD
+      private bool dataIsValid()
+      {
+         if (nameTextBox.Text.Length == 0)
+         {
+            errorProvider1.SetError(nameTextBox, BiddingMessaging.Instance.GetBidNameCannotBeBlank());
+            return false;
+         }
+         if (nameTextBox.Text.Length > 100)
+         {
+            errorProvider1.SetError(nameTextBox, BiddingMessaging.Instance.GetBidNameCannotBeTooLong());
+            return false;
+         }
 
-            return true;
-        }
-        #endregion
+         if (_biddingService.BidNameExists(nameTextBox.Text, _bidId))
+         {
+            errorProvider1.SetError(nameTextBox, BiddingMessaging.Instance.GetBidNameCannotAlreadyExist());
+            return false;
+         }
 
-        #region BUTTON EVENTS
-        private void savechangesButton_Click(object sender, EventArgs e)
-        {
-            if (dataIsValid())
-            {
-                DialogResult = DialogResult.OK;
-                Close();
-            }
-        }
+         return true;
+      }
+      #endregion
 
-        private void toolStripButton1_Click(object sender, EventArgs e)
-        {
-            DialogResult = DialogResult.Cancel;
+      #region BUTTON EVENTS
+      private void savechangesButton_Click(object sender, EventArgs e)
+      {
+         if (dataIsValid())
+         {
+            DialogResult = DialogResult.OK;
             Close();
-        }
-        #endregion
+         }
+      }
 
-        private void BidEditDialog_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                savechangesButton_Click(sender, e);
-            }
+      private void toolStripButton1_Click(object sender, EventArgs e)
+      {
+         DialogResult = DialogResult.Cancel;
+         Close();
+      }
+      #endregion
 
-            if (e.KeyCode == Keys.Escape)
-            {
-                toolStripButton1_Click(sender, e);
-            }
-        }
-    }
+      private void BidEditDialog_KeyDown(object sender, KeyEventArgs e)
+      {
+         if (e.KeyCode == Keys.Enter)
+         {
+            savechangesButton_Click(sender, e);
+         }
+
+         if (e.KeyCode == Keys.Escape)
+         {
+            toolStripButton1_Click(sender, e);
+         }
+      }
+   }
 }
