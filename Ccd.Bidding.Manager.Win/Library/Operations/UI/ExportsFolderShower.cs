@@ -9,7 +9,12 @@ namespace Ccd.Bidding.Manager.Win.Library.Operations.UI
       {
          if (UserConfiguration.Instance.DefaultExportsDirectory.Exists)
          {
-            System.Diagnostics.Process.Start(UserConfiguration.Instance.DefaultExportsDirectory.FullName);
+            var psi = new System.Diagnostics.ProcessStartInfo
+            {
+               FileName = UserConfiguration.Instance.DefaultExportsDirectory.FullName,
+               UseShellExecute = true
+            };
+            System.Diagnostics.Process.Start(psi);
          }
          else
          {

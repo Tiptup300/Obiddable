@@ -1,11 +1,8 @@
 ﻿using Ccd.Bidding.Manager.Reporting;
 using Ccd.Bidding.Manager.Win.UI;
 using System.Data;
-using System.IO;
-using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
-using System.Windows.Forms;
 
 namespace Ccd.Bidding.Manager.Win.Library.IO
 {
@@ -32,7 +29,12 @@ namespace Ccd.Bidding.Manager.Win.Library.IO
          File.WriteAllText(fileName, data);
          if (UserConfiguration.Instance.AutoOpenReports)
          {
-            System.Diagnostics.Process.Start(fileName);
+            var psi = new System.Diagnostics.ProcessStartInfo
+            {
+               FileName = fileName,
+               UseShellExecute = true
+            };
+            System.Diagnostics.Process.Start(psi);
          }
       }
       public static void SaveCSV(string initialFileName, string data, string dialogTitle, bool supressDialog)
@@ -49,7 +51,12 @@ namespace Ccd.Bidding.Manager.Win.Library.IO
          File.WriteAllText(fileName, data);
          if (UserConfiguration.Instance.AutoOpenExports)
          {
-            System.Diagnostics.Process.Start(fileName);
+            var psi = new System.Diagnostics.ProcessStartInfo
+            {
+               FileName = fileName,
+               UseShellExecute = true
+            };
+            System.Diagnostics.Process.Start(psi);
          }
       }
 
@@ -71,7 +78,12 @@ namespace Ccd.Bidding.Manager.Win.Library.IO
          }
          if (UserConfiguration.Instance.AutoOpenExports)
          {
-            System.Diagnostics.Process.Start(fileName);
+            var psi = new System.Diagnostics.ProcessStartInfo
+            {
+               FileName = fileName,
+               UseShellExecute = true
+            };
+            System.Diagnostics.Process.Start(psi);
          }
 
       }
@@ -103,7 +115,12 @@ namespace Ccd.Bidding.Manager.Win.Library.IO
 
          if (UserConfiguration.Instance.AutoOpenExports)
          {
-            System.Diagnostics.Process.Start(folderPath);
+            var psi = new System.Diagnostics.ProcessStartInfo
+            {
+               FileName = folderPath,
+               UseShellExecute = true
+            };
+            System.Diagnostics.Process.Start(psi);
          }
 
       }

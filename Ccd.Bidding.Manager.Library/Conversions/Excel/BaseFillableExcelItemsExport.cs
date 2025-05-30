@@ -2,9 +2,7 @@
 using Ccd.Bidding.Manager.Library.Bidding.Cataloging;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
-using System.Collections.Generic;
 using System.Drawing;
-using System.IO;
 
 namespace Ccd.Bidding.Manager.Library.Conversions.Excel
 {
@@ -63,12 +61,12 @@ namespace Ccd.Bidding.Manager.Library.Conversions.Excel
          ws.PrinterSettings.PrintArea = ws.Cells[1, 1, lastItemRow, PrintedColumns];
 
          // margins
-         ws.PrinterSettings.HeaderMargin = 0.25M;
-         ws.PrinterSettings.FooterMargin = 0.25M;
-         ws.PrinterSettings.TopMargin = 1M;
-         ws.PrinterSettings.LeftMargin = 0.25M;
-         ws.PrinterSettings.RightMargin = 0.25M;
-         ws.PrinterSettings.BottomMargin = 0.5M;
+         ws.PrinterSettings.HeaderMargin = 0.25d;
+         ws.PrinterSettings.FooterMargin = 0.25d;
+         ws.PrinterSettings.TopMargin = 1d;
+         ws.PrinterSettings.LeftMargin = 0.25d;
+         ws.PrinterSettings.RightMargin = 0.25d;
+         ws.PrinterSettings.BottomMargin = 0.5d;
 
          // other page settings
          ws.PrinterSettings.FitToPage = true;

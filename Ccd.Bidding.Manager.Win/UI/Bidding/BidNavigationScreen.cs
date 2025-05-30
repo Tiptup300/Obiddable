@@ -8,9 +8,6 @@ using Ccd.Bidding.Manager.Win.UI.Bidding.Electing;
 using Ccd.Bidding.Manager.Win.UI.Bidding.Purchasing;
 using Ccd.Bidding.Manager.Win.UI.Bidding.Requesting;
 using Ccd.Bidding.Manager.Win.UI.Bidding.Responding;
-using System;
-using System.Linq;
-using System.Windows.Forms;
 
 namespace Ccd.Bidding.Manager.Win.UI.Bidding.Navigation
 {
@@ -146,6 +143,5 @@ namespace Ccd.Bidding.Manager.Win.UI.Bidding.Navigation
       {
          load(_bid.Id);
       }
-
    }
 }
