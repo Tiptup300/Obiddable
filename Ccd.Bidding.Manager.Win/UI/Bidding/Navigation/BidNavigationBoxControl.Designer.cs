@@ -21,73 +21,75 @@ namespace Ccd.Bidding.Manager.Win.UI.Bidding.Navigation
             base.Dispose(disposing);
         }
 
-        #region Component Designer generated code
+      #region Component Designer generated code
 
-        /// <summary> 
-        /// Required method for Designer support - do not modify 
-        /// the contents of this method with the code editor.
-        /// </summary>
-        private void InitializeComponent()
-        {
-            this.titleLabel = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.editButton = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
-            this.SuspendLayout();
-            // 
-            // titleLabel
-            // 
-            this.titleLabel.AutoSize = true;
-            this.titleLabel.Font = new System.Drawing.Font("Segoe UI Light", 18F);
-            this.titleLabel.Location = new System.Drawing.Point(6, 11);
-            this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(56, 32);
-            this.titleLabel.TabIndex = 0;
-            this.titleLabel.Text = "Title";
-            // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panel1.Controls.Add(this.editButton);
-            this.panel1.Controls.Add(this.titleLabel);
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(415, 257);
-            this.panel1.TabIndex = 5;
-            // 
-            // editButton
-            // 
-            this.editButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.editButton.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.editButton.Font = new System.Drawing.Font("Segoe UI Light", 18F);
-            this.editButton.ForeColor = System.Drawing.Color.White;
-            this.editButton.Location = new System.Drawing.Point(335, 4);
-            this.editButton.Name = "editButton";
-            this.editButton.Size = new System.Drawing.Size(77, 46);
-            this.editButton.TabIndex = 5;
-            this.editButton.Text = "Edit";
-            this.editButton.UseVisualStyleBackColor = false;
-            // 
-            // BidNavigationBoxControl
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.Controls.Add(this.panel1);
-            this.Name = "BidNavigationBoxControl";
-            this.Size = new System.Drawing.Size(421, 263);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.ResumeLayout(false);
+      /// <summary> 
+      /// Required method for Designer support - do not modify 
+      /// the contents of this method with the code editor.
+      /// </summary>
+      private void InitializeComponent()
+      {
+         titleLabel = new Label();
+         panel1 = new Panel();
+         editButton = new Button();
+         panel1.SuspendLayout();
+         SuspendLayout();
+         // 
+         // titleLabel
+         // 
+         titleLabel.AutoSize = true;
+         titleLabel.Font = new Font("Segoe UI Light", 18F);
+         titleLabel.Location = new Point(8, 17);
+         titleLabel.Margin = new Padding(4, 0, 4, 0);
+         titleLabel.Name = "titleLabel";
+         titleLabel.Size = new Size(69, 41);
+         titleLabel.TabIndex = 0;
+         titleLabel.Text = "Title";
+         // 
+         // panel1
+         // 
+         panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+         panel1.BackColor = SystemColors.ControlLightLight;
+         panel1.Controls.Add(editButton);
+         panel1.Controls.Add(titleLabel);
+         panel1.Location = new Point(4, 5);
+         panel1.Margin = new Padding(4, 5, 4, 5);
+         panel1.Name = "panel1";
+         panel1.Size = new Size(792, 590);
+         panel1.TabIndex = 5;
+         // 
+         // editButton
+         // 
+         editButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+         editButton.BackColor = SystemColors.ControlDarkDark;
+         editButton.Font = new Font("Segoe UI Light", 18F);
+         editButton.ForeColor = Color.White;
+         editButton.Location = new Point(686, 6);
+         editButton.Margin = new Padding(4, 5, 4, 5);
+         editButton.Name = "editButton";
+         editButton.Size = new Size(103, 71);
+         editButton.TabIndex = 5;
+         editButton.Text = "Edit";
+         editButton.UseVisualStyleBackColor = false;
+         // 
+         // BidNavigationBoxControl
+         // 
+         AutoScaleDimensions = new SizeF(8F, 20F);
+         AutoScaleMode = AutoScaleMode.Font;
+         BackColor = Color.FromArgb(240, 240, 240);
+         Controls.Add(panel1);
+         Margin = new Padding(4, 5, 4, 5);
+         Name = "BidNavigationBoxControl";
+         Size = new Size(800, 600);
+         panel1.ResumeLayout(false);
+         panel1.PerformLayout();
+         ResumeLayout(false);
 
-        }
+      }
 
-        #endregion
+      #endregion
 
-        private System.Windows.Forms.Label titleLabel;
+      private System.Windows.Forms.Label titleLabel;
         protected System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button editButton;
     }
