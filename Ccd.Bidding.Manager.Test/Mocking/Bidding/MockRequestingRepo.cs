@@ -1,8 +1,5 @@
 ﻿using Ccd.Bidding.Manager.Library.Bidding.Cataloging;
 using Ccd.Bidding.Manager.Library.Bidding.Requesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Ccd.Bidding.Manager.Test.Repos
 {
@@ -98,12 +95,17 @@ namespace Ccd.Bidding.Manager.Test.Repos
          throw new NotImplementedException();
       }
 
+      public string[]? GetNewRequestAccountNumbers_ByRequestor(int requestorId)
+      {
+         throw new NotImplementedException();
+      }
+
       public Request GetRequest(int requestId)
       {
          throw new NotImplementedException();
       }
 
-      public string[] GetRequestAccoutNumbers_ByBid(int bidId)
+      public string[] GetRequestAccountNumbers_ByBid(int bidId)
       {
          throw new NotImplementedException();
       }

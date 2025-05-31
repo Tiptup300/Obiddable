@@ -1,8 +1,6 @@
 ﻿using Ccd.Bidding.Manager.Library.Bidding;
 using Ccd.Bidding.Manager.Library.Bidding.Cataloging;
 using Ccd.Bidding.Manager.Library.EF.Bidding.Cataloging;
-using System;
-using System.Windows.Forms;
 
 namespace Ccd.Bidding.Manager.Win.UI.Bidding.Cataloging
 {
@@ -13,7 +11,6 @@ namespace Ccd.Bidding.Manager.Win.UI.Bidding.Cataloging
 
       private Bid _bid;
       private int _itemId;
-
 
       public ItemEditForm(Bid bid)
       {
@@ -36,14 +33,12 @@ namespace Ccd.Bidding.Manager.Win.UI.Bidding.Cataloging
 
          estimatedPriceTextBox.Text = item.Price.ToString("0.0000");
          lastOrderPriceTextBox.Text = item.Last_Order_Price.ToString("0.0000");
-
       }
 
-      private void LoadCategories() => categoryComboBox.Items.AddRange(_catalogingService.GetItemCategories_ByBid(_bid.Id));
+      private void LoadCategories()
+         => categoryComboBox.Items.AddRange(_catalogingService.GetItemCategories_ByBid(_bid.Id));
 
-      #region GET OBJECT METHOD
-
-      public Item GetItem()
+      public Item? GetItem()
       {
          Item output;
          int id;
@@ -56,7 +51,7 @@ namespace Ccd.Bidding.Manager.Win.UI.Bidding.Cataloging
          decimal lastOrderPrice;
          decimal price;
 
-         if (dataIsValid() == false)
+         if (IsDataValid() == false)
          {
             return null;
          }
@@ -74,11 +69,7 @@ namespace Ccd.Bidding.Manager.Win.UI.Bidding.Cataloging
          return output;
       }
 
-      #endregion
-
-      #region DATA VALIDATION METHOD
-
-      private bool dataIsValid()
+      private bool IsDataValid()
       {
          // codeTextBox
          if (codeTextBox.Text.Length == 0)
@@ -132,6 +123,10 @@ namespace Ccd.Bidding.Manager.Win.UI.Bidding.Cataloging
             return false;
          }
 
+         // TODO: After full bid, check to see if this should be uncommented?
+         // It seems reasonable to me we should NOT allow an item to be substitutable if there are vendor responses with alternates.
+         // But this is doing the opposite.
+         //
          //if(substitutableCheckBox.Checked && bmRepo.Check_ItemHasAlternateResponded(_itemId,_bid.Id))
          //{
          //    errorProvider1.SetError(substitutableCheckBox, "Cannot set item to substitutable if there are vendor responses for this item with alternates.");
@@ -141,38 +136,32 @@ namespace Ccd.Bidding.Manager.Win.UI.Bidding.Cataloging
          return true;
       }
 
-      #endregion
-
-      #region BUTTON EVENTS
-
-      private void toolStripButton2_Click(object sender, EventArgs e)
+      private void OnSaveChangesClicked(object sender, EventArgs e)
       {
-         if (dataIsValid())
+         if (IsDataValid())
          {
             DialogResult = DialogResult.OK;
             Close();
          }
       }
 
-      private void toolStripButton1_Click(object sender, EventArgs e)
+      private void OnCancelButtonClicked(object sender, EventArgs e)
       {
          DialogResult = DialogResult.Cancel;
          Close();
       }
 
 
-      #endregion
-
       private void ItemEditForm_KeyDown(object sender, KeyEventArgs e)
       {
          if (e.KeyCode == Keys.Enter && !descriptionTextBox.Focused)
          {
-            toolStripButton2_Click(sender, e);
+            OnSaveChangesClicked(sender, e);
          }
 
          if (e.KeyCode == Keys.Escape)
          {
-            toolStripButton1_Click(sender, e);
+            OnCancelButtonClicked(sender, e);
          }
       }
    }

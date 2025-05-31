@@ -4,10 +4,6 @@ using Ccd.Bidding.Manager.Library.Conversions.Bidding.Cataloging;
 using Ccd.Bidding.Manager.Library.Validations;
 using Ccd.Bidding.Manager.Win.UI;
 using Ccd.Bidding.Manager.Win.UI.Bidding.Cataloging;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 
 namespace Ccd.Bidding.Manager.Win.Library.IO.Bidding.Cataloging
 {
@@ -56,7 +52,6 @@ namespace Ccd.Bidding.Manager.Win.Library.IO.Bidding.Cataloging
          try
          {
             _catalogingService.AddItemsToBid(items, bid.Id);
-            _catalogingMessaging.ShowItemImportSuccess(items.Count());
          }
          catch (DataValidationException e)
          {

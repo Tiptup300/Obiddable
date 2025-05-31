@@ -20,122 +20,134 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+      #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
-        private void InitializeComponent()
-        {
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RequestAddForm));
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.savechangesButton = new System.Windows.Forms.ToolStripButton();
-            this.accountNumberLabel = new System.Windows.Forms.Label();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.accountNumberComboBox = new System.Windows.Forms.ComboBox();
-            this.toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            this.SuspendLayout();
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
-            this.savechangesButton});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 80);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
-            this.toolStrip1.Size = new System.Drawing.Size(514, 32);
-            this.toolStrip1.TabIndex = 4;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Padding = new System.Windows.Forms.Padding(5);
-            this.toolStripButton1.Size = new System.Drawing.Size(57, 29);
-            this.toolStripButton1.Text = "Cancel";
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
-            // 
-            // savechangesButton
-            // 
-            this.savechangesButton.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.savechangesButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.savechangesButton.Image = ((System.Drawing.Image)(resources.GetObject("savechangesButton.Image")));
-            this.savechangesButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.savechangesButton.Name = "savechangesButton";
-            this.savechangesButton.Padding = new System.Windows.Forms.Padding(5);
-            this.savechangesButton.Size = new System.Drawing.Size(94, 29);
-            this.savechangesButton.Text = "Save Changes";
-            this.savechangesButton.Click += new System.EventHandler(this.savechangesButton_Click);
-            // 
-            // accountNumberLabel
-            // 
-            this.accountNumberLabel.AutoSize = true;
-            this.accountNumberLabel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.accountNumberLabel.Location = new System.Drawing.Point(10, 9);
-            this.accountNumberLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.accountNumberLabel.Name = "accountNumberLabel";
-            this.accountNumberLabel.Size = new System.Drawing.Size(99, 13);
-            this.accountNumberLabel.TabIndex = 5;
-            this.accountNumberLabel.Text = "Account Number:";
-            // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
-            // 
-            // accountNumberComboBox
-            // 
-            this.accountNumberComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
-            this.accountNumberComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.accountNumberComboBox.FormattingEnabled = true;
-            this.accountNumberComboBox.Location = new System.Drawing.Point(12, 25);
-            this.accountNumberComboBox.Name = "accountNumberComboBox";
-            this.accountNumberComboBox.Size = new System.Drawing.Size(490, 29);
-            this.accountNumberComboBox.TabIndex = 6;
-            // 
-            // RequestAddForm
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(514, 112);
-            this.ControlBox = false;
-            this.Controls.Add(this.accountNumberComboBox);
-            this.Controls.Add(this.accountNumberLabel);
-            this.Controls.Add(this.toolStrip1);
-            this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.Name = "RequestAddForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Add New Request";
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.BidEditDialog_KeyDown);
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+      /// <summary>
+      /// Required method for Designer support - do not modify
+      /// the contents of this method with the code editor.
+      /// </summary>
+      private void InitializeComponent()
+      {
+         components = new System.ComponentModel.Container();
+         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RequestAddForm));
+         toolStrip1 = new ToolStrip();
+         CancelButton = new ToolStripButton();
+         SaveChangesButton = new ToolStripButton();
+         AccountNumberLabel = new Label();
+         errorProvider = new ErrorProvider(components);
+         AccountNumberComboBox = new ComboBox();
+         AccountNumberFormatLabel = new Label();
+         toolStrip1.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)errorProvider).BeginInit();
+         SuspendLayout();
+         // 
+         // toolStrip1
+         // 
+         toolStrip1.Dock = DockStyle.Bottom;
+         toolStrip1.GripStyle = ToolStripGripStyle.Hidden;
+         toolStrip1.ImageScalingSize = new Size(28, 28);
+         toolStrip1.Items.AddRange(new ToolStripItem[] { CancelButton, SaveChangesButton });
+         toolStrip1.Location = new Point(0, 92);
+         toolStrip1.Name = "toolStrip1";
+         toolStrip1.Size = new Size(514, 32);
+         toolStrip1.TabIndex = 4;
+         toolStrip1.Text = "toolStrip1";
+         // 
+         // CancelButton
+         // 
+         CancelButton.Alignment = ToolStripItemAlignment.Right;
+         CancelButton.DisplayStyle = ToolStripItemDisplayStyle.Text;
+         CancelButton.Image = (Image)resources.GetObject("CancelButton.Image");
+         CancelButton.ImageTransparentColor = Color.Magenta;
+         CancelButton.Name = "CancelButton";
+         CancelButton.Padding = new Padding(5);
+         CancelButton.Size = new Size(57, 29);
+         CancelButton.Text = "Cancel";
+         CancelButton.Click += CancelButton_Click;
+         // 
+         // SaveChangesButton
+         // 
+         SaveChangesButton.Alignment = ToolStripItemAlignment.Right;
+         SaveChangesButton.DisplayStyle = ToolStripItemDisplayStyle.Text;
+         SaveChangesButton.Image = (Image)resources.GetObject("SaveChangesButton.Image");
+         SaveChangesButton.ImageTransparentColor = Color.Magenta;
+         SaveChangesButton.Name = "SaveChangesButton";
+         SaveChangesButton.Padding = new Padding(5);
+         SaveChangesButton.Size = new Size(94, 29);
+         SaveChangesButton.Text = "Save Changes";
+         SaveChangesButton.Click += SaveChangesButton_Click;
+         // 
+         // AccountNumberLabel
+         // 
+         AccountNumberLabel.AutoSize = true;
+         AccountNumberLabel.Font = new Font("Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+         AccountNumberLabel.Location = new Point(13, 9);
+         AccountNumberLabel.Margin = new Padding(4, 0, 4, 0);
+         AccountNumberLabel.Name = "AccountNumberLabel";
+         AccountNumberLabel.Size = new Size(99, 13);
+         AccountNumberLabel.TabIndex = 5;
+         AccountNumberLabel.Text = "Account Number:";
+         // 
+         // errorProvider
+         // 
+         errorProvider.ContainerControl = this;
+         // 
+         // AccountNumberComboBox
+         // 
+         AccountNumberComboBox.AutoCompleteMode = AutoCompleteMode.Append;
+         AccountNumberComboBox.AutoCompleteSource = AutoCompleteSource.ListItems;
+         AccountNumberComboBox.FormattingEnabled = true;
+         AccountNumberComboBox.Location = new Point(12, 25);
+         AccountNumberComboBox.Name = "AccountNumberComboBox";
+         AccountNumberComboBox.Size = new Size(490, 29);
+         AccountNumberComboBox.TabIndex = 6;
+         // 
+         // AccountNumberFormatLabel
+         // 
+         AccountNumberFormatLabel.AutoSize = true;
+         AccountNumberFormatLabel.Location = new Point(12, 57);
+         AccountNumberFormatLabel.Name = "AccountNumberFormatLabel";
+         AccountNumberFormatLabel.Size = new Size(17, 21);
+         AccountNumberFormatLabel.TabIndex = 7;
+         AccountNumberFormatLabel.Text = "x";
+         AccountNumberFormatLabel.TextAlign = ContentAlignment.BottomLeft;
+         // 
+         // RequestAddForm
+         // 
+         AutoScaleDimensions = new SizeF(9F, 21F);
+         AutoScaleMode = AutoScaleMode.Font;
+         ClientSize = new Size(514, 124);
+         ControlBox = false;
+         Controls.Add(AccountNumberFormatLabel);
+         Controls.Add(AccountNumberComboBox);
+         Controls.Add(AccountNumberLabel);
+         Controls.Add(toolStrip1);
+         Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+         FormBorderStyle = FormBorderStyle.FixedToolWindow;
+         KeyPreview = true;
+         Margin = new Padding(4, 5, 4, 5);
+         MaximizeBox = false;
+         MinimizeBox = false;
+         Name = "RequestAddForm";
+         StartPosition = FormStartPosition.CenterParent;
+         Text = "Add New Request";
+         Load += RequestAddForm_Load;
+         KeyDown += BidEditDialog_KeyDown;
+         toolStrip1.ResumeLayout(false);
+         toolStrip1.PerformLayout();
+         ((System.ComponentModel.ISupportInitialize)errorProvider).EndInit();
+         ResumeLayout(false);
+         PerformLayout();
 
-        }
+      }
 
-        #endregion
-        private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton savechangesButton;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.Label accountNumberLabel;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
-        private System.Windows.Forms.ComboBox accountNumberComboBox;
-    }
+      #endregion
+      private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton SaveChangesButton;
+        private System.Windows.Forms.ToolStripButton CancelButton;
+        private System.Windows.Forms.Label AccountNumberLabel;
+        private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.ComboBox AccountNumberComboBox;
+      private Label AccountNumberFormatLabel;
+   }
 }
