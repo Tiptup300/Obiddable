@@ -1,7 +1,4 @@
 ﻿using Ccd.Bidding.Manager.Library.Bidding;
-using System;
-using System.Drawing;
-using System.Windows.Forms;
 
 namespace Ccd.Bidding.Manager.Win.UI.Bidding.Navigation
 {
@@ -10,16 +7,16 @@ namespace Ccd.Bidding.Manager.Win.UI.Bidding.Navigation
       protected Bid _bid;
       public event EventHandler EditClicked;
 
-      private bool editEnabled;
+      private bool _editEnabled;
       protected bool EditEnabled
       {
          get
          {
-            return editEnabled;
+            return _editEnabled;
          }
          set
          {
-            editEnabled = value;
+            _editEnabled = value;
             SetButtonEnabled(value);
          }
       }
@@ -60,11 +57,11 @@ namespace Ccd.Bidding.Manager.Win.UI.Bidding.Navigation
          editButton.Enabled = buttonEnabled;
          if (editButton.Enabled == false)
          {
-            setButtonDisabledStyle();
+            SetButtonDisabledStyle();
          }
       }
 
-      private void setButtonDisabledStyle()
+      private void SetButtonDisabledStyle()
       {
          editButton.BackColor = Color.Gray;
          editButton.ForeColor = Color.DarkGray;
@@ -74,12 +71,12 @@ namespace Ccd.Bidding.Manager.Win.UI.Bidding.Navigation
 
       protected virtual void InitLabels() { }
 
-      private void _Click(object sender, EventArgs e) => triggerEdit();
-      private void panel1_Click(object sender, EventArgs e) => triggerEdit();
+      private void _Click(object sender, EventArgs e) => TriggerEdit();
+      private void Panel1_Click(object sender, EventArgs e) => TriggerEdit();
 
-      private void triggerEdit()
+      private void TriggerEdit()
       {
-         if (editEnabled == false)
+         if (_editEnabled == false)
          {
             return;
          }

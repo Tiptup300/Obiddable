@@ -4,7 +4,6 @@ using Ccd.Bidding.Manager.Library.EF.Bidding.Requesting.Cataloging;
 using Ccd.Bidding.Manager.Library.EF.Bidding.Requesting.RequestItems;
 using Ccd.Bidding.Manager.Library.EF.Bidding.Requesting.Requestors;
 using Ccd.Bidding.Manager.Library.EF.Bidding.Requesting.Requests;
-using System.Collections.Generic;
 
 namespace Ccd.Bidding.Manager.Library.EF.Bidding.Requesting
 {
@@ -31,8 +30,19 @@ namespace Ccd.Bidding.Manager.Library.EF.Bidding.Requesting
           => _requestsRepo.GetRequest(requestId);
       public List<Request> GetRequests_ByRequestor(int requestorId)
           => _requestsRepo.GetRequests_ByRequestor(requestorId);
-      public string[] GetRequestAccoutNumbers_ByBid(int bidId)
+      public string[] GetRequestAccountNumbers_ByBid(int bidId)
           => _requestsRepo.GetRequestAccoutNumbers_ByBid(bidId);
+
+
+      public string[]? GetNewRequestAccountNumbers_ByRequestor(int requestorId)
+      {
+         if (_requestorsRepo.GetRequestor(requestorId) is not Requestor requestor)
+            return null;
+
+         return GetRequestAccountNumbers_ByBid(requestor.Bid.Id)
+            .Where(x => !requestor.Requests.Any(y => y.Account_Number == x))
+            .ToArray();
+      }
 
       public bool Check_RequestAccountNumberAlreadyExists_InRequestor(string accountNumber, int requestorId, int requestId)
           => _requestsRepo.Check_RequestAccountNumberAlreadyExists_InRequestor(accountNumber, requestorId, requestId);
@@ -65,7 +75,6 @@ namespace Ccd.Bidding.Manager.Library.EF.Bidding.Requesting
           => _requestItemsRepo.GetRequestItems_ByRequestor(requestorId);
 
       #endregion
-      // check
 
       #region Cataloging
       public bool Check_ItemRequested(int itemId)
@@ -100,6 +109,7 @@ namespace Ccd.Bidding.Manager.Library.EF.Bidding.Requesting
           => _requestorsRepo.GetRequestors_ByBuildingName(bidId, buildingName);
       public string[] GetRequestorsBuildingNames_ByBid(int bidId)
           => _requestorsRepo.GetRequestorsBuildingNames_ByBid(bidId);
+
       #endregion
    }
 }
