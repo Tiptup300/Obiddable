@@ -66,7 +66,7 @@ namespace Ccd.Bidding.Manager.Win.UI.Bidding.Requesting
          if (_requestor is null)
             return;
 
-         string[] accountNumbers = _requestingRepo.GetRequestAccoutNumbers_ByBid(_requestor.Bid.Id).Where(x => !_requestor.Requests.Any(y => y.Account_Number == x)).ToArray();
+         string[] accountNumbers = _requestingRepo.GetRequestAccountNumbers_ByBid(_requestor.Bid.Id).Where(x => !_requestor.Requests.Any(y => y.Account_Number == x)).ToArray();
 
          accountNumberComboBox.Items.AddRange(accountNumbers);
       }

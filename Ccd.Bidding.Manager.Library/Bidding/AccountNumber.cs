@@ -2,20 +2,20 @@
 {
    public class AccountNumber
    {
-      private const string FormatTemplate = "xx.xxxx.xxx.xxx.xx.xx.xx.xxxx";
+      public const string FORMAT = "xx.xxxx.xxx.xxx.xx.xx.xx.xxxx";
 
       public static bool IsInvalid(string accountNumber)
           => IsValid(accountNumber) == false;
 
       public static bool IsValid(string accountNumber)
       {
-         if (accountNumber.Length != FormatTemplate.Length)
+         if (accountNumber.Length != FORMAT.Length)
          {
             return false;
          }
          for (int i = 0; i < accountNumber.Length; i++)
          {
-            if (accountNumberCharacterValid(accountNumber[i], FormatTemplate[i]) == false)
+            if (AccountNumberCharacterValid(accountNumber[i], FORMAT[i]) == false)
             {
                return false;
             }
@@ -23,7 +23,7 @@
          return true;
       }
 
-      private static bool accountNumberCharacterValid(char accountNumberChar, char templateChar)
+      private static bool AccountNumberCharacterValid(char accountNumberChar, char templateChar)
       {
          if (arePeriods(accountNumberChar, templateChar) ||
              areFillerSpace(accountNumberChar, templateChar))

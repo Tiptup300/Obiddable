@@ -21,156 +21,166 @@ namespace Ccd.Bidding.Manager.Win.UI.Bidding.Navigation
             base.Dispose(disposing);
         }
 
-        #region Component Designer generated code
+      #region Component Designer generated code
 
-        /// <summary> 
-        /// Required method for Designer support - do not modify 
-        /// the contents of this method with the code editor.
-        /// </summary>
-        private void InitializeComponent()
-        {
-            this.requestsValue = new System.Windows.Forms.Label();
-            this.requestorsLabel = new System.Windows.Forms.Label();
-            this.requestorsValue = new System.Windows.Forms.Label();
-            this.requestsLabel = new System.Windows.Forms.Label();
-            this.estimatedPriceValue = new System.Windows.Forms.Label();
-            this.estimatedPriceLabel = new System.Windows.Forms.Label();
-            this.estimatedPriceWithOverridesValue = new System.Windows.Forms.Label();
-            this.estimatedPriceWithOverridesLabel = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
-            this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.estimatedPriceWithOverridesValue);
-            this.panel1.Controls.Add(this.estimatedPriceWithOverridesLabel);
-            this.panel1.Controls.Add(this.requestorsValue);
-            this.panel1.Controls.Add(this.requestorsLabel);
-            this.panel1.Controls.Add(this.estimatedPriceValue);
-            this.panel1.Controls.Add(this.requestsValue);
-            this.panel1.Controls.Add(this.requestsLabel);
-            this.panel1.Controls.Add(this.estimatedPriceLabel);
-            this.panel1.Size = new System.Drawing.Size(415, 171);
-            this.panel1.Controls.SetChildIndex(this.estimatedPriceLabel, 0);
-            this.panel1.Controls.SetChildIndex(this.requestsLabel, 0);
-            this.panel1.Controls.SetChildIndex(this.requestsValue, 0);
-            this.panel1.Controls.SetChildIndex(this.estimatedPriceValue, 0);
-            this.panel1.Controls.SetChildIndex(this.requestorsLabel, 0);
-            this.panel1.Controls.SetChildIndex(this.requestorsValue, 0);
-            this.panel1.Controls.SetChildIndex(this.estimatedPriceWithOverridesLabel, 0);
-            this.panel1.Controls.SetChildIndex(this.estimatedPriceWithOverridesValue, 0);
-            // 
-            // requestsValue
-            // 
-            this.requestsValue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.requestsValue.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.requestsValue.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.requestsValue.Location = new System.Drawing.Point(274, 79);
-            this.requestsValue.Name = "requestsValue";
-            this.requestsValue.Size = new System.Drawing.Size(136, 25);
-            this.requestsValue.TabIndex = 9;
-            this.requestsValue.Text = "value";
-            this.requestsValue.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            // 
-            // requestorsLabel
-            // 
-            this.requestorsLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.requestorsLabel.AutoSize = true;
-            this.requestorsLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.requestorsLabel.Location = new System.Drawing.Point(9, 54);
-            this.requestorsLabel.Name = "requestorsLabel";
-            this.requestorsLabel.Size = new System.Drawing.Size(108, 25);
-            this.requestorsLabel.TabIndex = 6;
-            this.requestorsLabel.Text = "Requestors:";
-            this.requestorsLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            // 
-            // requestorsValue
-            // 
-            this.requestorsValue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.requestorsValue.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.requestorsValue.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.requestorsValue.Location = new System.Drawing.Point(274, 54);
-            this.requestorsValue.Name = "requestorsValue";
-            this.requestorsValue.Size = new System.Drawing.Size(136, 25);
-            this.requestorsValue.TabIndex = 8;
-            this.requestorsValue.Text = "value";
-            this.requestorsValue.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            // 
-            // requestsLabel
-            // 
-            this.requestsLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.requestsLabel.AutoSize = true;
-            this.requestsLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.requestsLabel.Location = new System.Drawing.Point(9, 79);
-            this.requestsLabel.Name = "requestsLabel";
-            this.requestsLabel.Size = new System.Drawing.Size(90, 25);
-            this.requestsLabel.TabIndex = 7;
-            this.requestsLabel.Text = "Requests:";
-            this.requestsLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            // 
-            // estimatedPriceValue
-            // 
-            this.estimatedPriceValue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.estimatedPriceValue.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.estimatedPriceValue.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.estimatedPriceValue.Location = new System.Drawing.Point(274, 104);
-            this.estimatedPriceValue.Name = "estimatedPriceValue";
-            this.estimatedPriceValue.Size = new System.Drawing.Size(136, 25);
-            this.estimatedPriceValue.TabIndex = 11;
-            this.estimatedPriceValue.Text = "value";
-            this.estimatedPriceValue.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            // 
-            // estimatedPriceLabel
-            // 
-            this.estimatedPriceLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.estimatedPriceLabel.AutoSize = true;
-            this.estimatedPriceLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.estimatedPriceLabel.Location = new System.Drawing.Point(9, 104);
-            this.estimatedPriceLabel.Name = "estimatedPriceLabel";
-            this.estimatedPriceLabel.Size = new System.Drawing.Size(139, 25);
-            this.estimatedPriceLabel.TabIndex = 10;
-            this.estimatedPriceLabel.Text = "Esimated Price:";
-            this.estimatedPriceLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            // 
-            // estimatedPriceWithOverridesValue
-            // 
-            this.estimatedPriceWithOverridesValue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.estimatedPriceWithOverridesValue.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.estimatedPriceWithOverridesValue.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.estimatedPriceWithOverridesValue.Location = new System.Drawing.Point(273, 129);
-            this.estimatedPriceWithOverridesValue.Name = "estimatedPriceWithOverridesValue";
-            this.estimatedPriceWithOverridesValue.Size = new System.Drawing.Size(136, 25);
-            this.estimatedPriceWithOverridesValue.TabIndex = 13;
-            this.estimatedPriceWithOverridesValue.Text = "value";
-            this.estimatedPriceWithOverridesValue.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            // 
-            // estimatedPriceWithOverridesLabel
-            // 
-            this.estimatedPriceWithOverridesLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.estimatedPriceWithOverridesLabel.AutoSize = true;
-            this.estimatedPriceWithOverridesLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.estimatedPriceWithOverridesLabel.Location = new System.Drawing.Point(8, 129);
-            this.estimatedPriceWithOverridesLabel.Name = "estimatedPriceWithOverridesLabel";
-            this.estimatedPriceWithOverridesLabel.Size = new System.Drawing.Size(263, 25);
-            this.estimatedPriceWithOverridesLabel.TabIndex = 12;
-            this.estimatedPriceWithOverridesLabel.Text = "Esimated Price (w/ Overrides):";
-            this.estimatedPriceWithOverridesLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            // 
-            // RequestorNavigationControl
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Name = "RequestorNavigationControl";
-            this.Size = new System.Drawing.Size(421, 177);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.ResumeLayout(false);
+      /// <summary> 
+      /// Required method for Designer support - do not modify 
+      /// the contents of this method with the code editor.
+      /// </summary>
+      private void InitializeComponent()
+      {
+         requestsValue = new Label();
+         requestorsLabel = new Label();
+         requestorsValue = new Label();
+         requestsLabel = new Label();
+         estimatedPriceValue = new Label();
+         estimatedPriceLabel = new Label();
+         estimatedPriceWithOverridesValue = new Label();
+         estimatedPriceWithOverridesLabel = new Label();
+         panel1.SuspendLayout();
+         SuspendLayout();
+         // 
+         // panel1
+         // 
+         panel1.Controls.Add(estimatedPriceWithOverridesValue);
+         panel1.Controls.Add(estimatedPriceWithOverridesLabel);
+         panel1.Controls.Add(requestorsValue);
+         panel1.Controls.Add(requestorsLabel);
+         panel1.Controls.Add(estimatedPriceValue);
+         panel1.Controls.Add(requestsValue);
+         panel1.Controls.Add(requestsLabel);
+         panel1.Controls.Add(estimatedPriceLabel);
+         panel1.Margin = new Padding(5, 3, 5, 3);
+         panel1.Size = new Size(484, 197);
+         panel1.Controls.SetChildIndex(estimatedPriceLabel, 0);
+         panel1.Controls.SetChildIndex(requestsLabel, 0);
+         panel1.Controls.SetChildIndex(requestsValue, 0);
+         panel1.Controls.SetChildIndex(estimatedPriceValue, 0);
+         panel1.Controls.SetChildIndex(requestorsLabel, 0);
+         panel1.Controls.SetChildIndex(requestorsValue, 0);
+         panel1.Controls.SetChildIndex(estimatedPriceWithOverridesLabel, 0);
+         panel1.Controls.SetChildIndex(estimatedPriceWithOverridesValue, 0);
+         // 
+         // requestsValue
+         // 
+         requestsValue.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+         requestsValue.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+         requestsValue.ForeColor = SystemColors.ControlDarkDark;
+         requestsValue.Location = new Point(320, 91);
+         requestsValue.Margin = new Padding(4, 0, 4, 0);
+         requestsValue.Name = "requestsValue";
+         requestsValue.Size = new Size(159, 29);
+         requestsValue.TabIndex = 9;
+         requestsValue.Text = "value";
+         requestsValue.TextAlign = ContentAlignment.BottomRight;
+         // 
+         // requestorsLabel
+         // 
+         requestorsLabel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+         requestorsLabel.AutoSize = true;
+         requestorsLabel.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+         requestorsLabel.Location = new Point(10, 62);
+         requestorsLabel.Margin = new Padding(4, 0, 4, 0);
+         requestorsLabel.Name = "requestorsLabel";
+         requestorsLabel.Size = new Size(108, 25);
+         requestorsLabel.TabIndex = 6;
+         requestorsLabel.Text = "Requestors:";
+         requestorsLabel.TextAlign = ContentAlignment.BottomLeft;
+         // 
+         // requestorsValue
+         // 
+         requestorsValue.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+         requestorsValue.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+         requestorsValue.ForeColor = SystemColors.ControlDarkDark;
+         requestorsValue.Location = new Point(320, 62);
+         requestorsValue.Margin = new Padding(4, 0, 4, 0);
+         requestorsValue.Name = "requestorsValue";
+         requestorsValue.Size = new Size(159, 29);
+         requestorsValue.TabIndex = 8;
+         requestorsValue.Text = "value";
+         requestorsValue.TextAlign = ContentAlignment.BottomRight;
+         // 
+         // requestsLabel
+         // 
+         requestsLabel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+         requestsLabel.AutoSize = true;
+         requestsLabel.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+         requestsLabel.Location = new Point(10, 91);
+         requestsLabel.Margin = new Padding(4, 0, 4, 0);
+         requestsLabel.Name = "requestsLabel";
+         requestsLabel.Size = new Size(90, 25);
+         requestsLabel.TabIndex = 7;
+         requestsLabel.Text = "Requests:";
+         requestsLabel.TextAlign = ContentAlignment.BottomLeft;
+         // 
+         // estimatedPriceValue
+         // 
+         estimatedPriceValue.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+         estimatedPriceValue.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+         estimatedPriceValue.ForeColor = SystemColors.ControlDarkDark;
+         estimatedPriceValue.Location = new Point(320, 120);
+         estimatedPriceValue.Margin = new Padding(4, 0, 4, 0);
+         estimatedPriceValue.Name = "estimatedPriceValue";
+         estimatedPriceValue.Size = new Size(159, 29);
+         estimatedPriceValue.TabIndex = 11;
+         estimatedPriceValue.Text = "value";
+         estimatedPriceValue.TextAlign = ContentAlignment.BottomRight;
+         // 
+         // estimatedPriceLabel
+         // 
+         estimatedPriceLabel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+         estimatedPriceLabel.AutoSize = true;
+         estimatedPriceLabel.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+         estimatedPriceLabel.Location = new Point(10, 120);
+         estimatedPriceLabel.Margin = new Padding(4, 0, 4, 0);
+         estimatedPriceLabel.Name = "estimatedPriceLabel";
+         estimatedPriceLabel.Size = new Size(139, 25);
+         estimatedPriceLabel.TabIndex = 10;
+         estimatedPriceLabel.Text = "Esimated Price:";
+         estimatedPriceLabel.TextAlign = ContentAlignment.BottomLeft;
+         // 
+         // estimatedPriceWithOverridesValue
+         // 
+         estimatedPriceWithOverridesValue.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+         estimatedPriceWithOverridesValue.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+         estimatedPriceWithOverridesValue.ForeColor = SystemColors.ControlDarkDark;
+         estimatedPriceWithOverridesValue.Location = new Point(318, 149);
+         estimatedPriceWithOverridesValue.Margin = new Padding(4, 0, 4, 0);
+         estimatedPriceWithOverridesValue.Name = "estimatedPriceWithOverridesValue";
+         estimatedPriceWithOverridesValue.Size = new Size(159, 29);
+         estimatedPriceWithOverridesValue.TabIndex = 13;
+         estimatedPriceWithOverridesValue.Text = "value";
+         estimatedPriceWithOverridesValue.TextAlign = ContentAlignment.BottomRight;
+         // 
+         // estimatedPriceWithOverridesLabel
+         // 
+         estimatedPriceWithOverridesLabel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+         estimatedPriceWithOverridesLabel.AutoSize = true;
+         estimatedPriceWithOverridesLabel.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+         estimatedPriceWithOverridesLabel.Location = new Point(9, 149);
+         estimatedPriceWithOverridesLabel.Margin = new Padding(4, 0, 4, 0);
+         estimatedPriceWithOverridesLabel.Name = "estimatedPriceWithOverridesLabel";
+         estimatedPriceWithOverridesLabel.Size = new Size(263, 25);
+         estimatedPriceWithOverridesLabel.TabIndex = 12;
+         estimatedPriceWithOverridesLabel.Text = "Esimated Price (w/ Overrides):";
+         estimatedPriceWithOverridesLabel.TextAlign = ContentAlignment.BottomLeft;
+         // 
+         // RequestorNavigationControl
+         // 
+         AutoScaleDimensions = new SizeF(7F, 15F);
+         AutoScaleMode = AutoScaleMode.Font;
+         Margin = new Padding(5, 3, 5, 3);
+         Name = "RequestorNavigationControl";
+         Size = new Size(491, 204);
+         panel1.ResumeLayout(false);
+         panel1.PerformLayout();
+         ResumeLayout(false);
 
-        }
+      }
 
-        #endregion
+      #endregion
 
-        private System.Windows.Forms.Label requestsValue;
+      private System.Windows.Forms.Label requestsValue;
         private System.Windows.Forms.Label requestorsLabel;
         private System.Windows.Forms.Label requestorsValue;
         private System.Windows.Forms.Label requestsLabel;

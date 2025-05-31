@@ -1,5 +1,4 @@
 ﻿using Ccd.Bidding.Manager.Library.Bidding.Cataloging;
-using System.Collections.Generic;
 
 namespace Ccd.Bidding.Manager.Library.Bidding.Requesting
 {
@@ -32,7 +31,8 @@ namespace Ccd.Bidding.Manager.Library.Bidding.Requesting
       void AddRequestItem_ToRequest(RequestItem obj, int requestId);
       void ClearRequests_ByRequestor(int requestorId);
       void DeleteRequests_ByBid(int bidId);
-      string[] GetRequestAccoutNumbers_ByBid(int bidId);
+      string[] GetRequestAccountNumbers_ByBid(int bidId);
+      string[]? GetNewRequestAccountNumbers_ByRequestor(int requestorId);
       bool Check_RequestAccountNumberAlreadyExists_InRequestor(string accountNumber, int requestorId, int requestId);
       List<Request> GetRequests_ByRequestor(int requestorId);
 

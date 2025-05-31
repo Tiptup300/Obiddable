@@ -9,9 +9,6 @@ using Ccd.Bidding.Manager.Reporting.Bidding.Electings;
 using Ccd.Bidding.Manager.Reporting.Bidding.Requesting;
 using Ccd.Bidding.Manager.Reporting.Bidding.VendorResponses;
 using Ccd.Bidding.Manager.Win.Library.IO;
-using System;
-using System.Drawing;
-using System.Windows.Forms;
 
 namespace Ccd.Bidding.Manager.Win.Library.UI.Reporting
 {
@@ -28,10 +25,10 @@ namespace Ccd.Bidding.Manager.Win.Library.UI.Reporting
       public void SetBid(Bid bid)
       {
          _bid = bid;
-         setTitle();
+         SetTitle();
       }
 
-      private void setTitle()
+      private void SetTitle()
       {
          titleLabel.Text = _bid.Name;
       }
@@ -39,44 +36,44 @@ namespace Ccd.Bidding.Manager.Win.Library.UI.Reporting
       private void SetReportMenuItemsToDropDown()
       {
          reportsDropdown.DropDownItems.Clear();
-         ToolStripMenuItem[] reportMenuItems = getReportMenuItems();
+         ToolStripMenuItem[] reportMenuItems = GetReportMenuItems();
          reportsDropdown.DropDownItems.AddRange(reportMenuItems);
       }
 
-      private ToolStripMenuItem[] getReportMenuItems()
+      private ToolStripMenuItem[] GetReportMenuItems()
       {
          ToolStripMenuItem[] output = new ToolStripMenuItem[]
          {
-                headerMenuItem("Item Reports"),
-                reportMenuItem("Bid Items List Report", typeof(ItemsListReportBuilder)),
+                HeaderMenuItem("Item Reports"),
+                ReportMenuItem("Bid Items List Report", typeof(ItemsListReportBuilder)),
 
-                headerMenuItem("Bid Request Reports"),
-                reportMenuItem("Bid Requestors' Requested Quantities Report", typeof(RequestorQuantitiesReport)),
-                reportMenuItem("Bid Requests Detail Report", typeof(RequestsDetailReportBuilder)),
-                reportMenuItem("Bid Requests Summary Report", typeof(RequestsSummaryReportBuilder)),
-                reportMenuItem("Price Override Report", typeof(PriceOverrideReportBuilder)),
-                reportMenuItem("Expenditures by Requestor Report", typeof(ExpendituresByRequestorsReportBuilder)),
+                HeaderMenuItem("Bid Request Reports"),
+                ReportMenuItem("Bid Requestors Requested Quantities Report", typeof(RequestorQuantitiesReport)),
+                ReportMenuItem("Bid Requests Detail Report", typeof(RequestsDetailReportBuilder)),
+                ReportMenuItem("Bid Requests Summary Report", typeof(RequestsSummaryReportBuilder)),
+                ReportMenuItem("Price Override Report", typeof(PriceOverrideReportBuilder)),
+                ReportMenuItem("Expenditures by Requestor Report", typeof(ExpendituresByRequestorsReportBuilder)),
 
-                headerMenuItem("Election Process Reports"),
-                reportMenuItem("Election Confirmation Sheet Report", typeof(ElectionConfirmationSheetReportBuilder)),
-                reportMenuItem("Elected Quantities Discrepancy Report", typeof(ElectedQuantitiesDiscrepancyReport)),
-                reportMenuItem("Bid Tally Report", typeof(TallyReportBuilder)),
+                HeaderMenuItem("Election Process Reports"),
+                ReportMenuItem("Election Confirmation Sheet Report", typeof(ElectionConfirmationSheetReportBuilder)),
+                ReportMenuItem("Elected Quantities Discrepancy Report", typeof(ElectedQuantitiesDiscrepancyReport)),
+                ReportMenuItem("Bid Tally Report", typeof(TallyReportBuilder)),
 
-                headerMenuItem("Vendor Response Reports"),
-                reportMenuItem("Vendor Specifications Report", typeof(VendorSpecificationsReportBuilder)),
-                reportMenuItem("Vendor Detail Report", typeof(VendorDetailReportBuilder)),
-                reportMenuItem("Vendor Detail Report (Elected Only)", typeof(ElectedOnlyVendorDetailReportBuilder)),
-                reportMenuItem("Vendor Summary Report", typeof(VendorSummaryReportBuilder)),
-                reportMenuItem("No Response Items Report", typeof(NoResponseItemsReportBuilder)),
+                HeaderMenuItem("Vendor Response Reports"),
+                ReportMenuItem("Vendor Specifications Report", typeof(VendorSpecificationsReportBuilder)),
+                ReportMenuItem("Vendor Detail Report", typeof(VendorDetailReportBuilder)),
+                ReportMenuItem("Vendor Detail Report (Elected Only)", typeof(ElectedOnlyVendorDetailReportBuilder)),
+                ReportMenuItem("Vendor Summary Report", typeof(VendorSummaryReportBuilder)),
+                ReportMenuItem("No Response Items Report", typeof(NoResponseItemsReportBuilder)),
 
-                headerMenuItem("Totals Reports"),
-                reportMenuItem("Bid Summary Report", typeof(SummaryReportBuilder)),
-                reportMenuItem("Detailed Distribution Report", typeof(DetailedDistributionReportBuilder))
+                HeaderMenuItem("Totals Reports"),
+                ReportMenuItem("Bid Summary Report", typeof(SummaryReportBuilder)),
+                ReportMenuItem("Detailed Distribution Report", typeof(DetailedDistributionReportBuilder))
          };
 
          return output;
       }
-      private ToolStripMenuItem reportMenuItem(string text, Type reportType)
+      private ToolStripMenuItem ReportMenuItem(string text, Type reportType)
       {
          ToolStripMenuItem output;
 
@@ -86,7 +83,7 @@ namespace Ccd.Bidding.Manager.Win.Library.UI.Reporting
          return output;
       }
 
-      private ToolStripMenuItem headerMenuItem(string text)
+      private ToolStripMenuItem HeaderMenuItem(string text)
       {
          ToolStripMenuItem output;
 
@@ -103,9 +100,9 @@ namespace Ccd.Bidding.Manager.Win.Library.UI.Reporting
          }
          var reportType = (Type)((ToolStripMenuItem)sender).Tag;
 
-         checkIfBidHasUnmatchedElectedQuantities();
+         CheckIfBidHasUnmatchedElectedQuantities();
 
-         runReport(reportType, _bid);
+         RunReport(reportType, _bid);
       }
 
       /// <summary>
@@ -114,7 +111,7 @@ namespace Ccd.Bidding.Manager.Win.Library.UI.Reporting
       /// 
       /// This should actually be fixed per report, but that's not doable at this point.
       /// </summary>
-      private void checkIfBidHasUnmatchedElectedQuantities()
+      private void CheckIfBidHasUnmatchedElectedQuantities()
       {
          if (_bid.HasUnmatchedQuantities(new EFRequestingRepo(), new EFLegacyElectionsRepo()))
          {
@@ -123,13 +120,13 @@ namespace Ccd.Bidding.Manager.Win.Library.UI.Reporting
          }
       }
 
-      private void runReport(Type reportType, Bid bid)
+      private void RunReport(Type reportType, Bid bid)
       {
-         var reportBuilder = getReportBuilder(reportType);
+         var reportBuilder = GetReportBuilder(reportType);
          FileHelpers.SaveReport(reportBuilder.BuildReport(bid), UserConfiguration.Instance.SupressFileLocationSelectDialog);
       }
 
-      private IReportBuilder<Bid> getReportBuilder(Type reportType)
+      private IReportBuilder<Bid> GetReportBuilder(Type reportType)
       {
          IReportBuilder<Bid> output;
 
