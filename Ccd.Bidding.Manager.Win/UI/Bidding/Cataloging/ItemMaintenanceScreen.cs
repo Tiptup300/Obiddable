@@ -125,28 +125,26 @@ namespace Ccd.Bidding.Manager.Win.UI.Bidding.Cataloging
       {
          var items = _catalogingRepo.GetItems(_bid.Id);
 
-         listViewMain.ReplaceListViewItems(BuildList());
-         ReselectItem();
-
-         IEnumerable<ListViewItem> BuildList()
-         {
-            return items
+         listViewMain.ReplaceListViewItems(
+            items
                .OrderBy(x => x.Code)
-               .Select(i => new ListViewItem(items: [
-                     "",
+               .Select(i
+                  => new ListViewItem(items: [
+                     $"{i.Id}",
                      i.HyphenatedFormattedCode,
                      i.Description,
                      i.Category,
                      i.Unit,
                      i.Substitutable.ToString(),
                      i.Price.ToString("$0.00000"),
-                     i.Last_Order_Price.ToString("$0.00000")
-               ])
-               {
-                  Text = $"{i.Id}",
-                  Tag = i.Id
-               });
-         }
+                     i.Last_Order_Price.ToString("$0.00000")]
+                  )
+                  {
+                     Tag = i.Id
+                  }
+               )
+         );
+         ReselectItem();
       }
 
       protected override void ListViewDoubleClicked()
