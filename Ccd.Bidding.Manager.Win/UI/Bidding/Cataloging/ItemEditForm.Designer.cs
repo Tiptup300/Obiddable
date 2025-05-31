@@ -20,271 +20,256 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+      #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
-        private void InitializeComponent()
-        {
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ItemEditForm));
-            this.codeTextBox = new System.Windows.Forms.TextBox();
-            this.codeLabel = new System.Windows.Forms.Label();
-            this.categoryLabel = new System.Windows.Forms.Label();
-            this.descriptionTextBox = new System.Windows.Forms.TextBox();
-            this.substitutableCheckBox = new System.Windows.Forms.CheckBox();
-            this.descriptionLabel = new System.Windows.Forms.Label();
-            this.unitDescriptionTextBox = new System.Windows.Forms.TextBox();
-            this.unitLabel = new System.Windows.Forms.Label();
-            this.lastOrderPriceLabel = new System.Windows.Forms.Label();
-            this.lastOrderPriceTextBox = new System.Windows.Forms.TextBox();
-            this.estimatedPriceLabel = new System.Windows.Forms.Label();
-            this.estimatedPriceTextBox = new System.Windows.Forms.TextBox();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.categoryComboBox = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            this.toolStrip1.SuspendLayout();
-            this.SuspendLayout();
-            // 
-            // codeTextBox
-            // 
-            this.codeTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.codeTextBox.Location = new System.Drawing.Point(13, 27);
-            this.codeTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.codeTextBox.Name = "codeTextBox";
-            this.codeTextBox.Size = new System.Drawing.Size(217, 29);
-            this.codeTextBox.TabIndex = 0;
-            // 
-            // codeLabel
-            // 
-            this.codeLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.codeLabel.AutoSize = true;
-            this.codeLabel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.codeLabel.Location = new System.Drawing.Point(13, 9);
-            this.codeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.codeLabel.Name = "codeLabel";
-            this.codeLabel.Size = new System.Drawing.Size(37, 13);
-            this.codeLabel.TabIndex = 5;
-            this.codeLabel.Text = "Code:";
-            // 
-            // categoryLabel
-            // 
-            this.categoryLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.categoryLabel.AutoSize = true;
-            this.categoryLabel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.categoryLabel.Location = new System.Drawing.Point(329, 9);
-            this.categoryLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.categoryLabel.Name = "categoryLabel";
-            this.categoryLabel.Size = new System.Drawing.Size(57, 13);
-            this.categoryLabel.TabIndex = 7;
-            this.categoryLabel.Text = "Category:";
-            // 
-            // descriptionTextBox
-            // 
-            this.descriptionTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.descriptionTextBox.Location = new System.Drawing.Point(13, 79);
-            this.descriptionTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.descriptionTextBox.Multiline = true;
-            this.descriptionTextBox.Name = "descriptionTextBox";
-            this.descriptionTextBox.Size = new System.Drawing.Size(617, 347);
-            this.descriptionTextBox.TabIndex = 3;
-            // 
-            // canSubCheckBox
-            // 
-            this.substitutableCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.substitutableCheckBox.AutoSize = true;
-            this.substitutableCheckBox.Location = new System.Drawing.Point(514, 451);
-            this.substitutableCheckBox.Name = "canSubCheckBox";
-            this.substitutableCheckBox.Size = new System.Drawing.Size(116, 25);
-            this.substitutableCheckBox.TabIndex = 6;
-            this.substitutableCheckBox.Text = "Substitutible";
-            this.substitutableCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // descriptionLabel
-            // 
-            this.descriptionLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.descriptionLabel.AutoSize = true;
-            this.descriptionLabel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.descriptionLabel.Location = new System.Drawing.Point(13, 61);
-            this.descriptionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.descriptionLabel.Name = "descriptionLabel";
-            this.descriptionLabel.Size = new System.Drawing.Size(69, 13);
-            this.descriptionLabel.TabIndex = 10;
-            this.descriptionLabel.Text = "Description:";
-            // 
-            // unitDescriptionTextBox
-            // 
-            this.unitDescriptionTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.unitDescriptionTextBox.Location = new System.Drawing.Point(236, 27);
-            this.unitDescriptionTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.unitDescriptionTextBox.Name = "unitDescriptionTextBox";
-            this.unitDescriptionTextBox.Size = new System.Drawing.Size(88, 29);
-            this.unitDescriptionTextBox.TabIndex = 1;
-            // 
-            // unitLabel
-            // 
-            this.unitLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.unitLabel.AutoSize = true;
-            this.unitLabel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.unitLabel.Location = new System.Drawing.Point(233, 9);
-            this.unitLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.unitLabel.Name = "unitLabel";
-            this.unitLabel.Size = new System.Drawing.Size(32, 13);
-            this.unitLabel.TabIndex = 12;
-            this.unitLabel.Text = "Unit:";
-            // 
-            // lastOrderPriceLabel
-            // 
-            this.lastOrderPriceLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lastOrderPriceLabel.AutoSize = true;
-            this.lastOrderPriceLabel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lastOrderPriceLabel.Location = new System.Drawing.Point(10, 431);
-            this.lastOrderPriceLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lastOrderPriceLabel.Name = "lastOrderPriceLabel";
-            this.lastOrderPriceLabel.Size = new System.Drawing.Size(91, 13);
-            this.lastOrderPriceLabel.TabIndex = 16;
-            this.lastOrderPriceLabel.Text = "Last Order Price:";
-            // 
-            // lastOrderPriceTextBox
-            // 
-            this.lastOrderPriceTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lastOrderPriceTextBox.BackColor = System.Drawing.SystemColors.Menu;
-            this.lastOrderPriceTextBox.Enabled = false;
-            this.lastOrderPriceTextBox.Location = new System.Drawing.Point(13, 449);
-            this.lastOrderPriceTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.lastOrderPriceTextBox.Name = "lastOrderPriceTextBox";
-            this.lastOrderPriceTextBox.Size = new System.Drawing.Size(217, 29);
-            this.lastOrderPriceTextBox.TabIndex = 4;
-            // 
-            // estimatedPriceLabel
-            // 
-            this.estimatedPriceLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.estimatedPriceLabel.AutoSize = true;
-            this.estimatedPriceLabel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.estimatedPriceLabel.Location = new System.Drawing.Point(235, 431);
-            this.estimatedPriceLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.estimatedPriceLabel.Name = "estimatedPriceLabel";
-            this.estimatedPriceLabel.Size = new System.Drawing.Size(89, 13);
-            this.estimatedPriceLabel.TabIndex = 18;
-            this.estimatedPriceLabel.Text = "Estimated Price:";
-            // 
-            // estimatedPriceTextBox
-            // 
-            this.estimatedPriceTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.estimatedPriceTextBox.Location = new System.Drawing.Point(238, 449);
-            this.estimatedPriceTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.estimatedPriceTextBox.Name = "estimatedPriceTextBox";
-            this.estimatedPriceTextBox.Size = new System.Drawing.Size(254, 29);
-            this.estimatedPriceTextBox.TabIndex = 5;
-            // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
-            this.toolStripButton2});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 494);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
-            this.toolStrip1.Size = new System.Drawing.Size(643, 32);
-            this.toolStrip1.TabIndex = 20;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Padding = new System.Windows.Forms.Padding(5);
-            this.toolStripButton1.Size = new System.Drawing.Size(57, 29);
-            this.toolStripButton1.Text = "Cancel";
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
-            // 
-            // toolStripButton2
-            // 
-            this.toolStripButton2.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Padding = new System.Windows.Forms.Padding(5);
-            this.toolStripButton2.Size = new System.Drawing.Size(94, 29);
-            this.toolStripButton2.Text = "Save Changes";
-            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
-            // 
-            // categoryComboBox
-            // 
-            this.categoryComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
-            this.categoryComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.categoryComboBox.FormattingEnabled = true;
-            this.categoryComboBox.Location = new System.Drawing.Point(332, 27);
-            this.categoryComboBox.Name = "categoryComboBox";
-            this.categoryComboBox.Size = new System.Drawing.Size(298, 29);
-            this.categoryComboBox.TabIndex = 2;
-            // 
-            // ItemEditForm
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(643, 526);
-            this.ControlBox = false;
-            this.Controls.Add(this.categoryComboBox);
-            this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.estimatedPriceLabel);
-            this.Controls.Add(this.estimatedPriceTextBox);
-            this.Controls.Add(this.lastOrderPriceLabel);
-            this.Controls.Add(this.lastOrderPriceTextBox);
-            this.Controls.Add(this.unitLabel);
-            this.Controls.Add(this.unitDescriptionTextBox);
-            this.Controls.Add(this.descriptionLabel);
-            this.Controls.Add(this.substitutableCheckBox);
-            this.Controls.Add(this.descriptionTextBox);
-            this.Controls.Add(this.categoryLabel);
-            this.Controls.Add(this.codeLabel);
-            this.Controls.Add(this.codeTextBox);
-            this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "ItemEditForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Create New Item";
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ItemEditForm_KeyDown);
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+      /// <summary>
+      /// Required method for Designer support - do not modify
+      /// the contents of this method with the code editor.
+      /// </summary>
+      private void InitializeComponent()
+      {
+         components = new System.ComponentModel.Container();
+         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ItemEditForm));
+         codeTextBox = new TextBox();
+         codeLabel = new Label();
+         categoryLabel = new Label();
+         descriptionTextBox = new TextBox();
+         substitutableCheckBox = new CheckBox();
+         descriptionLabel = new Label();
+         unitDescriptionTextBox = new TextBox();
+         unitLabel = new Label();
+         lastOrderPriceLabel = new Label();
+         lastOrderPriceTextBox = new TextBox();
+         estimatedPriceLabel = new Label();
+         estimatedPriceTextBox = new TextBox();
+         errorProvider1 = new ErrorProvider(components);
+         toolStrip1 = new ToolStrip();
+         cancelButton = new ToolStripButton();
+         saveChangesButton = new ToolStripButton();
+         categoryComboBox = new ComboBox();
+         ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
+         toolStrip1.SuspendLayout();
+         SuspendLayout();
+         // 
+         // codeTextBox
+         // 
+         codeTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+         codeTextBox.Location = new Point(13, 27);
+         codeTextBox.Margin = new Padding(4, 5, 4, 5);
+         codeTextBox.Name = "codeTextBox";
+         codeTextBox.Size = new Size(217, 29);
+         codeTextBox.TabIndex = 0;
+         // 
+         // codeLabel
+         // 
+         codeLabel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+         codeLabel.AutoSize = true;
+         codeLabel.Font = new Font("Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+         codeLabel.Location = new Point(13, 9);
+         codeLabel.Margin = new Padding(4, 0, 4, 0);
+         codeLabel.Name = "codeLabel";
+         codeLabel.Size = new Size(37, 13);
+         codeLabel.TabIndex = 5;
+         codeLabel.Text = "Code:";
+         // 
+         // categoryLabel
+         // 
+         categoryLabel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+         categoryLabel.AutoSize = true;
+         categoryLabel.Font = new Font("Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+         categoryLabel.Location = new Point(329, 9);
+         categoryLabel.Margin = new Padding(4, 0, 4, 0);
+         categoryLabel.Name = "categoryLabel";
+         categoryLabel.Size = new Size(57, 13);
+         categoryLabel.TabIndex = 7;
+         categoryLabel.Text = "Category:";
+         // 
+         // descriptionTextBox
+         // 
+         descriptionTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+         descriptionTextBox.Location = new Point(13, 79);
+         descriptionTextBox.Margin = new Padding(4, 5, 4, 5);
+         descriptionTextBox.Multiline = true;
+         descriptionTextBox.Name = "descriptionTextBox";
+         descriptionTextBox.Size = new Size(617, 347);
+         descriptionTextBox.TabIndex = 3;
+         // 
+         // substitutableCheckBox
+         // 
+         substitutableCheckBox.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+         substitutableCheckBox.Location = new Point(428, 451);
+         substitutableCheckBox.Name = "substitutableCheckBox";
+         substitutableCheckBox.Size = new Size(202, 25);
+         substitutableCheckBox.TabIndex = 6;
+         substitutableCheckBox.Text = "Allows Substitutes";
+         substitutableCheckBox.UseVisualStyleBackColor = true;
+         // 
+         // descriptionLabel
+         // 
+         descriptionLabel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+         descriptionLabel.AutoSize = true;
+         descriptionLabel.Font = new Font("Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+         descriptionLabel.Location = new Point(13, 61);
+         descriptionLabel.Margin = new Padding(4, 0, 4, 0);
+         descriptionLabel.Name = "descriptionLabel";
+         descriptionLabel.Size = new Size(69, 13);
+         descriptionLabel.TabIndex = 10;
+         descriptionLabel.Text = "Description:";
+         // 
+         // unitDescriptionTextBox
+         // 
+         unitDescriptionTextBox.Location = new Point(236, 27);
+         unitDescriptionTextBox.Margin = new Padding(4, 5, 4, 5);
+         unitDescriptionTextBox.Name = "unitDescriptionTextBox";
+         unitDescriptionTextBox.Size = new Size(88, 29);
+         unitDescriptionTextBox.TabIndex = 1;
+         // 
+         // unitLabel
+         // 
+         unitLabel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+         unitLabel.AutoSize = true;
+         unitLabel.Font = new Font("Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+         unitLabel.Location = new Point(233, 9);
+         unitLabel.Margin = new Padding(4, 0, 4, 0);
+         unitLabel.Name = "unitLabel";
+         unitLabel.Size = new Size(32, 13);
+         unitLabel.TabIndex = 12;
+         unitLabel.Text = "Unit:";
+         // 
+         // lastOrderPriceLabel
+         // 
+         lastOrderPriceLabel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+         lastOrderPriceLabel.AutoSize = true;
+         lastOrderPriceLabel.Font = new Font("Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+         lastOrderPriceLabel.Location = new Point(13, 431);
+         lastOrderPriceLabel.Margin = new Padding(4, 0, 4, 0);
+         lastOrderPriceLabel.Name = "lastOrderPriceLabel";
+         lastOrderPriceLabel.Size = new Size(91, 13);
+         lastOrderPriceLabel.TabIndex = 16;
+         lastOrderPriceLabel.Text = "Last Order Price:";
+         // 
+         // lastOrderPriceTextBox
+         // 
+         lastOrderPriceTextBox.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+         lastOrderPriceTextBox.BackColor = SystemColors.Menu;
+         lastOrderPriceTextBox.Enabled = false;
+         lastOrderPriceTextBox.Location = new Point(13, 449);
+         lastOrderPriceTextBox.Margin = new Padding(4, 5, 4, 5);
+         lastOrderPriceTextBox.Name = "lastOrderPriceTextBox";
+         lastOrderPriceTextBox.Size = new Size(200, 29);
+         lastOrderPriceTextBox.TabIndex = 4;
+         // 
+         // estimatedPriceLabel
+         // 
+         estimatedPriceLabel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+         estimatedPriceLabel.AutoSize = true;
+         estimatedPriceLabel.Font = new Font("Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+         estimatedPriceLabel.Location = new Point(221, 431);
+         estimatedPriceLabel.Margin = new Padding(4, 0, 4, 0);
+         estimatedPriceLabel.Name = "estimatedPriceLabel";
+         estimatedPriceLabel.Size = new Size(89, 13);
+         estimatedPriceLabel.TabIndex = 18;
+         estimatedPriceLabel.Text = "Estimated Price:";
+         // 
+         // estimatedPriceTextBox
+         // 
+         estimatedPriceTextBox.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+         estimatedPriceTextBox.Location = new Point(221, 449);
+         estimatedPriceTextBox.Margin = new Padding(4, 5, 4, 5);
+         estimatedPriceTextBox.Name = "estimatedPriceTextBox";
+         estimatedPriceTextBox.Size = new Size(200, 29);
+         estimatedPriceTextBox.TabIndex = 5;
+         // 
+         // errorProvider1
+         // 
+         errorProvider1.ContainerControl = this;
+         // 
+         // toolStrip1
+         // 
+         toolStrip1.Dock = DockStyle.Bottom;
+         toolStrip1.GripStyle = ToolStripGripStyle.Hidden;
+         toolStrip1.Items.AddRange(new ToolStripItem[] { cancelButton, saveChangesButton });
+         toolStrip1.Location = new Point(0, 494);
+         toolStrip1.Name = "toolStrip1";
+         toolStrip1.Padding = new Padding(0, 0, 2, 0);
+         toolStrip1.Size = new Size(643, 32);
+         toolStrip1.TabIndex = 20;
+         toolStrip1.Text = "toolStrip1";
+         // 
+         // cancelButton
+         // 
+         cancelButton.Alignment = ToolStripItemAlignment.Right;
+         cancelButton.DisplayStyle = ToolStripItemDisplayStyle.Text;
+         cancelButton.Image = (Image)resources.GetObject("cancelButton.Image");
+         cancelButton.ImageTransparentColor = Color.Magenta;
+         cancelButton.Name = "cancelButton";
+         cancelButton.Padding = new Padding(5);
+         cancelButton.Size = new Size(57, 29);
+         cancelButton.Text = "Cancel";
+         cancelButton.Click += OnCancelButtonClicked;
+         // 
+         // saveChangesButton
+         // 
+         saveChangesButton.Alignment = ToolStripItemAlignment.Right;
+         saveChangesButton.DisplayStyle = ToolStripItemDisplayStyle.Text;
+         saveChangesButton.Image = (Image)resources.GetObject("saveChangesButton.Image");
+         saveChangesButton.ImageTransparentColor = Color.Magenta;
+         saveChangesButton.Name = "saveChangesButton";
+         saveChangesButton.Padding = new Padding(5);
+         saveChangesButton.Size = new Size(94, 29);
+         saveChangesButton.Text = "Save Changes";
+         saveChangesButton.Click += OnSaveChangesClicked;
+         // 
+         // categoryComboBox
+         // 
+         categoryComboBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+         categoryComboBox.AutoCompleteMode = AutoCompleteMode.Append;
+         categoryComboBox.AutoCompleteSource = AutoCompleteSource.ListItems;
+         categoryComboBox.FormattingEnabled = true;
+         categoryComboBox.Location = new Point(332, 27);
+         categoryComboBox.Name = "categoryComboBox";
+         categoryComboBox.Size = new Size(298, 29);
+         categoryComboBox.TabIndex = 2;
+         // 
+         // ItemEditForm
+         // 
+         AutoScaleDimensions = new SizeF(9F, 21F);
+         AutoScaleMode = AutoScaleMode.Font;
+         ClientSize = new Size(643, 526);
+         ControlBox = false;
+         Controls.Add(categoryComboBox);
+         Controls.Add(toolStrip1);
+         Controls.Add(estimatedPriceLabel);
+         Controls.Add(estimatedPriceTextBox);
+         Controls.Add(lastOrderPriceLabel);
+         Controls.Add(lastOrderPriceTextBox);
+         Controls.Add(unitLabel);
+         Controls.Add(unitDescriptionTextBox);
+         Controls.Add(descriptionLabel);
+         Controls.Add(substitutableCheckBox);
+         Controls.Add(descriptionTextBox);
+         Controls.Add(categoryLabel);
+         Controls.Add(codeLabel);
+         Controls.Add(codeTextBox);
+         Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+         FormBorderStyle = FormBorderStyle.FixedDialog;
+         KeyPreview = true;
+         Margin = new Padding(4, 5, 4, 5);
+         Name = "ItemEditForm";
+         StartPosition = FormStartPosition.CenterParent;
+         Text = "Create New Item";
+         KeyDown += ItemEditForm_KeyDown;
+         ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
+         toolStrip1.ResumeLayout(false);
+         toolStrip1.PerformLayout();
+         ResumeLayout(false);
+         PerformLayout();
 
-        }
+      }
 
-        #endregion
+      #endregion
 
-        public System.Windows.Forms.TextBox codeTextBox;
+      public System.Windows.Forms.TextBox codeTextBox;
         private System.Windows.Forms.Label codeLabel;
         private System.Windows.Forms.Label categoryLabel;
         public System.Windows.Forms.TextBox descriptionTextBox;
@@ -298,8 +283,8 @@
         public System.Windows.Forms.TextBox estimatedPriceTextBox;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.ToolStripButton cancelButton;
+        private System.Windows.Forms.ToolStripButton saveChangesButton;
         private System.Windows.Forms.ComboBox categoryComboBox;
     }
 }

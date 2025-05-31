@@ -9,19 +9,13 @@ namespace Ccd.Bidding.Manager.Win.UI.Bidding.Cataloging
 
       #region ITEM MAINTENANCE
       // mass reset prices
-      public bool ConfirmItemMassResetPrices()
+      public bool ConfirmItemMassResetToLastOrdered()
       {
          string message = "Are you sure you would like to reset all the items prices to their last ordered price?";
          string caption = "Reset Item Prices?";
          return ShowYesNoConfirmation(message, caption) == DialogResult.Yes;
       }
       // import
-      public bool ConfirmItemDelete()
-      {
-         string message = "Would you like to delete this item? This cannot be undone.";
-         string caption = "Delete Item?";
-         return ShowYesNoConfirmation(message, caption) == DialogResult.Yes;
-      }
       public void ShowItemDelete_ItemRequestedError()
       {
          string message = "Requests have been made on this item, please delete the requested items before you can delete this item.";

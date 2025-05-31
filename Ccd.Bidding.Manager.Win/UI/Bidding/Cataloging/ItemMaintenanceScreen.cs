@@ -13,6 +13,7 @@ using System.Data;
 
 namespace Ccd.Bidding.Manager.Win.UI.Bidding.Cataloging
 {
+   [System.ComponentModel.DesignerCategory("")]
    public class ItemMaintenanceScreen : MaintenanceScreen
    {
       private readonly ICatalogingRepo _catalogingRepo = new EFCatalogingRepo();
@@ -28,7 +29,6 @@ namespace Ccd.Bidding.Manager.Win.UI.Bidding.Cataloging
          _bid = _biddingRepo.GetBid(bidId);
       }
 
-      #region INIT METHODS
       protected override void InitializeTitles()
       {
          titleLabel.Text = "Items Maintenance";
@@ -36,180 +36,159 @@ namespace Ccd.Bidding.Manager.Win.UI.Bidding.Cataloging
          subtitleLabel.Text = $"{_bid.Id}-{_bid.Name}";
          topPanel.BackColor = ApplicationColors.Items;
       }
-      #endregion
 
-      #region ACTIONS
       protected override void InitializeActionsMenu(IActionMenu actionMenu)
       {
          var massUpdateItemPrices = new ToolStripMenuItem() { Text = "Update All Item Prices" };
-         massUpdateItemPrices.Click += MassUpdateItemPrices_Click;
+         massUpdateItemPrices.Click += (_, _) => MassUpdateItemPrices();
 
-         var massResetItemPrices = new ToolStripMenuItem() { Text = "Reset All Item Prices" };
-         massResetItemPrices.Click += MassResetItemPrices_Click;
+         var massResetItemPrices = new ToolStripMenuItem() { Text = "Reset All Item Prices To Last Purchase Price" };
+         massResetItemPrices.Click += (_, _) => MassResetItemPricesToLastOrdered();
 
          var importItemsMenuItem = new ToolStripMenuItem() { Text = "Import Items from CSV" };
-         importItemsMenuItem.Click += importItemsMenuItem_Click;
-
+         importItemsMenuItem.Click += (_, _) => ImportItems();
 
          var exportItemsMenuItem = new ToolStripMenuItem() { Text = "Export All Items to CSV" };
-         exportItemsMenuItem.Click += ExportItemsMenuItem_Click; ;
+         exportItemsMenuItem.Click += (_, _) => ExportItems(); ;
 
          var generateItemsImportTemplateMenuItem = new ToolStripMenuItem() { Text = "Generate Items Import Template to CSV" };
-         generateItemsImportTemplateMenuItem.Click += generateItemsImportTemplateMenuItem_Click;
+         generateItemsImportTemplateMenuItem.Click += (_, _) => GenerateItemsImportTemplate();
 
-         actionsMenu.DropDownItems.AddRange(new ToolStripItem[] {
+         actionsMenu.DropDownItems.AddRange([
                 massUpdateItemPrices,
                 massResetItemPrices,
                 new ToolStripSeparator(),
                 importItemsMenuItem,
                 exportItemsMenuItem,
-                generateItemsImportTemplateMenuItem });
-      }
-      private void MassUpdateItemPrices_Click(object sender, EventArgs e)
-      {
-         decimal multiplier;
+                generateItemsImportTemplateMenuItem ]);
 
-         using MassUpdateItemPricesDialog dialog = new MassUpdateItemPricesDialog();
-
-         if (dialog.ShowDialog() != DialogResult.OK)
+         void MassUpdateItemPrices()
          {
-            return;
-         }
-         multiplier = dialog.Multiplier;
+            decimal multiplier;
 
-         _catalogingOperations.UpdateItems_MassPriceChange_ByBid(_bid.Id, multiplier);
-         RefreshList();
-      }
-      private void MassResetItemPrices_Click(object sender, EventArgs e)
-      {
-         if (CatalogingMessaging.Instance.ConfirmItemMassResetPrices() == false)
+            using MassUpdateItemPricesDialog dialog = new MassUpdateItemPricesDialog();
+
+            if (dialog.ShowDialog() != DialogResult.OK)
+            {
+               return;
+            }
+            multiplier = dialog.Multiplier;
+
+            _catalogingOperations.UpdateItems_MassPriceChange_ByBid(_bid.Id, multiplier);
+            RefreshList();
+         }
+
+         void MassResetItemPricesToLastOrdered()
          {
-            return;
+            if (CatalogingMessaging.Instance.ConfirmItemMassResetToLastOrdered() == false)
+            {
+               return;
+            }
+            _catalogingOperations.UpdateItems_MassPriceReset_ByBid(_bid.Id);
+
+            RefreshList();
          }
-         _catalogingOperations.UpdateItems_MassPriceReset_ByBid(_bid.Id);
 
-         RefreshList();
-      }
-      private void importItemsMenuItem_Click(object sender, EventArgs e)
-      {
-         _itemsImportOperation.ImportItems(_bid);
-         RefreshList();
-      }
-      private void ExportItemsMenuItem_Click(object sender, EventArgs e)
-      {
-         ItemsExports.ExportItemsToCSV(_bid, _catalogingRepo);
-      }
-      public void generateItemsImportTemplateMenuItem_Click(object sender, EventArgs e)
-      {
-         ItemsExports.GenerateItemsImportTemplateToCSV();
-      }
-      #endregion
+         void ImportItems()
+         {
+            _itemsImportOperation.ImportItems(_bid);
 
-      #region LIST METHODS
+            RefreshList();
+         }
+
+         void ExportItems()
+         {
+            ItemsExports.ExportItemsToCSV(_bid, _catalogingRepo);
+         }
+
+         void GenerateItemsImportTemplate()
+         {
+            ItemsExports.GenerateItemsImportTemplateToCSV();
+         }
+      }
+
       protected override void InitializeColumns()
       {
-         listViewMain.Columns.AddRange(
-             new ColumnHeader[] {
-
-                    new ColumnHeader() { Text = "Item Id", Width = 0 },
-                    new ColumnHeader() { Text = "Code", Width = 66 },
-                    new ColumnHeader() { Text = "Description", Width = 955 },
-                    new ColumnHeader() { Text = "Category", Width = 126 },
-                    new ColumnHeader() { Text = "Unit", Width = 66 },
-                    new ColumnHeader() { Text = "Substitutible", Width = 112 },
-                    new ColumnHeader() { Text = "Estimated Price", Width = 104, TextAlign = HorizontalAlignment.Right },
-                    new ColumnHeader() { Text = "Last Order Price", Width = 115, TextAlign = HorizontalAlignment.Right },
-             }
-         );
+         listViewMain.Columns.AddRange([
+            new() { Text = "Item Id", Width = 0 },
+            new() { Text = "Code", Width = 66 },
+            new() { Text = "Description", Width = 955 },
+            new() { Text = "Category", Width = 126 },
+            new() { Text = "Unit", Width = 66 },
+            new() { Text = "Allows Substitutes", Width = 150 },
+            new() { Text = "Estimated Price", Width = 104, TextAlign = HorizontalAlignment.Right },
+            new() { Text = "Last Order Price", Width = 115, TextAlign = HorizontalAlignment.Right },
+         ]);
       }
+
       protected override void RefreshList()
       {
-         listViewMain.ReplaceListViewItems(
-             _catalogingRepo
-                 .GetItems(_bid.Id)
-                 .OrderBy(x => x.Code)
-                 .Select(item => buildListViewItem(item))
-                 .ToArray()
-         );
+         var items = _catalogingRepo.GetItems(_bid.Id);
+
+         listViewMain.ReplaceListViewItems(BuildList());
          ReselectItem();
+
+         IEnumerable<ListViewItem> BuildList()
+         {
+            return items
+               .OrderBy(x => x.Code)
+               .Select(i => new ListViewItem(items: [
+                     "",
+                     i.HyphenatedFormattedCode,
+                     i.Description,
+                     i.Category,
+                     i.Unit,
+                     i.Substitutable.ToString(),
+                     i.Price.ToString("$0.00000"),
+                     i.Last_Order_Price.ToString("$0.00000")
+               ])
+               {
+                  Text = $"{i.Id}",
+                  Tag = i.Id
+               });
+         }
       }
-
-      private static ListViewItem buildListViewItem(Item i)
-      {
-         ListViewItem newListItem = new ListViewItem();
-
-         newListItem.Text = $"{i.Id}";
-
-         newListItem.SubItems.Add(i.HyphenatedFormattedCode);
-         newListItem.SubItems.Add(i.Description);
-         newListItem.SubItems.Add(i.Category);
-         newListItem.SubItems.Add(i.Unit);
-         newListItem.SubItems.Add(i.Substitutable.ToString());
-         newListItem.SubItems.Add(i.Price.ToString("$0.00000"));
-         newListItem.SubItems.Add(i.Last_Order_Price.ToString("$0.00000"));
-
-
-         newListItem.Tag = i.Id;
-         return newListItem;
-      }
-
-
 
       protected override void ListViewDoubleClicked()
-      {
-         EditButtonClicked();
-      }
-      #endregion
+         => EditButtonClicked();
 
-      #region BUTTON METHODS
       protected override void AddButtonClicked()
       {
-         using (ItemEditForm f = new ItemEditForm(_bid))
+         using ItemEditForm addItemForm = new ItemEditForm(_bid);
+
+         if (addItemForm.ShowDialog() != DialogResult.OK ||
+            addItemForm.GetItem() is not Item addedItem)
          {
-            if (f.ShowDialog() != DialogResult.OK)
-            {
-               return;
-            }
-            _catalogingRepo.AddItem(f.GetItem(), _bid.Id);
+            return;
          }
+         _catalogingRepo.AddItem(addedItem, _bid.Id);
+
          RefreshList();
       }
+
       protected override void EditButtonClicked()
       {
-         if (SelectedItem == null)
-         {
+         if (SelectedItem == null ||
+            _catalogingRepo.GetItem(SelectedItemTag) is not Item item)
             return;
-         }
-         Item item = _catalogingRepo.GetItem(SelectedItemTag);
-         if (item == null)
-         {
+
+         using ItemEditForm editItemForm = new ItemEditForm(item);
+
+         if (editItemForm.ShowDialog() != DialogResult.OK ||
+            editItemForm.GetItem() is not Item editedItem)
             return;
-         }
-         using (ItemEditForm f = new ItemEditForm(item))
-         {
-            if (f.ShowDialog() != DialogResult.OK)
-            {
-               return;
-            }
-            _catalogingRepo.UpdateItem(f.GetItem());
-         }
+
+         _catalogingRepo.UpdateItem(editedItem);
+
          RefreshList();
       }
+
       protected override void DeleteButtonClicked()
       {
-         if (SelectedItem == null)
-         {
+         if (SelectedItem == null ||
+            _catalogingRepo.GetItem(SelectedItemTag) is not Item item)
             return;
-         }
-         Item item = _catalogingRepo.GetItem(SelectedItemTag);
-         if (item == null)
-         {
-            return;
-         }
-         if (CatalogingMessaging.Instance.ConfirmItemDelete() == false)
-         {
-            return;
-         }
+
          if (_requestingRepo.Check_ItemRequested(item.Id))
          {
             CatalogingMessaging.Instance.ShowItemDelete_ItemRequestedError();
@@ -220,10 +199,10 @@ namespace Ccd.Bidding.Manager.Win.UI.Bidding.Cataloging
             CatalogingMessaging.Instance.ShowItemDelete_ItemRespondedError();
             return;
          }
+
          _catalogingRepo.DeleteItem(item.Id);
+
          RefreshList();
       }
-      #endregion
-
    }
 }
