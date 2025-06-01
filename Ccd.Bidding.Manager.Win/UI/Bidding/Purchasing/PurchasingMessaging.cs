@@ -1,8 +1,5 @@
 ﻿using Ccd.Bidding.Manager.Library.Bidding.Purchasing;
 using Ccd.Bidding.Manager.Win.Library.UI;
-using System.Collections.Generic;
-using System.Linq;
-using System.Windows.Forms;
 
 namespace Ccd.Bidding.Manager.Win.UI.Bidding.Purchasing;
 public class PurchasingMessaging : MessagingService

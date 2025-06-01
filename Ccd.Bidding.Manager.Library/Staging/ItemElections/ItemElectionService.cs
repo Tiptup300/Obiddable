@@ -2,8 +2,6 @@
 using Ccd.Bidding.Manager.Library.Bidding.Electing;
 using Ccd.Bidding.Manager.Library.Bidding.Electing.Elections;
 using Ccd.Bidding.Manager.Library.Bidding.Requesting;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Ccd.Bidding.Manager.Library.Staging.ItemElections;
 public class ItemElectionService

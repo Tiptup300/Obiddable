@@ -6,9 +6,6 @@ using Ccd.Bidding.Manager.Library.EF.Bidding.Requesting;
 using Ccd.Bidding.Manager.Library.EF.Bidding.Responding;
 using Ccd.Bidding.Manager.Library.Formatting;
 using Ccd.Bidding.Manager.Reporting.Html;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 
 namespace Ccd.Bidding.Manager.Reporting.Bidding.Electings;

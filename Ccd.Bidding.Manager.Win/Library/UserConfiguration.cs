@@ -1,9 +1,5 @@
 ﻿using Ccd.Bidding.Manager.Library;
 using Ccd.Bidding.Manager.Win.Library.IO;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Reflection;
 
 namespace Ccd.Bidding.Manager.Win.Library;

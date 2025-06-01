@@ -1,5 +1,4 @@
 ﻿using Ccd.Bidding.Manager.Library.Bidding.Cataloging;
-using System;
 
 namespace Ccd.Bidding.Manager.Library.Bidding.Distribution;
 public class DistributedQuantity

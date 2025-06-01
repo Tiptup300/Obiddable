@@ -1,7 +1,6 @@
 ﻿using Ccd.Bidding.Manager.Library.Bidding;
 using Ccd.Bidding.Manager.Test.MockBids;
 using Ccd.Bidding.Manager.Test.Mocking;
-using Xunit;
 
 namespace Ccd.Bidding.Manager.Test.Bidding;
 public class BiddingServiceTests

@@ -1,6 +1,4 @@
 ﻿using Ccd.Bidding.Manager.Library.Bidding.Cataloging;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 
 namespace Ccd.Bidding.Manager.Library.Conversions.Bidding.Cataloging;

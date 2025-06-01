@@ -1,7 +1,5 @@
 ﻿using Ccd.Bidding.Manager.Library.Bidding.Cataloging;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Linq;
 
 namespace Ccd.Bidding.Manager.Library.EF.Bidding.Cataloging;
 public class EFCatalogingOperations : ICatalogingOperations

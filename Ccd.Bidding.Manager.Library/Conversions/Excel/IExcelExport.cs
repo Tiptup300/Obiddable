@@ -1,6 +1,4 @@
-﻿using System.IO;
-
-namespace Ccd.Bidding.Manager.Library.Conversions.Excel;
+﻿namespace Ccd.Bidding.Manager.Library.Conversions.Excel;
 public interface IExcelExport
 {
    MemoryStream Generate();

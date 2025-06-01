@@ -1,8 +1,6 @@
 ﻿using Ccd.Bidding.Manager.Library.Bidding.Electing.Elections;
 using Ccd.Bidding.Manager.Library.Bidding.Responding;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Ccd.Bidding.Manager.Library.EF.Bidding.Electing;
 public static class ConversionExtensions

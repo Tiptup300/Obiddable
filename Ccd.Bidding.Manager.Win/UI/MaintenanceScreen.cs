@@ -1,8 +1,6 @@
 ﻿using Ccd.Bidding.Manager.Win.Library;
 using Ccd.Bidding.Manager.Win.Library.Operations.UI;
 using Ccd.Bidding.Manager.Win.Library.UI;
-using System;
-using System.Windows.Forms;
 
 namespace Ccd.Bidding.Manager.Win.UI;
 public partial class MaintenanceScreen : HostScreen

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Ccd.Bidding.Manager.Win.Library.UI;
+﻿namespace Ccd.Bidding.Manager.Win.Library.UI;
 public interface IActionMenu
 {
    void AddSeparator();

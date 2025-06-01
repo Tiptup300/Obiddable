@@ -1,9 +1,6 @@
 ﻿using Ccd.Bidding.Manager.Library.Bidding.Cataloging;
 using Ccd.Bidding.Manager.Library.Conversions.Bidding.Cataloging;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using Xunit;
 
 namespace Ccd.Bidding.Manager.Test.TestConversions;
 public class ItemsConversionsTests

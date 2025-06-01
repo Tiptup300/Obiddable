@@ -5,9 +5,6 @@ using Ccd.Bidding.Manager.Library.Bidding.Requesting;
 using Ccd.Bidding.Manager.Library.Bidding.Responding;
 using Ccd.Bidding.Manager.Test.MockBids;
 using Ccd.Bidding.Manager.Test.Mocking;
-using System.Collections.Generic;
-using System.Linq;
-using Xunit;
 
 namespace Ccd.Bidding.Manager.Test;
 public class DistributionTests

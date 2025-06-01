@@ -1,7 +1,6 @@
 ﻿using Ccd.Bidding.Manager.Library.Bidding.Purchasing;
 using Ccd.Bidding.Manager.Library.Conversions.Bidding.Purchasing;
 using Ccd.Bidding.Manager.Win.UI.Bidding.Purchasing;
-using System.IO;
 
 namespace Ccd.Bidding.Manager.Win.Library.IO.Bidding.Purchasing;
 public static class PurchaseOrdersExports

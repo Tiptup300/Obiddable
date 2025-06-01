@@ -1,6 +1,4 @@
-﻿using System.Linq;
-
-namespace Ccd.Bidding.Manager.Library.Bidding.Purchasing;
+﻿namespace Ccd.Bidding.Manager.Library.Bidding.Purchasing;
 public static class PurchaseOrderExtensions
 {
    public static decimal GetQuantitySumOfLineItems(this PurchaseOrder purchaseOrder)

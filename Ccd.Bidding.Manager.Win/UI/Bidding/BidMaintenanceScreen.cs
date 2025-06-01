@@ -6,9 +6,6 @@ using Ccd.Bidding.Manager.Win.Library.Operations.Bidding;
 using Ccd.Bidding.Manager.Win.Library.Operations.UI;
 using Ccd.Bidding.Manager.Win.Library.UI;
 using Ccd.Bidding.Manager.Win.UI.Bidding.Navigation;
-using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
 
 namespace Ccd.Bidding.Manager.Win.UI.Bidding;
 public class BidMaintenanceScreen : MaintenanceScreen

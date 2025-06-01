@@ -3,8 +3,6 @@ using Ccd.Bidding.Manager.Library.Bidding.Cataloging;
 using Ccd.Bidding.Manager.Library.Bidding.Requesting;
 using Ccd.Bidding.Manager.Library.Bidding.Responding;
 using Ccd.Bidding.Manager.Test.Repos;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Ccd.Bidding.Manager.Test.MockBids;
 class UnmatchedAlternateMultipleMockBidBuilder : IMockBidBuilder

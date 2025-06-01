@@ -1,8 +1,6 @@
 ﻿using Ccd.Bidding.Manager.Library.Bidding;
 using Ccd.Bidding.Manager.Library.Bidding.Purchasing;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Ccd.Bidding.Manager.Library.EF.Bidding.Purchasing;
 public class EFPurchasingRepo : IPurchasingRepo

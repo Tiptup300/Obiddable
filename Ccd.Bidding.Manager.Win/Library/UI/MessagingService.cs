@@ -1,6 +1,4 @@
-﻿using System.Windows.Forms;
-
-namespace Ccd.Bidding.Manager.Win.Library.UI;
+﻿namespace Ccd.Bidding.Manager.Win.Library.UI;
 public class MessagingService
 {
    protected string FieldCannotBeBlankError(string field)

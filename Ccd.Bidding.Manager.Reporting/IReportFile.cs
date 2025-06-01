@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Ccd.Bidding.Manager.Reporting;
+﻿namespace Ccd.Bidding.Manager.Reporting;
 public interface IReportFile
 {
    string Data { get; set; }

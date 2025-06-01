@@ -2,8 +2,6 @@
 using Ccd.Bidding.Manager.Library.Bidding.Requesting;
 using Ccd.Bidding.Manager.Library.Bidding.Responding;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Ccd.Bidding.Manager.Library.EF.Bidding.Requesting.Cataloging;
 internal class RequestingCatalogingRepo

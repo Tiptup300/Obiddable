@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace Ccd.Bidding.Manager.Library.Bidding;
+﻿namespace Ccd.Bidding.Manager.Library.Bidding;
 public interface IBiddingRepo
 {
    void AddBid(Bid obj);

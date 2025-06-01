@@ -1,7 +1,4 @@
 ﻿using Ccd.Bidding.Manager.Win.Library;
-using System;
-using System.IO;
-using System.Windows.Forms;
 
 namespace Ccd.Bidding.Manager.Win.UI;
 public partial class ConfigForm : Form

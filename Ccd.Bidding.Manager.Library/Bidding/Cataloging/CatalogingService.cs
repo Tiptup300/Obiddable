@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-
-namespace Ccd.Bidding.Manager.Library.Bidding.Cataloging;
+﻿namespace Ccd.Bidding.Manager.Library.Bidding.Cataloging;
 public class CatalogingService
 {
    private readonly ICatalogingRepo _catalogingRepo;

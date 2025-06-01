@@ -2,7 +2,6 @@ using Ccd.Bidding.Manager.Library.Bidding.Cataloging;
 using Ccd.Bidding.Manager.Library.Bidding.Electing;
 using Ccd.Bidding.Manager.Library.Bidding.Electing.Elections;
 using Ccd.Bidding.Manager.Library.Bidding.Responding;
-using Xunit;
 
 namespace Ccd.Bidding.Manager.Test.Bidding.Electing;
 public class ElectionTests

@@ -1,5 +1,4 @@
 ﻿using Ccd.Bidding.Manager.Library.Bidding.Responding;
-using System;
 
 namespace Ccd.Bidding.Manager.Library.Bidding.Electing.Elections;
 public class MarkedElection : Election

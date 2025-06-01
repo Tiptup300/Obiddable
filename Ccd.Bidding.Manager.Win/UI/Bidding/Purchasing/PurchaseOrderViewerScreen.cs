@@ -2,9 +2,6 @@
 using Ccd.Bidding.Manager.Library.EF.Bidding.Purchasing;
 using Ccd.Bidding.Manager.Win.Library.IO.Bidding.Purchasing;
 using Ccd.Bidding.Manager.Win.Library.UI;
-using System;
-using System.Drawing;
-using System.Windows.Forms;
 
 namespace Ccd.Bidding.Manager.Win.UI.Bidding.Purchasing;
 public partial class PurchaseOrderViewerScreen : HostScreen

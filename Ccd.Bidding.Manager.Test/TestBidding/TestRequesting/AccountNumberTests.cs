@@ -1,5 +1,4 @@
 ﻿using Ccd.Bidding.Manager.Library.Bidding;
-using Xunit;
 
 namespace Ccd.Bidding.Manager.Test.Bidding.Requesting;
 public class AccountNumberTests

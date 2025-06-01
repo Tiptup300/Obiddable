@@ -1,6 +1,4 @@
-﻿using System.Drawing;
-
-namespace Ccd.Bidding.Manager.Win.Library.UI;
+﻿namespace Ccd.Bidding.Manager.Win.Library.UI;
 public static class ApplicationColors
 {
    public static Color Bidding = Color.FromArgb(77, 117, 135);

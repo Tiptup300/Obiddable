@@ -1,9 +1,6 @@
 ﻿using Ccd.Bidding.Manager.Library.Bidding;
 using Ccd.Bidding.Manager.Library.Bidding.Requesting;
 using Ccd.Bidding.Manager.Library.EF.Bidding.Requesting;
-using System;
-using System.Linq;
-using System.Windows.Forms;
 
 namespace Ccd.Bidding.Manager.Win.UI.Bidding.Requesting;
 public partial class RequestorEditForm : Form

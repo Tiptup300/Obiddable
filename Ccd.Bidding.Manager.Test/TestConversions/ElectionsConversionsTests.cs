@@ -3,10 +3,7 @@ using Ccd.Bidding.Manager.Library.Bidding.Responding;
 using Ccd.Bidding.Manager.Library.Conversions.Bidding.Electing;
 using Ccd.Bidding.Manager.Test.MockBids;
 using Ccd.Bidding.Manager.Test.Mocking;
-using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using Xunit;
 
 namespace Ccd.Bidding.Manager.Test.TestConversions;
 public class ElectionsConversionsTests

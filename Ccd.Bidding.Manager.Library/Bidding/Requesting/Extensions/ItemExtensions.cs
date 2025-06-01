@@ -1,6 +1,4 @@
 ﻿using Ccd.Bidding.Manager.Library.Bidding.Cataloging;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Ccd.Bidding.Manager.Library.Bidding.Requesting.Extensions;
 public static class ItemExtensions

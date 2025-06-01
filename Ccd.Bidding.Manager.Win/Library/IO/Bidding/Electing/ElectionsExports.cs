@@ -3,7 +3,6 @@ using Ccd.Bidding.Manager.Library.Conversions.Bidding.Electing;
 using Ccd.Bidding.Manager.Library.EF.Bidding.Cataloging;
 using Ccd.Bidding.Manager.Library.EF.Bidding.Responding;
 using Ccd.Bidding.Manager.Win.UI.Bidding.Electing;
-using System;
 
 namespace Ccd.Bidding.Manager.Win.Library.IO.Bidding.Electing;
 public static class ElectionsExports

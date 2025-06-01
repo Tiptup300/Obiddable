@@ -8,9 +8,6 @@ using Ccd.Bidding.Manager.Library.EF.Bidding.Purchasing;
 using Ccd.Bidding.Manager.Library.EF.Bidding.Requesting;
 using Ccd.Bidding.Manager.Library.EF.Bidding.Responding;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Ccd.Bidding.Manager.Library.EF.Bidding;
 public class EFBiddingOperations : IBiddingOperations

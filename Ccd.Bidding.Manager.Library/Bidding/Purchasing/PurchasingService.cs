@@ -2,9 +2,6 @@
 using Ccd.Bidding.Manager.Library.Bidding.Electing;
 using Ccd.Bidding.Manager.Library.Bidding.Requesting;
 using Ccd.Bidding.Manager.Library.Bidding.Responding;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Ccd.Bidding.Manager.Library.Bidding.Purchasing;
 public class PurchasingService

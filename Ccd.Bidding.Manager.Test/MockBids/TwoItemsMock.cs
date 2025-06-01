@@ -1,7 +1,6 @@
 ﻿using Ccd.Bidding.Manager.Library.Bidding;
 using Ccd.Bidding.Manager.Library.Bidding.Cataloging;
 using Ccd.Bidding.Manager.Test.Repos;
-using System.Collections.Generic;
 
 namespace Ccd.Bidding.Manager.Test.MockBids;
 public class TwoItemsMock : IMockBidBuilder

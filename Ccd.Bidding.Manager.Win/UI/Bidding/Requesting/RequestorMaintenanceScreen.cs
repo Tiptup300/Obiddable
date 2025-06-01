@@ -5,9 +5,6 @@ using Ccd.Bidding.Manager.Library.EF.Bidding;
 using Ccd.Bidding.Manager.Library.EF.Bidding.Requesting;
 using Ccd.Bidding.Manager.Win.Library.IO.Bidding.Requesting;
 using Ccd.Bidding.Manager.Win.Library.UI;
-using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
 
 namespace Ccd.Bidding.Manager.Win.UI.Bidding.Requesting;
 public class RequestorMaintenanceScreen : MaintenanceScreen

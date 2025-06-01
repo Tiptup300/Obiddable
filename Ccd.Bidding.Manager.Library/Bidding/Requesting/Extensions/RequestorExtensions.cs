@@ -1,6 +1,4 @@
-﻿using System.Linq;
-
-namespace Ccd.Bidding.Manager.Library.Bidding.Requesting.Extensions;
+﻿namespace Ccd.Bidding.Manager.Library.Bidding.Requesting.Extensions;
 public static class RequestorExtensions
 {
    public static decimal TotalPrice(this Requestor requestor)

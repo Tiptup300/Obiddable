@@ -1,6 +1,4 @@
-﻿using System.Linq;
-
-namespace Ccd.Bidding.Manager.Library.Bidding.Requesting.Extensions;
+﻿namespace Ccd.Bidding.Manager.Library.Bidding.Requesting.Extensions;
 public static class RequestExtensions
 {
    public static decimal ExtendedPriceSum(this Request request)

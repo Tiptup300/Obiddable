@@ -1,7 +1,5 @@
 ﻿using Ccd.Bidding.Manager.Library.Bidding.Requesting;
 using Ccd.Bidding.Manager.Library.Bidding.Requesting.Extensions;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Ccd.Bidding.Manager.Library.Bidding.Cataloging;
 public static class BiddingExtensions

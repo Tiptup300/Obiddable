@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Ccd.Bidding.Manager.Reporting.Html;
+﻿namespace Ccd.Bidding.Manager.Reporting.Html;
 public static class StringExtensions
 {
    public static string CollapseSpaces(this string str)

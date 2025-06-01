@@ -2,8 +2,6 @@
 using Ccd.Bidding.Manager.Library.Bidding.Cataloging;
 using Ccd.Bidding.Manager.Library.Bidding.Electing;
 using Ccd.Bidding.Manager.Library.Bidding.Electing.Elections;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Ccd.Bidding.Manager.Library.EF.Bidding.Electing;
 public class ElectingRepo : IElectingRepo

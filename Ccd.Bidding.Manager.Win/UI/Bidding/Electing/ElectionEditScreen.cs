@@ -10,11 +10,7 @@ using Ccd.Bidding.Manager.Library.EF.Bidding.Responding;
 using Ccd.Bidding.Manager.Library.Formatting;
 using Ccd.Bidding.Manager.Win.Library.Operations.Bidding.Electing;
 using Ccd.Bidding.Manager.Win.Library.UI;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Windows.Forms;
 
 namespace Ccd.Bidding.Manager.Win.UI.Bidding.Electing;
 public partial class ElectionEditScreen : HostScreen

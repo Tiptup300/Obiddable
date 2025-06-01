@@ -4,7 +4,6 @@ using Ccd.Bidding.Manager.Library.Bidding.Requesting;
 using Ccd.Bidding.Manager.Library.Bidding.Responding;
 using Ccd.Bidding.Manager.Library.Conversions.Bidding.Responding;
 using Ccd.Bidding.Manager.Win.UI.Bidding.Responding;
-using System;
 
 namespace Ccd.Bidding.Manager.Win.Library.IO.Bidding.Responding;
 public static class VendorResponsesExports

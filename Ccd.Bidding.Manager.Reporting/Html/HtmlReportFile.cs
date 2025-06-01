@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Ccd.Bidding.Manager.Reporting.Html;
+﻿namespace Ccd.Bidding.Manager.Reporting.Html;
 public class HtmlReportFile : IReportFile
 {
    public string FileName { get; set; }

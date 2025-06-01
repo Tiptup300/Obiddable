@@ -15,11 +15,7 @@ using Ccd.Bidding.Manager.Reporting.Bidding.VendorResponses;
 using Ccd.Bidding.Manager.Win.Library.IO.Bidding.Purchasing;
 using Ccd.Bidding.Manager.Win.Library.Operations.Bidding;
 using Ccd.Bidding.Manager.Win.Library.UI;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Windows.Forms;
 
 namespace Ccd.Bidding.Manager.Win.UI.Bidding.Purchasing;
 public class PurchaseOrderMaintenanceScreen : MaintenanceScreen

@@ -1,6 +1,4 @@
-﻿using System.Linq;
-
-namespace Ccd.Bidding.Manager.Library.Bidding;
+﻿namespace Ccd.Bidding.Manager.Library.Bidding;
 public class BiddingService
 {
    private readonly IBiddingRepo _biddingRepo;

@@ -1,6 +1,5 @@
 ﻿using Ccd.Bidding.Manager.Library.Bidding.Cataloging;
 using Ccd.Bidding.Manager.Library.Bidding.Responding;
-using System.Collections.Generic;
 
 namespace Ccd.Bidding.Manager.Library.Staging.ItemResponses;
 class ItemResponseService

@@ -10,9 +10,6 @@ using Ccd.Bidding.Manager.Library.Validations;
 using Ccd.Bidding.Manager.Win.Library.Operations.Bidding.Electing;
 using Ccd.Bidding.Manager.Win.UI;
 using Ccd.Bidding.Manager.Win.UI.Bidding.Electing;
-using System;
-using System.Collections.Generic;
-using System.IO;
 
 namespace Ccd.Bidding.Manager.Win.Library.IO.Bidding.Electing;
 public class ElectionsImports

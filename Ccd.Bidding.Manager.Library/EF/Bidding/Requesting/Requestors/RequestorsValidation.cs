@@ -1,7 +1,6 @@
 ﻿using Ccd.Bidding.Manager.Library.Bidding.Requesting;
 using Ccd.Bidding.Manager.Library.EF;
 using Microsoft.EntityFrameworkCore;
-using System.Linq;
 
 namespace Ccd.Bidding.Manager.Library.Validations.Bidding.Requesting;
 internal class RequestorsValidation

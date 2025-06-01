@@ -10,9 +10,6 @@ using Ccd.Bidding.Manager.Win.Library.IO.Bidding.Requesting;
 using Ccd.Bidding.Manager.Win.Library.IO.Bidding.Responding;
 using Ccd.Bidding.Manager.Win.UI;
 using Ccd.Bidding.Manager.Win.UI.Bidding.Requesting;
-using System;
-using System.IO;
-using System.Linq;
 
 namespace Ccd.Bidding.Manager.Win.Library.Bidding.IO;
 public static class BidsExports

@@ -5,8 +5,6 @@ using Ccd.Bidding.Manager.Library.Bidding.Responding;
 using Ccd.Bidding.Manager.Reporting.Bidding.Electings;
 using Ccd.Bidding.Manager.Test.Mocking;
 using Ccd.Bidding.Manager.Test.Repos;
-using System.Collections.Generic;
-using Xunit;
 
 namespace Ccd.Bidding.Manager.Test.Reporting.Electings;
 public class ElectedQuantitiesDiscrepancyReportTests

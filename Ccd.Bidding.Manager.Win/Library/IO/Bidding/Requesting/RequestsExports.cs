@@ -5,9 +5,6 @@ using Ccd.Bidding.Manager.Library.Conversions.Bidding.Requesting;
 using Ccd.Bidding.Manager.Library.Conversions.Excel;
 using Ccd.Bidding.Manager.Win.UI;
 using Ccd.Bidding.Manager.Win.UI.Bidding.Requesting;
-using System;
-using System.Collections.Generic;
-using System.IO;
 
 namespace Ccd.Bidding.Manager.Win.Library.IO.Bidding.Requesting;
 public static class RequestsExports

@@ -1,7 +1,5 @@
 ﻿using Ccd.Bidding.Manager.Library.Bidding;
 using Ccd.Bidding.Manager.Library.Bidding.Requesting;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 
 namespace Ccd.Bidding.Manager.Library.Conversions.Bidding.Requesting;

@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-
-namespace Ccd.Bidding.Manager.Reporting.Html.Tables;
+﻿namespace Ccd.Bidding.Manager.Reporting.Html.Tables;
 public class CoverPage : IHeightElement
 {
    public static CoverPage Empty = new EmptyCoverPage();

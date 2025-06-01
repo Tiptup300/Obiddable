@@ -1,6 +1,5 @@
 ﻿using Ccd.Bidding.Manager.Library.Bidding.Cataloging;
 using Ccd.Bidding.Manager.Library.Bidding.Requesting;
-using System.Collections.Generic;
 
 namespace Ccd.Bidding.Manager.Library.Bidding.Responding;
 public interface IRespondingRepo

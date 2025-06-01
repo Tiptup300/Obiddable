@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace Ccd.Bidding.Manager.Library.Bidding.Purchasing;
+﻿namespace Ccd.Bidding.Manager.Library.Bidding.Purchasing;
 public interface IPurchasingRepo
 {
    void AddPurchaseOrder_ToBid(PurchaseOrder obj, int bidId);

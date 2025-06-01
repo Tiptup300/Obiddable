@@ -25,8 +25,8 @@ public class AccountNumber
 
    private static bool AccountNumberCharacterValid(char accountNumberChar, char templateChar)
    {
-      if (arePeriods(accountNumberChar, templateChar) ||
-          areFillerSpace(accountNumberChar, templateChar))
+      if (ArePeriods(accountNumberChar, templateChar) ||
+          AreFillerSpace(accountNumberChar, templateChar))
       {
          return true;
       }
@@ -35,17 +35,17 @@ public class AccountNumber
          return false;
       }
    }
-   private static bool arePeriods(char accountNumberChar, char templateChar)
-       => isPeriod(accountNumberChar) && isPeriod(templateChar);
+   private static bool ArePeriods(char accountNumberChar, char templateChar)
+       => IsPeriod(accountNumberChar) && IsPeriod(templateChar);
 
-   private static bool isPeriod(char character)
+   private static bool IsPeriod(char character)
        => character == '.';
 
-   private static bool areFillerSpace(char accountNumberChar, char templateChar)
-       => isNumber(accountNumberChar) && isFiller(templateChar);
+   private static bool AreFillerSpace(char accountNumberChar, char templateChar)
+       => IsNumber(accountNumberChar) && IsFiller(templateChar);
 
-   private static bool isNumber(char character)
+   private static bool IsNumber(char character)
        => (character >= '0' && character <= '9');
-   private static bool isFiller(char character)
+   private static bool IsFiller(char character)
        => character == 'x';
 }

@@ -2,7 +2,6 @@
 using Ccd.Bidding.Manager.Library.Operations;
 using Ccd.Bidding.Manager.Library.Validations;
 using Ccd.Bidding.Manager.Win.UI;
-using System;
 
 namespace Ccd.Bidding.Manager.Win.Library.Operations;
 public abstract class BidDataOperation : DataOperation

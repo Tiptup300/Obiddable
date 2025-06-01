@@ -1,6 +1,4 @@
-﻿using System.Linq;
-
-namespace Ccd.Bidding.Manager.Library.Bidding.Electing;
+﻿namespace Ccd.Bidding.Manager.Library.Bidding.Electing;
 public class LegacyElectionsService
 {
    private readonly ILegacyElectionsRepo _legacyElectionsRepo;

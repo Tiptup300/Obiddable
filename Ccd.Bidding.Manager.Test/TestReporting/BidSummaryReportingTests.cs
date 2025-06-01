@@ -2,8 +2,6 @@
 using Ccd.Bidding.Manager.Reporting.Html;
 using Ccd.Bidding.Manager.Test.MockBids;
 using Ccd.Bidding.Manager.Test.Mocking;
-using System;
-using Xunit;
 
 namespace Ccd.Bidding.Manager.Test.Reporting;
 public class BidSummaryReportingTests

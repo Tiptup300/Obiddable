@@ -1,7 +1,6 @@
 ﻿using Ccd.Bidding.Manager.Library.Bidding;
 using Ccd.Bidding.Manager.Library.Validations;
 using Microsoft.EntityFrameworkCore;
-using System.Linq;
 
 namespace Ccd.Bidding.Manager.Library.EF.Bidding;
 public class EFBiddingValidation

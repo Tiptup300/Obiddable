@@ -3,9 +3,6 @@ using Ccd.Bidding.Manager.Library.Bidding.Requesting;
 using Ccd.Bidding.Manager.Library.Bidding.Requesting.Extensions;
 using Ccd.Bidding.Manager.Library.Bidding.Responding;
 using OfficeOpenXml;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Text;
 
 namespace Ccd.Bidding.Manager.Library.Conversions.Bidding.Responding;

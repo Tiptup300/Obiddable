@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Ccd.Bidding.Manager.Library.Bidding.Requesting.Extensions;
+﻿namespace Ccd.Bidding.Manager.Library.Bidding.Requesting.Extensions;
 public static class RequestItemExtensions
 {
    public static bool IsPriceOverridden(this RequestItem requestItem)

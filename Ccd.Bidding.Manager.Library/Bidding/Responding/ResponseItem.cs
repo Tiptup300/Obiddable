@@ -2,7 +2,6 @@
 using Ccd.Bidding.Manager.Library.Bidding.Requesting;
 using Ccd.Bidding.Manager.Library.Bidding.Requesting.Extensions;
 using Ccd.Bidding.Manager.Library.Validations;
-using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 

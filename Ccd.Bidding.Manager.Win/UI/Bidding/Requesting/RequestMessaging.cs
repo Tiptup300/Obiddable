@@ -1,7 +1,6 @@
 ﻿using Ccd.Bidding.Manager.Library.Bidding.Requesting;
 using Ccd.Bidding.Manager.Library.Bidding.Requesting.Extensions;
 using Ccd.Bidding.Manager.Win.Library.UI;
-using System.Windows.Forms;
 
 namespace Ccd.Bidding.Manager.Win.UI.Bidding.Requesting;
 public class RequestMessaging : MessagingService

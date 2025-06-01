@@ -1,6 +1,4 @@
 ﻿using Ccd.Bidding.Manager.Library.Bidding.Purchasing;
-using System;
-using System.Linq;
 
 namespace Ccd.Bidding.Manager.Library.Conversions.Bidding.Purchasing;
 public class PurchaseOrdersConversions

@@ -2,7 +2,6 @@
 using Ccd.Bidding.Manager.Library.Bidding.Cataloging;
 using Ccd.Bidding.Manager.Test.MockBids;
 using Ccd.Bidding.Manager.Test.Repos;
-using Xunit;
 
 namespace Ccd.Bidding.Manager.Test;
 public class ItemTests

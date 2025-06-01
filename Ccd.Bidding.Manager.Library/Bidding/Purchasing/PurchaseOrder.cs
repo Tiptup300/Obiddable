@@ -1,9 +1,6 @@
 ﻿using Ccd.Bidding.Manager.Library.Validations;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
 
 namespace Ccd.Bidding.Manager.Library.Bidding.Purchasing;
 public class PurchaseOrder : IValidatable

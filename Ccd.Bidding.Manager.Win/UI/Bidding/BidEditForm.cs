@@ -1,7 +1,5 @@
 ﻿using Ccd.Bidding.Manager.Library.Bidding;
 using Ccd.Bidding.Manager.Library.EF.Bidding;
-using System;
-using System.Windows.Forms;
 
 namespace Ccd.Bidding.Manager.Win.UI.Bidding;
 public partial class BidEditForm : Form

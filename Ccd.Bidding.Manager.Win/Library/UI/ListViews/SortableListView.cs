@@ -1,8 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Windows.Forms;
-
-namespace Ccd.Bidding.Manager.Win.Library.UI.ListViews;
+﻿namespace Ccd.Bidding.Manager.Win.Library.UI.ListViews;
 public class SortableListView : ListView
 {
    private ListViewColumnSorter _columnSorter = new ListViewColumnSorter();

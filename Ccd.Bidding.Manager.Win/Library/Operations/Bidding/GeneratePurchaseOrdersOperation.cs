@@ -5,7 +5,6 @@ using Ccd.Bidding.Manager.Reporting.Bidding;
 using Ccd.Bidding.Manager.Reporting.Bidding.VendorResponses;
 using Ccd.Bidding.Manager.Win.Library.IO;
 using Ccd.Bidding.Manager.Win.UI.Bidding.Purchasing;
-using System.Collections.Generic;
 
 namespace Ccd.Bidding.Manager.Win.Library.Operations.Bidding;
 public class GeneratePurchaseOrdersOperation

@@ -1,9 +1,6 @@
 ﻿using Ccd.Bidding.Manager.Library.Bidding.Cataloging;
 using Ccd.Bidding.Manager.Test.MockBids;
 using Ccd.Bidding.Manager.Test.Mocking;
-using System;
-using System.Collections.Generic;
-using Xunit;
 
 namespace Ccd.Bidding.Manager.Test.Bidding.Cataloging;
 public class CatalogingServiceTests

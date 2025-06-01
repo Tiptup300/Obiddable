@@ -1,7 +1,5 @@
 ﻿using Ccd.Bidding.Manager.Library.Bidding;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Ccd.Bidding.Manager.Library.EF.Bidding;
 public class EFBiddingRepo : IBiddingRepo

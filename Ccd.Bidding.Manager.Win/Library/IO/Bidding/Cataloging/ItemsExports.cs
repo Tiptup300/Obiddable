@@ -2,7 +2,6 @@
 using Ccd.Bidding.Manager.Library.Bidding.Cataloging;
 using Ccd.Bidding.Manager.Library.Conversions.Bidding.Cataloging;
 using Ccd.Bidding.Manager.Win.UI;
-using System;
 
 namespace Ccd.Bidding.Manager.Win.Library.IO.Bidding.Cataloging;
 public static class ItemsExports

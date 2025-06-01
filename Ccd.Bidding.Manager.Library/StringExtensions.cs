@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Ccd.Bidding.Manager.Library;
+﻿namespace Ccd.Bidding.Manager.Library;
 public static class StringExtensions
 {
    public static string Join(this IEnumerable<string> values, string separator)

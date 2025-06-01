@@ -1,5 +1,4 @@
 ﻿using Ccd.Bidding.Manager.Reporting.Html;
-using Xunit;
 
 namespace Ccd.Bidding.Manager.Test.Reporting;
 public class Html

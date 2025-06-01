@@ -1,5 +1,4 @@
 ﻿using Ccd.Bidding.Manager.Library.Validations;
-using System;
 
 namespace Ccd.Bidding.Manager.Library.Operations;
 public abstract class DataOperation : IOperation

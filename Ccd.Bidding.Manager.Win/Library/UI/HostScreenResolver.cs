@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Ccd.Bidding.Manager.Win.Library.UI;
+﻿namespace Ccd.Bidding.Manager.Win.Library.UI;
 public class HostScreenResolver
 {
    public HostScreen Resolve<TScreen>() where TScreen : HostScreen

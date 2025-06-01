@@ -1,6 +1,4 @@
 ﻿using Ccd.Bidding.Manager.Library.Bidding.Requesting;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Ccd.Bidding.Manager.Library.Bidding;
 public class Building

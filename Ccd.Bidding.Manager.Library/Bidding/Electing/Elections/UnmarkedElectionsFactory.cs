@@ -1,7 +1,4 @@
 ﻿using Ccd.Bidding.Manager.Library.Bidding.Cataloging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Ccd.Bidding.Manager.Library.Bidding.Electing.Elections;
 public class UnmarkedElectionsFactory

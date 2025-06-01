@@ -1,5 +1,4 @@
 ﻿using Ccd.Bidding.Manager.Library.Bidding.Electing;
-using System.Linq;
 
 namespace Ccd.Bidding.Manager.Library.Bidding.Purchasing;
 public static class BiddingExtensions

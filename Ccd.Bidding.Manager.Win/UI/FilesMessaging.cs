@@ -1,6 +1,4 @@
 ﻿using Ccd.Bidding.Manager.Win.Library.UI;
-using System.IO;
-using System.Windows.Forms;
 
 namespace Ccd.Bidding.Manager.Win.UI;
 public class FilesMessaging : MessagingService

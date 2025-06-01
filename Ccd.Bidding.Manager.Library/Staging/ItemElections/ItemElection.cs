@@ -1,6 +1,5 @@
 ﻿using Ccd.Bidding.Manager.Library.Bidding.Cataloging;
 using Ccd.Bidding.Manager.Library.Bidding.Electing.Elections;
-using System;
 
 namespace Ccd.Bidding.Manager.Library.Staging;
 public class ItemElection

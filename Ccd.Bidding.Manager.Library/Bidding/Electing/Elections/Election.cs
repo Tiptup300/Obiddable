@@ -1,6 +1,5 @@
 ﻿using Ccd.Bidding.Manager.Library.Bidding.Cataloging;
 using Ccd.Bidding.Manager.Library.Bidding.Responding;
-using System;
 
 namespace Ccd.Bidding.Manager.Library.Bidding.Electing.Elections;
 public abstract class Election : Entity

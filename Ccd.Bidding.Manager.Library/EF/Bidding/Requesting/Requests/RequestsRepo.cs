@@ -2,8 +2,6 @@
 using Ccd.Bidding.Manager.Library.EF.Bidding.Requesting.RequestItems;
 using Ccd.Bidding.Manager.Library.Validations.Bidding.Requesting;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Ccd.Bidding.Manager.Library.EF.Bidding.Requesting.Requests;
 internal class RequestsRepo

@@ -1,6 +1,4 @@
-﻿using System.Linq;
-
-namespace Ccd.Bidding.Manager.Library.Bidding.Requesting.Extensions;
+﻿namespace Ccd.Bidding.Manager.Library.Bidding.Requesting.Extensions;
 public static class BiddingExtensions
 {
    public static bool CanEditRequestors(this Bid bid)

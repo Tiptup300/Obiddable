@@ -1,5 +1,4 @@
 ﻿using Ccd.Bidding.Manager.Library.Bidding;
-using System;
 
 namespace Ccd.Bidding.Manager.Win.Library.IO;
 public class ExportFileNameFactory

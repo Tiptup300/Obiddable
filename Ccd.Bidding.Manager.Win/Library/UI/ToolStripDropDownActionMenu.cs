@@ -1,7 +1,4 @@
-﻿using System;
-using System.Windows.Forms;
-
-namespace Ccd.Bidding.Manager.Win.Library.UI;
+﻿namespace Ccd.Bidding.Manager.Win.Library.UI;
 public class ToolStripDropDownActionMenu : IActionMenu
 {
    private readonly ToolStripDropDownItem _toolStripMenuItem;

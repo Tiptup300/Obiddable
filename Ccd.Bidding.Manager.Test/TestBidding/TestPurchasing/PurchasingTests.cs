@@ -5,9 +5,6 @@ using Ccd.Bidding.Manager.Test.MockBids;
 using Ccd.Bidding.Manager.Test.Mocking;
 using Ccd.Bidding.Manager.Test.Mocking.Bidding;
 using Ccd.Bidding.Manager.Test.Repos;
-using System.Collections.Generic;
-using System.Linq;
-using Xunit;
 
 namespace Ccd.Bidding.Manager.Test;
 public class PurchasingTests

@@ -1,7 +1,5 @@
 ﻿using Ccd.Bidding.Manager.Library.Bidding.Purchasing;
 using Ccd.Bidding.Manager.Test.Repos;
-using System;
-using System.Collections.Generic;
 
 namespace Ccd.Bidding.Manager.Test.Mocking.Bidding;
 public class MockPurchasingRepo : IPurchasingRepo

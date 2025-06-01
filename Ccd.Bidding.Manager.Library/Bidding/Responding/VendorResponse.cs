@@ -1,9 +1,7 @@
 ﻿using Ccd.Bidding.Manager.Library.Bidding.Requesting;
 using Ccd.Bidding.Manager.Library.Validations;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
 
 namespace Ccd.Bidding.Manager.Library.Bidding.Responding;
 public class VendorResponse : IValidatable

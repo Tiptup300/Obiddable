@@ -5,7 +5,6 @@ using Ccd.Bidding.Manager.Library.Bidding.Requesting;
 using Ccd.Bidding.Manager.Library.Bidding.Responding;
 using Ccd.Bidding.Manager.Library.EF.Bidding.Electing;
 using Microsoft.EntityFrameworkCore;
-using System;
 
 namespace Ccd.Bidding.Manager.Library.EF;
 public class Dbc : DbContext

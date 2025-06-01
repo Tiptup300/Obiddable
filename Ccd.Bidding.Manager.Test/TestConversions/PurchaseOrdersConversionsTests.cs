@@ -1,7 +1,5 @@
 ﻿using Ccd.Bidding.Manager.Library.Bidding.Purchasing;
 using Ccd.Bidding.Manager.Library.Conversions.Bidding.Purchasing;
-using System;
-using Xunit;
 
 namespace Ccd.Bidding.Manager.Test.TestConversions;
 public class PurchaseOrdersConversionsTests

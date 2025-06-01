@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 
 namespace Ccd.Bidding.Manager.Library.Conversions;
 public static class ConversionsExtensions

@@ -1,6 +1,4 @@
 ﻿using Ccd.Bidding.Manager.Library.Bidding;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Ccd.Bidding.Manager.Test.Repos;
 public class MockBiddingRepo : IBiddingRepo

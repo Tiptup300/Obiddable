@@ -5,7 +5,6 @@ using OfficeOpenXml;
 using OfficeOpenXml.DataValidation;
 using OfficeOpenXml.Style;
 using System.Drawing;
-using System.Linq;
 
 namespace Ccd.Bidding.Manager.Library.Conversions.Excel;
 public class ExcelRequestExport : BaseFillableExcelItemsExport

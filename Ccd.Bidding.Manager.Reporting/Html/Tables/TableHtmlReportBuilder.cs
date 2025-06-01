@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Text;
 
 namespace Ccd.Bidding.Manager.Reporting.Html.Tables;
 public abstract class TableHtmlReportBuilder

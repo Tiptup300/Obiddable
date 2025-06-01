@@ -4,8 +4,6 @@ using Ccd.Bidding.Manager.Library.Conversions.Bidding.Responding;
 using Ccd.Bidding.Manager.Library.Validations;
 using Ccd.Bidding.Manager.Win.UI;
 using Ccd.Bidding.Manager.Win.UI.Bidding.Responding;
-using System;
-using System.IO;
 
 namespace Ccd.Bidding.Manager.Win.Library.IO.Bidding.Responding;
 public static class VendorResponsesImports
