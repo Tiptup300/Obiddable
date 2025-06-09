@@ -2,6 +2,7 @@
   <Folder Name="/Solution Items/">
     <File Path=".editorconfig" />
   </Folder>
+  <Project Path="Ccd.Bidding.Manager.Excel/Ccd.Bidding.Manager.Excel.csproj" Id="10531dcf-08a3-4e26-9e09-e29ca91226da" />
   <Project Path="Ccd.Bidding.Manager.Library/Ccd.Bidding.Manager.Library.csproj" />
   <Project Path="Ccd.Bidding.Manager.Reporting/Ccd.Bidding.Manager.Reporting.csproj" />
   <Project Path="Ccd.Bidding.Manager.Test/Ccd.Bidding.Manager.Test.csproj">

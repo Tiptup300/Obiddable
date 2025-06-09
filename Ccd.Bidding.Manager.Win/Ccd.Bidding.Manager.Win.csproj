@@ -11,6 +11,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Ccd.Bidding.Manager.Excel\Ccd.Bidding.Manager.Excel.csproj" />
     <ProjectReference Include="..\Ccd.Bidding.Manager.Reporting\Ccd.Bidding.Manager.Reporting.csproj" />
     <ProjectReference Include="..\Ccd.Bidding.Manager.Library\Ccd.Bidding.Manager.Library.csproj" />
   </ItemGroup>

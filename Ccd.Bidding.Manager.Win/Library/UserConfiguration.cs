@@ -1,13 +1,13 @@
-﻿using Ccd.Bidding.Manager.Library;
+﻿using System.Reflection;
+using Ccd.Bidding.Manager.Library;
 using Ccd.Bidding.Manager.Win.Library.IO;
-using System.Reflection;
 
 namespace Ccd.Bidding.Manager.Win.Library;
+
 public class UserConfiguration
 {
    public static UserConfiguration Instance;
    private const string _configCSVHeader = "property,value";
-
 
    private static string _configFileName;
    private int? _workingBidId;
@@ -17,9 +17,12 @@ public class UserConfiguration
    private bool _canDeleteBid = false;
    private bool _supressFileLocationSelectDialog = true;
    private string _helpUrl = "http://10.10.0.19/";
-   private DirectoryInfo _defaultReportsDirectory = new DirectoryInfo(Directory.GetCurrentDirectory() + "\\Reports");
-   private DirectoryInfo _defaultExportsDirectory = new DirectoryInfo(Directory.GetCurrentDirectory() + "\\Exports");
-
+   private DirectoryInfo _defaultReportsDirectory = new DirectoryInfo(
+      Directory.GetCurrentDirectory() + "\\Reports"
+   );
+   private DirectoryInfo _defaultExportsDirectory = new DirectoryInfo(
+      Directory.GetCurrentDirectory() + "\\Exports"
+   );
 
    public int? WorkingBidId
    {
@@ -103,6 +106,53 @@ public class UserConfiguration
       }
    }
 
+   private EpplusLicenseType _epplusLicenseType = EpplusLicenseType.None;
+   public EpplusLicenseType EpplusLicenseType
+   {
+      get { return _epplusLicenseType; }
+      set
+      {
+         if (_epplusLicenseType != value) { }
+         _epplusLicenseType = value;
+         SaveConfigurationFile();
+         SetEpplusLicense();
+      }
+   }
+   private string? _epplusCommercialLicenseKey;
+   public string? EpplusCommercialLicenseKey
+   {
+      get { return _epplusCommercialLicenseKey; }
+      set
+      {
+         _epplusCommercialLicenseKey = value;
+         SaveConfigurationFile();
+         SetEpplusLicense();
+      }
+   }
+
+   private string? _epplusNonCommercialPersonalName;
+   public string? EpplusNonCommercialPersonalName
+   {
+      get { return _epplusNonCommercialPersonalName; }
+      set
+      {
+         _epplusNonCommercialPersonalName = value;
+         SaveConfigurationFile();
+         SetEpplusLicense();
+      }
+   }
+
+   private string? _epplusNonCommercialOrganizationName;
+   public string? EpplusNonCommercialOrganizationName
+   {
+      get { return _epplusNonCommercialOrganizationName; }
+      set
+      {
+         _epplusNonCommercialOrganizationName = value;
+         SaveConfigurationFile();
+         SetEpplusLicense();
+      }
+   }
 
    public UserConfiguration(string configFileName)
    {
@@ -123,10 +173,22 @@ public class UserConfiguration
       }
       loadCsvFile();
    }
+
+   public void SetEpplusLicense()
+   {
+      Ccd.Bidding.Manager.Excel.EpplusConfiguration.SetEpplusConfiguration(
+         EpplusLicenseType,
+         EpplusNonCommercialPersonalName,
+         EpplusNonCommercialOrganizationName,
+         EpplusCommercialLicenseKey
+      );
+   }
+
    private static bool isConfigFileNotCreated()
    {
       return !File.Exists(_configFileName);
    }
+
    private static bool isConfigFileLocked()
    {
       return FileHelpers.IsFileLocked(_configFileName);
@@ -141,13 +203,9 @@ public class UserConfiguration
          return;
       }
 
-      fileData
-          .Skip(1)
-          .Select(readLine())
-          .Where(isValidLine())
-          .ToList()
-          .ForEach(setFieldValue());
+      fileData.Skip(1).Select(readLine()).Where(isValidLine()).ToList().ForEach(setFieldValue());
    }
+
    private Func<string, CsvFieldLine> readLine()
    {
       return line =>
@@ -160,6 +218,7 @@ public class UserConfiguration
          return new CsvFieldLine(fields[0], fields[1]);
       };
    }
+
    private Func<CsvFieldLine, bool> isValidLine()
    {
       return csvFieldLine =>
@@ -167,11 +226,11 @@ public class UserConfiguration
          return csvFieldLine != CsvFieldLine.Null;
       };
    }
+
    private Action<CsvFieldLine> setFieldValue()
    {
       return fieldLine =>
       {
-
          FieldInfo fieldInfo = getFieldByName(fieldLine.Name);
 
          object valueToSet;
@@ -213,6 +272,24 @@ public class UserConfiguration
                valueToSet = null;
             }
          }
+         else if (fieldInfo.FieldType == typeof(EpplusLicenseType))
+         {
+            if (
+               Enum.TryParse<EpplusLicenseType>(
+                  fieldLine.Value,
+                  out EpplusLicenseType epplusLicenseType
+               )
+            )
+            {
+               valueToSet = epplusLicenseType;
+            }
+            else
+            {
+               throw new Exception(
+                  $"Invalid EPPlus License Type {fieldLine.Value} set for field {fieldInfo.Name}"
+               );
+            }
+         }
          else
          {
             throw new Exception($"Field {fieldInfo.Name} is not of a valid savable type.");
@@ -221,12 +298,11 @@ public class UserConfiguration
          fieldInfo.SetValue(this, valueToSet);
       };
    }
+
    private FieldInfo getFieldByName(string fieldName)
    {
-      return GetType()
-          .GetField(fieldName, BindingFlags.Instance | BindingFlags.NonPublic);
+      return GetType().GetField(fieldName, BindingFlags.Instance | BindingFlags.NonPublic);
    }
-
 
    private void SaveConfigurationFile()
    {
@@ -237,23 +313,22 @@ public class UserConfiguration
       }
 
       var output = getNonPublicInstanceFields()
-          .Select(writeLine())
-          .Prepend(_configCSVHeader)
-          .JoinAsLines();
+         .Select(writeLine())
+         .Prepend(_configCSVHeader)
+         .JoinAsLines();
 
       File.WriteAllText(_configFileName, output);
    }
+
    private IEnumerable<FieldInfo> getNonPublicInstanceFields()
    {
-      return GetType()
-          .GetFields(BindingFlags.Instance | BindingFlags.NonPublic);
+      return GetType().GetFields(BindingFlags.Instance | BindingFlags.NonPublic);
    }
+
    private Func<FieldInfo, string> writeLine()
    {
       return field => $"{field.Name},{field.GetValue(this)?.ToString()}";
    }
-
-
 
    private class CsvFieldLine
    {
