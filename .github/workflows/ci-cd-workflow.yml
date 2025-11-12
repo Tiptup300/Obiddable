@@ -58,6 +58,11 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
+        
+      - name: Setup .NET  # ADD THIS
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
 
       - name: Run Tests and Collect Coverage
         run: |
