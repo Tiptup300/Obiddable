@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Styles\Common.css" />
+    <EmbeddedResource Include="Resources\Styles\Common.Landscape.css" />
+    <EmbeddedResource Include="Resources\Styles\Common.Portrait.css" />
+    <EmbeddedResource Include="Resources\Styles\Reports.BidRecap.css" />
+    <EmbeddedResource Include="Resources\Styles\Reports.BidRequestDetail.css" />
+    <EmbeddedResource Include="Resources\Styles\Reports.BidRequestMatrix.css" />
+    <EmbeddedResource Include="Resources\Styles\Reports.BidRequestSummary.css" />
+    <EmbeddedResource Include="Resources\Styles\Reports.BidRoll.css" />
+    <EmbeddedResource Include="Resources\Styles\Reports.BidSummary.css" />
+    <EmbeddedResource Include="Resources\Styles\Reports.BidTally.css" />
+    <EmbeddedResource Include="Resources\Styles\Reports.DetailedDistribution.css" />
+    <EmbeddedResource Include="Resources\Styles\Reports.ElectionConfirmationSheet.css" />
+    <EmbeddedResource Include="Resources\Styles\Reports.ExpendituresByRequestors.css" />
+    <EmbeddedResource Include="Resources\Styles\Reports.NoResponseItems.css" />
+    <EmbeddedResource Include="Resources\Styles\Reports.PriceOverride.css" />
+    <EmbeddedResource Include="Resources\Styles\Reports.VendorDetail.css" />
+    <EmbeddedResource Include="Resources\Styles\Reports.VendorSpecifications.css" />
+    <EmbeddedResource Include="Resources\Styles\Reports.VendorSummary.css" />
+    <EmbeddedResource Include="Resources\Styles\Reports.ElectedQuantitiesDiscrepancyReport.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
+    <ProjectReference Include="..\Obiddable.Library\Obiddable.Library.csproj" />
+  </ItemGroup>
+</Project>
