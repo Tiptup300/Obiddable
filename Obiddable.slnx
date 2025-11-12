@@ -1,6 +1,8 @@
 <Solution>
   <Folder Name="/Solution Items/">
     <File Path=".editorconfig" />
+    <File Path=".github/workflows/ci-cd-workflow.yml" />
+    <File Path="README.md" />
   </Folder>
   <Project Path="Obiddable.Excel/Obiddable.Excel.csproj" Id="10531dcf-08a3-4e26-9e09-e29ca91226da" />
   <Project Path="Obiddable.Library/Obiddable.Library.csproj" />

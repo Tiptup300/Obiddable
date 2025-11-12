@@ -1,0 +1,157 @@
+name: CI/CD Workflow
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '10.x'
+
+    - name: Install coverlet
+      run: dotnet tool install --global coverlet.console --version 6.0.4
+
+    # Add cache for NuGet packages
+    - name: Cache NuGet packages
+      uses: actions/cache@v3
+      with:
+        path: ~/.nuget/packages
+        # Look to see if there is a cache hit for the corresponding requirements file
+        key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-nuget-
+
+    # Add cache for .NET
+    - name: Cache .NET tools
+      uses: actions/cache@v3
+      with:
+        path: ~/.dotnet/tools
+        key: ${{ runner.os }}-dotnet-tools-${{ hashFiles('**/*.csproj') }}
+        restore-keys: |
+          ${{ runner.os }}-dotnet-tools-
+
+    - name: Restore Dependencies
+      run: dotnet restore
+
+    - name: Build Solution
+      run: dotnet build --no-restore --configuration Release
+
+    - name: Upload Release Artifact
+      id: upload-release
+      uses: actions/upload-artifact@v4
+      with:
+        name: release-artifacts
+        path: "./Obiddable.Win/bin/Release"
+
+  test: 
+    needs: build
+    runs-on: windows-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Run Tests and Collect Coverage
+        run: |
+          dotnet test --configuration Release --no-build --collect:"XPlat Code Coverage" --results-directory ./coverage
+      
+      - name: Generate Code Coverage Report
+        run: |
+          dotnet tool install --global dotnet-reportgenerator-globaltool --version 5.1.5
+          reportgenerator "-reports:./coverage/**/coverage.cobertura.xml" "-targetdir:./coverage/"
+      
+      - name: Upload Code Coverage Report to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          file: './coverage/coverage.xml'
+          token: ${{ secrets.CODECOV_TOKEN }}
+        
+      - name: Add Coverage PR Comment
+        uses: marocchino/sticky-pull-request-comment@v2
+        if: github.event_name == 'pull_request'
+        with:
+          recreate: true
+          path: code-coverage-results.md
+        
+  deploy:
+    needs: test
+    runs-on: windows-latest
+    permissions:
+      contents: write
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+  
+    - name: Download Build Artifacts
+      uses: actions/download-artifact@v4
+      with:
+        name: release-artifacts
+        path: release-artifacts
+
+    - name: Set outputs
+      id: vars
+      shell: bash
+      run: |
+        echo "sha_short=$(git rev-parse --short HEAD)" >> "$GITHUB_OUTPUT"
+        echo "tag_name=$(git describe --tags --abbrev=0 2>/dev/null || echo v0.1.0)" >> "$GITHUB_OUTPUT"
+
+    # Create zip with platform-specific naming
+    - name: Create ZIP file
+      run: |
+        $version = "${{ steps.vars.outputs.tag_name }}"
+        $fileName = "Obiddable-$version-win-x64.zip"
+        Compress-Archive -Path "release-artifacts/*" -DestinationPath $fileName
+      shell: pwsh
+  
+    - name: Generate Release Notes
+      id: release_notes
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const { data: latestRelease } = await github.rest.repos.getLatestRelease({
+            owner: context.repo.owner,
+            repo: context.repo.repo
+          }).catch(() => ({ data: { published_at: '1970-01-01T00:00:00Z' } }));
+          
+          const { data: commits } = await github.rest.repos.listCommits({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            since: latestRelease.published_at,
+            per_page: 100
+          });
+          
+          const changes = commits.map(commit => `- ${commit.commit.message}`).join('\n');
+          core.setOutput('notes', changes);
+  
+    - name: Set release date
+      id: date
+      run: echo "formatted_date=$(date +'%B %-d, %Y')" >> $GITHUB_OUTPUT
+
+    - name: Create Release
+      uses: softprops/action-gh-release@v1
+      with:
+        tag_name: ${{ steps.vars.outputs.sha_short }}
+        name: "${{ steps.date.outputs.formatted_date }} Release (${{ steps.vars.outputs.sha_short }})"
+        body: |
+          # What's Changed
+          ${{ steps.release_notes.outputs.notes }}
+          
+          ## System Requirements
+          - Windows 64-bit
+          - .NET 10.0 Runtime
+        draft: false
+        prerelease: false
+        files: Obiddable-${{ steps.vars.outputs.tag_name }}-win-x64.zip
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

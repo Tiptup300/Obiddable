@@ -1,6 +1,6 @@
 # Obiddable
 
-This application manages bidding processes with a local SQLite database.
+Obiddable is an open source bidding application & process for Pennsylvania school districts.
 
 ## Setup Instructions
 
