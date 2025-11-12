@@ -1,4 +1,4 @@
-# Bidding Manager
+# Obiddable
 
 This application manages bidding processes with a local SQLite database.
 
