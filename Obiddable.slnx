@@ -1,0 +1,12 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".editorconfig" />
+  </Folder>
+  <Project Path="Obiddable.Excel/Obiddable.Excel.csproj" Id="10531dcf-08a3-4e26-9e09-e29ca91226da" />
+  <Project Path="Obiddable.Library/Obiddable.Library.csproj" />
+  <Project Path="Obiddable.Reporting/Obiddable.Reporting.csproj" />
+  <Project Path="Obiddable.Test/Obiddable.Test.csproj">
+    <BuildDependency Project="Obiddable.Library/Obiddable.Library.csproj" />
+  </Project>
+  <Project Path="Obiddable.Win/Obiddable.Win.csproj" />
+</Solution>

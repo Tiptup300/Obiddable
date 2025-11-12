@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationHighDpiMode>SystemAware</ApplicationHighDpiMode>
+    <ForceDesignerDpiUnaware>true</ForceDesignerDpiUnaware>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Obiddable.Excel\Obiddable.Excel.csproj" />
+    <ProjectReference Include="..\Obiddable.Reporting\Obiddable.Reporting.csproj" />
+    <ProjectReference Include="..\Obiddable.Library\Obiddable.Library.csproj" />
+  </ItemGroup>
+ 
+  <ItemGroup>
+    <Content Include="bmlogo_LVC_icon.ico" />
+  </ItemGroup>
+</Project>
