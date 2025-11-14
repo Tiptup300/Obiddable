@@ -1,4 +1,4 @@
-# <img width="32px" height="32px" alt="image" src="https://github.com/user-attachments/assets/7bf82bbb-6cc4-4a24-acd7-ec175e62db46" /> Obiddable
+# <img width="1em" height="1em" alt="image" src="https://github.com/user-attachments/assets/7bf82bbb-6cc4-4a24-acd7-ec175e62db46" /> Obiddable
 
 Obiddable is an open source bidding application & process for Pennsylvania school districts.
 
