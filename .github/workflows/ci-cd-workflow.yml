@@ -143,8 +143,8 @@ jobs:
     - name: Create Release
       uses: softprops/action-gh-release@v1
       with:
-        tag_name: ${{ steps.vars.outputs.sha_short }}
-        name: "${{ steps.date.outputs.formatted_date }} Release (${{ steps.vars.outputs.sha_short }})"
+        tag_name: ${{ steps.vars.outputs.tag_name }}
+        name: "Release ${{ steps.vars.outputs.tag_name }}"
         body: |
           # What's Changed
           ${{ steps.release_notes.outputs.notes }}

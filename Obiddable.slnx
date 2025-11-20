@@ -1,6 +1,7 @@
 <Solution>
   <Folder Name="/Solution Items/">
     <File Path=".editorconfig" />
+    <File Path=".github/workflows/auto-increment-version.yml" />
     <File Path=".github/workflows/ci-cd-workflow.yml" />
     <File Path="README.md" />
   </Folder>
