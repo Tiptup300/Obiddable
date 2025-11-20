@@ -2,11 +2,11 @@
   <PropertyGroup>
     <!-- Start with a manually controlled Major.Minor.Patch value -->
     <!-- Update this file manually when you want to change the Major or Minor. -->
-    <Version>1.0.3</Version>
+    <Version>1.0.4</Version>
     <!-- keep assembly/file version consistent; add .0 for the 4th component -->
-    <AssemblyVersion>1.0.3.0</AssemblyVersion>
-    <FileVersion>1.0.3.0</FileVersion>
+    <AssemblyVersion>1.0.4.0</AssemblyVersion>
+    <FileVersion>1.0.4.0</FileVersion>
     <!-- InformationalVersion is useful for including the git SHA if desired -->
-    <InformationalVersion>1.0.3+51a7167d</InformationalVersion>
+    <InformationalVersion>1.0.4+c82b790f</InformationalVersion>
   </PropertyGroup>
 </Project>
