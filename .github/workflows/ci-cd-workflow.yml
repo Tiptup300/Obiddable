@@ -106,7 +106,12 @@ jobs:
       shell: bash
       run: |
         echo "sha_short=$(git rev-parse --short HEAD)" >> "$GITHUB_OUTPUT"
-        echo "tag_name=$(git describe --tags --abbrev=0 2>/dev/null || echo v0.1.0)" >> "$GITHUB_OUTPUT"
+        version=$(sed -n 's:.*<Version>\(.*\)</Version>.*:\1:p' Directory.Build.props | tr -d '[:space:]')
+        if [ -z "$version" ]; then
+          echo "::error ::No <Version> found in Directory.Build.props"
+          exit 1
+        fi
+        echo "tag_name=v$version" >> "$GITHUB_OUTPUT"
 
     # Create zip with platform-specific naming
     - name: Create ZIP file
@@ -152,4 +157,4 @@ jobs:
         prerelease: false
         files: Obiddable-${{ steps.vars.outputs.tag_name }}-win-x64.zip
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
