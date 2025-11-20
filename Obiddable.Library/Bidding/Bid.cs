@@ -9,15 +9,27 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Obiddable.Library.Bidding;
 public class Bid : IValidatable
 {
+
+   private List<PurchaseOrder> _purchaseOrders = [];
    // Children
    public List<Item> Items { get; set; } = new List<Item>();
    public List<Requestor> Requestors { get; set; } = new List<Requestor>();
    public List<VendorResponse> VendorResponses { get; set; } = new List<VendorResponse>();
    public List<PurchaseOrder> PurchaseOrders
    {
-      get;
-      private set;
-   } = new List<PurchaseOrder>();
+      get => _purchaseOrders;
+      set
+      {
+         // it is unclear why this is done this way as every other property
+         // sets them directly, this one sets the bid on each purchase order
+         // and it's not clear when it updates and actually fills the list
+         // _purchaseOrders
+         _purchaseOrders = [];
+         foreach (var po in value)
+            AddPurchaseOrder(po);
+      }
+   }
+
 
    //Fields
    [Required, Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -43,16 +55,5 @@ public class Bid : IValidatable
    {
       purchaseOrder.SetBid(this);
       PurchaseOrders.Add(purchaseOrder);
-   }
-
-   public void SetPurchaseOrders(IEnumerable<PurchaseOrder> purchaseOrders)
-   {
-      PurchaseOrders = new List<PurchaseOrder>();
-      purchaseOrders
-          .ToList()
-          .ForEach(purchaseOrder =>
-          {
-             AddPurchaseOrder(purchaseOrder);
-          });
    }
 }

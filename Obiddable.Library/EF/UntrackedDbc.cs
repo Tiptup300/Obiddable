@@ -38,7 +38,7 @@ public class UntrackedDbc : Dbc
       output.Items = GetUntrackedItems(bidId);
       output.Requestors = getUntrackedRequestors(bidId);
       output.VendorResponses = getUntrackedVendorResponses(bidId);
-      output.SetPurchaseOrders(getUntrackedPurchaseOrders(bidId));
+      output.PurchaseOrders = getUntrackedPurchaseOrders(bidId);
 
       return output;
    }
