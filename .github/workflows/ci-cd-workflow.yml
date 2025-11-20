@@ -142,21 +142,22 @@ jobs:
       - name: Upload Code Coverage Report to Codecov
         uses: codecov/codecov-action@v3
         with:
-          file: './coverage/coverage.xml'
+          file: './coverage/**/coverage.cobertura.xml'
           token: ${{ secrets.CODECOV_TOKEN }}
         
       - name: Create Coverage PR Comment File
         run: |
-          echo "## Code Coverage Report" > code-coverage-results.md
-          echo "" >> code-coverage-results.md
-          # Optionally, add summary or parse coverage.xml for details
-          if [ -f ./coverage/coverage.xml ]; then
-            echo '```xml' >> code-coverage-results.md
-            cat ./coverage/coverage.xml >> code-coverage-results.md
-            echo '```' >> code-coverage-results.md
-          else
-            echo "No coverage.xml found." >> code-coverage-results.md
-          fi
+          "## Code Coverage Report" | Out-File -FilePath code-coverage-results.md -Encoding utf8
+          "" | Add-Content -Path code-coverage-results.md
+          $covFile = Get-ChildItem -Path ./coverage -Recurse -Filter coverage.cobertura.xml | Select-Object -First 1
+          if ($covFile) {
+            '```xml' | Add-Content -Path code-coverage-results.md
+            Get-Content $covFile.FullName | Add-Content -Path code-coverage-results.md
+            '```' | Add-Content -Path code-coverage-results.md
+          } else {
+            "No coverage.cobertura.xml found." | Add-Content -Path code-coverage-results.md
+          }
+        shell: pwsh
       - name: Add Coverage PR Comment
         uses: marocchino/sticky-pull-request-comment@v2
         if: github.event_name == 'pull_request'
