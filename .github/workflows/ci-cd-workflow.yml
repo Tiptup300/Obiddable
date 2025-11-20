@@ -85,7 +85,20 @@ jobs:
         with:
           recreate: true
           path: code-coverage-results.md
-        
+      
+      - name: Create Coverage PR Comment File
+        run: |
+          echo "## Code Coverage Report" > code-coverage-results.md
+          echo "" >> code-coverage-results.md
+          # Optionally, add summary or parse coverage.xml for details
+          if [ -f ./coverage/coverage.xml ]; then
+            echo '```xml' >> code-coverage-results.md
+            cat ./coverage/coverage.xml >> code-coverage-results.md
+            echo '```' >> code-coverage-results.md
+          else
+            echo "No coverage.xml found." >> code-coverage-results.md
+          fi
+  
   deploy:
     needs: test
     runs-on: windows-latest
