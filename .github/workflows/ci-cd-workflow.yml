@@ -171,12 +171,6 @@ jobs:
         $zip = "Obiddable-v$version-win-x64.zip"
         Compress-Archive -Path "release-artifacts/*.dll","release-artifacts/*.exe" -DestinationPath $zip
   
-    - name: Set release date
-      id: date
-      shell: pwsh
-      run: |
-        $date = Get-Date -Format "MMMM d, yyyy"
-        "formatted_date=$date" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
 
     - name: Generate Release Notes
       id: release_notes
@@ -200,7 +194,10 @@ jobs:
   
     - name: Set release date
       id: date
-      run: echo "formatted_date=$(date +'%B %-d, %Y')" >> $GITHUB_OUTPUT
+      shell: pwsh
+      run: |
+        $date = Get-Date -Format "MMMM d, yyyy"
+        "formatted_date=$date" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
 
     - name: Create Release
       uses: softprops/action-gh-release@v1
