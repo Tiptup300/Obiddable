@@ -14,8 +14,8 @@ permissions:
 jobs:
   bump-version-on-merge:
     name: Bump patch version (on PR merge to main)
-    # Only run this job when the PR was merged (closed + merged)
-    if: ${{ github.event.pull_request.merged == true }}
+    # Only run this job when the PR was merged (closed + merged) and base branch is main
+    if: ${{ github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'main' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository (fetch full history and tags)
