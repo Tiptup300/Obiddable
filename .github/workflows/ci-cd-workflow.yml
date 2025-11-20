@@ -20,6 +20,40 @@ jobs:
       with:
         dotnet-version: '10.0.x'
 
+    - name: Bump patch version in Directory.Build.props
+      id: bump_version
+      shell: bash
+      run: |
+        FILE="Directory.Build.props"
+        if [ ! -f "$FILE" ]; then
+          echo "::error ::$FILE not found at repo root"
+          exit 1
+        fi
+        CURR=$(sed -n 's:.*<Version>\(.*\)</Version>.*:\1:p' "$FILE" | tr -d '[:space:]')
+        if [ -z "$CURR" ]; then
+          echo "::error ::No <Version> found in $FILE"
+          exit 1
+        fi
+        echo "Current version: $CURR"
+        IFS='.' read -r MAJOR MINOR PATCH <<< "$CURR"
+        if [ -z "$PATCH" ]; then
+          echo "::error ::Version format unexpected: $CURR"
+          exit 1
+        fi
+        PATCH=$((PATCH + 1))
+        NEW="$MAJOR.$MINOR.$PATCH"
+        echo "New version: $NEW"
+        sed -E -i "s#(<Version>).*?(</Version>)#\1$NEW\2#g" "$FILE"
+        sed -E -i "s#(<AssemblyVersion>).*?(</AssemblyVersion>)#\1$NEW.0\2#g" "$FILE"
+        sed -E -i "s#(<FileVersion>).*?(</FileVersion>)#\1$NEW.0\2#g" "$FILE"
+        sed -E -i "s#(<InformationalVersion>).*?(</InformationalVersion>)#\1$NEW+${GITHUB_SHA:0:8}\2#g" "$FILE"
+        git config user.name "github-actions[bot]"
+        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git add "$FILE"
+        git commit -m "chore: bump version to $NEW" || echo "No changes to commit"
+        git push origin HEAD:main
+        echo "new_version=$NEW" >> "$GITHUB_OUTPUT"
+
     # Add cache for NuGet packages
     - name: Cache NuGet packages
       uses: actions/cache@v3
