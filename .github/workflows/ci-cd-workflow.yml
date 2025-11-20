@@ -148,10 +148,6 @@ jobs:
         body: |
           # What's Changed
           ${{ steps.release_notes.outputs.notes }}
-          
-          ## System Requirements
-          - Windows 64-bit
-          - .NET 10.0 Runtime
         draft: false
         prerelease: false
         files: Obiddable-${{ steps.vars.outputs.tag_name }}-win-x64.zip
