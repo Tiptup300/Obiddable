@@ -1,4 +1,5 @@
-﻿using Obiddable.Library.Bidding;
+﻿using Microsoft.EntityFrameworkCore;
+using Obiddable.Library.Bidding;
 using Obiddable.Library.Bidding.Cataloging;
 using Obiddable.Library.Bidding.Purchasing;
 using Obiddable.Library.Bidding.Requesting;
@@ -7,9 +8,9 @@ using Obiddable.Library.EF.Bidding.Cataloging;
 using Obiddable.Library.EF.Bidding.Purchasing;
 using Obiddable.Library.EF.Bidding.Requesting;
 using Obiddable.Library.EF.Bidding.Responding;
-using Microsoft.EntityFrameworkCore;
 
 namespace Obiddable.Library.EF.Bidding;
+
 public class EFBiddingOperations : IBiddingOperations
 {
    private readonly IBiddingRepo _biddingRepo = new EFBiddingRepo();
@@ -20,16 +21,19 @@ public class EFBiddingOperations : IBiddingOperations
 
    private readonly CatalogingService _catalogingService = new CatalogingService(new EFCatalogingRepo());
 
-   public Bid RollBid(int bidId)
+   public Bid? RollBid(int bidId)
    {
       using (var dbc = new Dbc())
       {
-         Bid oldBid = dbc.Bids.Where(x => x.Id == bidId).Single();
-         if (oldBid is null)
-         {
+         if (dbc.Bids.Where(x => x.Id == bidId).SingleOrDefault()
+               is not Bid oldBid)
             return null;
-         }
-         oldBid.SetPurchaseOrders(dbc.PurchaseOrders.Include(x => x.Bid).Where(x => x.Bid.Id == oldBid.Id).ToList());
+
+
+         oldBid.PurchaseOrders = dbc.PurchaseOrders
+            .Include(x => x.Bid)
+            .Where(x => x.Bid.Id == oldBid.Id)
+            .ToList();
 
          // Create new rolled bid with name & timestamp
          Bid newBid = new Bid();
@@ -45,7 +49,12 @@ public class EFBiddingOperations : IBiddingOperations
          newBid.Items = getRolledItems(dbc, oldBid);
 
          //// copy over requestors & requests from old bid
-         oldBid.Requestors = dbc.Requestors.Include(x => x.Bid).Include(x => x).ThenInclude(x => x.Requests).Where(x => x.Bid.Id == oldBid.Id).ToList();
+         oldBid.Requestors = dbc.Requestors
+            .Include(x => x.Bid)
+            .Include(x => x.Requests)
+            .Where(x => x.Bid.Id == oldBid.Id)
+            .ToList();
+
          rollRequestors_ToBid_FromBid(dbc, newBid, oldBid);
 
          // copy over vendorresponses
@@ -108,7 +117,7 @@ public class EFBiddingOperations : IBiddingOperations
       using (var dbc = new Dbc())
       {
          // load oldbid
-         Bid oBid = getFullBid(dbc, bidId);
+         Bid oBid = GetFullBid(dbc, bidId);
          if (oBid is null)
          {
             return null;
@@ -189,7 +198,7 @@ public class EFBiddingOperations : IBiddingOperations
             }
             dbc.SaveChanges();
          }
-         nBid.SetPurchaseOrders(oBid.PurchaseOrders.Select(x => x.CreateDuplicate()));
+         nBid.PurchaseOrders = oBid.PurchaseOrders.Select(x => x.CreateDuplicate()).ToList();
 
          dbc.SaveChanges();
 
@@ -205,13 +214,36 @@ public class EFBiddingOperations : IBiddingOperations
            .ToList();
    }
 
-   private static Bid getFullBid(Dbc dbc, int bidId)
+   private static Bid GetFullBid
+      (Dbc dbc, int bidId)
    {
-      Bid oBid = dbc.Bids.Where(x => x.Id == bidId).Single();
-      oBid.Items = dbc.Items.Include(x => x.Bid).Where(x => x.Bid.Id == oBid.Id).ToList();
-      oBid.Requestors = dbc.Requestors.Include(x => x.Bid).Include(x => x).ThenInclude(x => x.Requests).ThenInclude(x => x.RequestItems).ThenInclude(x => x.Item).Where(x => x.Bid.Id == oBid.Id).ToList();
-      oBid.VendorResponses = dbc.VendorResponses.Include(x => x.Bid).ThenInclude(x => x.VendorResponses).ThenInclude(x => x.ResponseItems).ThenInclude(x => x.Item).Where(x => x.Bid.Id == oBid.Id).ToList();
-      oBid.SetPurchaseOrders(dbc.PurchaseOrders.Include(x => x.Bid).ThenInclude(x => x.PurchaseOrders).ThenInclude(x => x.LineItems).Where(x => x.Bid.Id == oBid.Id).ToList());
+      var oBid = dbc.Bids
+         .Where(x => x.Id == bidId)
+         .Single();
+      oBid.Items = dbc.Items
+         .Include(x => x.Bid)
+         .Where(x => x.Bid.Id == oBid.Id)
+         .ToList();
+      oBid.Requestors = dbc.Requestors
+       .Include(r => r.Bid)
+       .Include(r => r.Requests)
+           .ThenInclude(req => req.RequestItems)
+               .ThenInclude(ri => ri.Item)
+       .Where(r => r.Bid.Id == oBid.Id)
+       .ToList();
+      oBid.VendorResponses = dbc.VendorResponses
+         .Include(x => x.Bid)
+            .ThenInclude(x => x.VendorResponses)
+            .ThenInclude(x => x.ResponseItems)
+            .ThenInclude(x => x.Item)
+         .Where(x => x.Bid.Id == oBid.Id)
+         .ToList();
+      oBid.PurchaseOrders = dbc.PurchaseOrders
+         .Include(x => x.Bid)
+            .ThenInclude(x => x.PurchaseOrders)
+            .ThenInclude(x => x.LineItems)
+         .Where(x => x.Bid.Id == oBid.Id)
+         .ToList();
 
       return oBid;
    }

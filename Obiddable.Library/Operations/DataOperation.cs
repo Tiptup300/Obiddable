@@ -9,17 +9,25 @@ public abstract class DataOperation : IOperation
       {
          return;
       }
-      try
+      if(System.Diagnostics.Debugger.IsAttached)
       {
          RunDataOperation();
+
       }
-      catch (DataValidationException ex)
+      else
       {
-         OnDataValidationException(ex);
-      }
-      catch (Exception ex)
-      {
-         OnException(ex);
+         try
+         {
+            RunDataOperation();
+         }
+         catch (DataValidationException ex)
+         {
+            OnDataValidationException(ex);
+         }
+         catch (Exception ex)
+         {
+            OnException(ex);
+         }
       }
    }
 

@@ -30,7 +30,7 @@ public class EFBiddingValidation
       bid.Items = dbc.Items.AsNoTracking().Include(x => x.Bid).Where(x => x.Bid.Id == bid.Id).ToList();
       bid.Requestors = dbc.Requestors.AsNoTracking().Include(x => x.Bid).Where(x => x.Bid.Id == bid.Id).ToList();
       bid.VendorResponses = dbc.VendorResponses.AsNoTracking().Include(x => x.Bid).Where(x => x.Bid.Id == bid.Id).ToList();
-      bid.SetPurchaseOrders(dbc.PurchaseOrders.AsNoTracking().Include(x => x.Bid).Where(x => x.Bid.Id == bid.Id).ToList());
+      bid.PurchaseOrders = dbc.PurchaseOrders.AsNoTracking().Include(x => x.Bid).Where(x => x.Bid.Id == bid.Id).ToList();
       if (bid.Items.Count > 0)
       {
          throw new DataValidationException("Bid cannot be deleted with items in it.");
